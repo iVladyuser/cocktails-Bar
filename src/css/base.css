@@ -24,9 +24,10 @@ html {
   scroll-behavior: smooth;
 }
 
-/* body {
-    font-family: 'Montserrat', sans-serif;
-  } */
+body {
+font-family: 'Montserrat', sans-serif;
+font-family: 'Poppins', sans-serif;
+  } 
 
 .container {
   margin: 0 auto;
