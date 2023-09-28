@@ -27,6 +27,7 @@
 
 
 .modal__button {
+    padding: 0;
     position: absolute;
     top: 14px;
     right: 14px;
@@ -45,11 +46,9 @@
 
 }
 
-.modal__icon {
-    width: 24px;
-    height: 24px;
-    fill: var(--dark-letters-color);
-    
+.modal__icon{
+    width: 18px;
+    height: 18px;
 }
 
 @media screen and (min-width: 768px) {
