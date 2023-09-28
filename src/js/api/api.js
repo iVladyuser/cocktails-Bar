@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://drinkify.b.goit.study/api-docs';
+export const BASE_URL = 'https://drinkify.b.goit.study/api/v1';
 export const API_KEY = '39546203-6f24950b6bb132fcbecdbd78e';
 
 // Список коктейлів за літерою або за цифрою
@@ -48,3 +48,5 @@ export function getFavorites() {
 //   const updatedFavorites = favorites.filter(cocktail => cocktail.id !== cocktailId);
 //   localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
 // }
+
+
