@@ -19,6 +19,22 @@
 .nav-link:focus {
   color: #747bff;
 } */
+
+.footer-logo-span {
+  color: #000000;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.16px;
+  text-transform: uppercase;
+}
+.icon-logo{
+    width: 21px;
+    height: 18px;
+    fill: #9CDFDF;
+}
 .page-header {
   padding-top: 20px;
   padding-bottom: 14px;
@@ -49,7 +65,7 @@
   color: #111111;
 }
 .header-logo-icon {
-  --color1: #fd9222;
+  --color1: #000000;
 }
 .headre-logo-span {
   font-style: normal;
@@ -67,7 +83,10 @@
   padding: 0;
   margin: 0;
 }
+.header-menu-btn-icon{
+fill:#000000;
 
+}
 /* mobile menu */
 .header-mobile-menu {
   position: fixed;
@@ -87,7 +106,10 @@
   pointer-events: none;
   z-index: 10;
 }
-
+.mobile-menu-close-icon{
+  width: 32px;
+  height: 32px;
+}
 .header-mobile-menu.is-open {
   transform: translateX(0);
   opacity: 1;
