@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://pixabay.com/api/';
+export const BASE_URL = 'https://drinkify.b.goit.study/api-docs';
 export const API_KEY = '39546203-6f24950b6bb132fcbecdbd78e';
 
 // Список коктейлів за літерою або за цифрою
