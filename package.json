@@ -20,6 +20,7 @@
     "install": "^0.13.0",
     "notiflix": "^3.2.6",
     "npm": "^10.1.0",
+    "tui-pagination": "^3.4.1",
     "vite-plugin-full-reload": "^1.0.5",
     "vite-plugin-html-inject": "^1.0.1"
   }
