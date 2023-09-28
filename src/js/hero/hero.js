@@ -9,6 +9,36 @@ const keyboard = [65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80
 //     console.log(keyboard);
 // }
 
+
+//-------------------------------max 768
+function inity() {
+    let out = '';
+    for (let i = 0; i < keyboard.length; i++) {
+        out += '<option data="' + keyboard[i] + '" class="hero-mobyle-min">'  + String.fromCharCode(keyboard[i]) +  '</option>';
+    }
+    document.querySelector('#keyboard-min').innerHTML = out;
+   
+}
+inity();
+
+
+
+document.querySelectorAll('#keyboard-min .hero-mobyle-min').forEach(function (element) {
+    element.onclick = function(event){
+        document.querySelectorAll('#keyboard-min .hero-mobyle-min').forEach(function (element) {
+element.classList.remove('active');
+        });
+        let code = this.getAttribute('data');
+        this.classList.add('active');
+        
+    }
+    
+});
+
+
+
+//-------------------------------min 768
+
 function init() {
     let out = '';
     for (let i = 0; i < keyboard.length; i++) {
@@ -33,13 +63,21 @@ element.classList.remove('active');
     
 });
 
-const textInput = document.querySelector(".search");
-const setFocusBtn = document.querySelector('[data="' +keyboard[i]+ '"]');
+
+// БУКВА В ПОШУК
 
 
-setFocusBtn.addEventListener("click", () => {
-  textInput.focus();
-});
+const textInput = document.querySelector(".search-js");
+const Btn = document.querySelectorAll(".keyboard-letter");
+
+
+
+
+
+
+
+
+
 
 
 
