@@ -13,9 +13,9 @@
       @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
     </style>
     
-    <script type="module" crossorigin src="/cocktails-Bar/assets/index-1b9ae4f7.js"></script>
+    <script type="module" crossorigin src="/cocktails-Bar/assets/index-9ba59252.js"></script>
     <link rel="modulepreload" crossorigin href="/cocktails-Bar/assets/modulepreload-polyfill-ec808ebb.js">
-    <link rel="stylesheet" href="/cocktails-Bar/assets/index-3618b11a.css">
+    <link rel="stylesheet" href="/cocktails-Bar/assets/index-5b6621d0.css">
   </head>
   <body>
     
@@ -24,7 +24,22 @@
 
     
     <h1></h1>
-    
+    <div id="modal-cocktail" class="backdrop is-hidden">
+  <div class="modal">
+    <button
+      type="button"
+      class="modal__button"
+      data-modal-close
+      aria-label="close"
+    >
+      <svg class="modal__icon" width="24" height="24">
+        <use href="/cocktails-Bar/assets/sprite-6edf32ac.svg#icon-x"></use>
+      </svg>
+    </button>
+    <div class="modal-cocktail__content"></div>
+  </div>
+</div>
+
     <footer>
   <section class="footer-section">
     <div class="footer-container container">
