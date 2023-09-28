@@ -43,8 +43,8 @@ export function getFavorites() {
 }
 
 // Видаляємо коктейлі з обраних
-export function removeFromFavorites(cocktailId) {
-  const favorites = getFavorites();
-  const updatedFavorites = favorites.filter(cocktail => cocktail.id !== cocktailId);
-  localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
-}
+// export function removeFromFavorites(cocktailId) {
+//   const favorites = getFavorites();
+//   const updatedFavorites = favorites.filter(cocktail => cocktail.id !== cocktailId);
+//   localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+// }

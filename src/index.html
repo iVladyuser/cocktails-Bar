@@ -22,6 +22,14 @@
     <load src="./partials/components/modalCocktails/modalCocktails.html" />
     <load src="./partials/components/footer/footer.html" />
 
+    <form class="search-form container" id="search-form">
+      <input type="text" name="searchQuery" autocomplete="off" placeholder="Search images..." />
+      <button type="submit">Search</button>
+    </form>
+    
+    <div class="loader"></div>
+    <div class="gallery container"></div>
+
     <script type="module" src="./main.js"></script>
   </body>
 </html>
