@@ -9,11 +9,11 @@
 
     transition: all 250ms linear;
 }
-/* .backdrop.is-hidden {
+.backdrop.is-hidden {
     pointer-events: all;
     opacity: 1;
     visibility: hidden;
-} */
+}
 
 .modal {
     position: absolute;
@@ -48,7 +48,8 @@
 .modal__icon {
     width: 24px;
     height: 24px;
-    fill: black;
+    fill: var(--dark-letters-color);
+    
 }
 
 @media screen and (min-width: 768px) {
@@ -64,9 +65,9 @@ background-color: var(--modal-background);
 }
 }
     
-@media screen and(min-width: 1280px) {
- /* .modal {
+/* @media screen and(min-width: 1280px) {
+ .modal {
 width: 600px;
 min-height: 569px;
-} */
 }
+} */
