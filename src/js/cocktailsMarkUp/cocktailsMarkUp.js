@@ -35,11 +35,13 @@ const renderList = (arr, container) => {
       item =>
         `<li class="cocktail-card">
      <img src="${item.drinkThumb}" alt="${item.drink}" width ="300"/>
+   
      <h2 class="cocktail-title">${item.drink}</h2>
-     <p class="cocktail-description">${item.description}</p>  
-     <div class="cocktail-item-container">
-     <button type="button" class="card-button-learn-more" href="#">Learn More</button>
-     <button class="card-svg-heart">
+     <p class="cocktail-description">${item.description}</p>
+     
+    <div class="cocktail-button-container"> 
+     <button type="button" class="card-button-learn-more">Learn More</button>
+     <button class="button-svg-heart">
      <svg
               class="icon-heart"
               aria-label="icon-heart"
