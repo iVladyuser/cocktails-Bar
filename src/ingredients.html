@@ -5,12 +5,70 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ingredients</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
+    />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+    </style>
+    <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
     <section>
-      <a href="./index.html">Go to home</a>
-      <h1>Welcome to page with favorite Ingredients</h1>
+     <div class="container">
+        <p class="title-page">Favorite ingredients</p>
+        <div class="block-page">
+          <svg class="icon-rafiki" >
+          <use href="./img/sprite.svg#icon-rafiki"></use>
+        </svg>
+        <p class="text-page">You haven't added any <br><span class="text-span">favorite ingredients</span> yet</p>
+        </div>
+      </div>
     </section>
+    <footer>
+  <section class="footer-section">
+    <div class="footer-container container">
+      <a class="footer-logo" href="./index.html"
+        ><span class="footer-logo-span">Drinkify</span
+        ><svg class="icon-logo" >
+          <use href="./img/sprite.svg#icon-cocktail"></use>
+        </svg>
+      </a>
+      <div class="footer-social-icon">
+        <p class="social">We in social</p>
+        <div class="icon">
+          <a
+            class="social-icon"
+            href="https://www.facebook.com/goITclub/"
+            rel="noreferrer noopener"
+            target="_blank"
+            ><svg class="icon-social" >
+              <use href="./img/sprite.svg#icon-u_facebook-f"></use></svg
+          ></a>
+          <a
+            class="social-icon"
+            href="https://www.instagram.com/goitclub/ 
+"
+            rel="noreferrer noopener"
+            target="_blank"
+            ><svg class="icon-social">
+              <use href="./img/sprite.svg#icon-u_instagram-1"></use></svg
+          ></a>
+          <a
+            class="social-icon"
+            href="https://www.youtube.com/c/GoIT
+"
+            rel="noreferrer noopener"
+            target="_blank"
+            ><svg class="icon-social">
+              <use href="./img/sprite.svg#icon-u_instagram"></use></svg
+          ></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</footer>
     <script type="module" src="./main-Ingredients.js"></script>
   </body>
 </html>

@@ -7,6 +7,9 @@
 @import url('./reset.css');
 @import url('./base.css');
 @import url('./header.css');
-@import url('./hero.css');
+@import url('./hero/hero.css');
 @import url('./footer.css');
 @import url('./modalCokctails.css');
+@import url('./modalIngredients.css');
+@import url('./cocktailsMarckup.css');
+@import url('./favCocktails.css');

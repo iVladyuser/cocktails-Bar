@@ -17,9 +17,12 @@
   "dependencies": {
     "axios": "^1.5.1",
     "basiclightbox": "^5.0.4",
+    "choices.js": "^10.2.0",
     "install": "^0.13.0",
+    "lodash": "^4.17.21",
     "notiflix": "^3.2.6",
     "npm": "^10.1.0",
+    "tui-pagination": "^3.4.1",
     "vite-plugin-full-reload": "^1.0.5",
     "vite-plugin-html-inject": "^1.0.1"
   }
