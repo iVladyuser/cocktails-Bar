@@ -1,10 +1,36 @@
-@media screen and (max-width: 768px) {
-  #keyboard {
+.active {
+  background: var(--hover-color);
+}
+
+@media screen and (max-width: 767px) {
+  #keyboard-min {
+    display: flex;
+    justify-content: center;
+
+    padding-left: 15px;
+    width: 90px;
+    height: 34px;
+    margin: 0 auto;
+
+    color: #fdfdff;
+    margin-bottom: 40px;
+    border-color: rgba(126, 143, 221, 0.4);
+    border-radius: 8px;
+    background: rgba(126, 143, 221, 0.4);
+  }
+  .hero-mobyle-min {
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.28;
+  }
+  .keyboard-letter {
     display: none;
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 767px) {
   #keyboard {
     display: flex;
     justify-content: center;
@@ -15,6 +41,10 @@
     margin: 0 auto;
 
     margin-bottom: 50px;
+  }
+
+  .hero-mobyle-js {
+    display: none;
   }
 
   .keyboard-letter {
@@ -35,10 +65,6 @@
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-  }
-
-  .active {
-    background: var(--hover-color);
   }
 }
 
@@ -78,7 +104,7 @@
   fill: #242424;
 }
 
-.search {
+.search-js {
   width: 290px;
   height: 44px;
   border-radius: 80px;
@@ -95,13 +121,13 @@
 }
 
 @media screen and (min-width: 375px) {
-  .search {
+  .search-js {
     width: 335px;
   }
 }
 
 @media screen and (min-width: 768px) {
-  .search {
+  .search-js {
     width: 300px;
   }
 }
