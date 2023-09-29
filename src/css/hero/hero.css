@@ -227,6 +227,7 @@
     width: 552px;
     height: 672px;
     left: -70px;
+    z-index: 1;
   }
   .title-img {
     margin-bottom: 51px;
