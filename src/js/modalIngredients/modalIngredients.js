@@ -1,23 +1,23 @@
+import axios from 'axios';
 import { BASE_URL } from '../api/api';
 
 const ingredientsContentEl = document.querySelector(
   '.modal-ingredients__content'
 );
 
+const modal = document.querySelector('#modal-cocktail');
+modal.classList.remove('is-hidden');
+
 async function fetchIngredient() {
   try {
-    const url = `${BASE_URL}/ingredients`;
+    const response = await axios.get(
+      `${BASE_URL}/ingredients/64aebb7f82d96cc69e0eb4a5`
+    );
+    const data = response.data;
 
-    const response = await fetch(`${url}/64aebb7f82d96cc69e0eb4a5`)
-      .then(response => response.json())
-      .then(value => {
-        return value;
-      })
-      .catch(error => new Error(`HTTP Error! Status: ${response.status}`));
+    renderList(data, ingredientsContentEl);
 
-    renderList(response, ingredientsContentEl);
-
-    // console.log(response[0]);
+    console.log(data);
   } catch (error) {
     console.error('Error while getting ingredient:', error);
     throw error;
@@ -30,7 +30,7 @@ const renderList = (arr, container) => {
   const markup = arr
     .map(
       item => `
-            <h2 class="ingredient-name>${item.title}</h2>
+            <h2 class="ingredient-name">${item.title}</h2>
             <p class="ingredient-type">${item.type}</p>
             <p class="ingredient-desrc">${item.description}</p>
             `
