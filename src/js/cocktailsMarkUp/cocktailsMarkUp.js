@@ -9,7 +9,7 @@ export async function fetchCocktailGallery() {
     const screenWidth = window.innerWidth;
 
     let cardCount = 8;
-    if (screenWidth >= 768) {
+    if (screenWidth >= 1280) {
       cardCount = 9;
     }
 
@@ -34,7 +34,7 @@ const renderList = (arr, container) => {
     .map(
       item =>
         `<li class="cocktail-card">
-     <img src="${item.drinkThumb}" alt="${item.drink}" width ="300"/>
+     <img src="${item.drinkThumb}" alt="${item.drink}" width ="300" height="300"/>
    
      <h2 class="cocktail-title">${item.drink}</h2>
      <p class="cocktail-description">${item.description}</p>
