@@ -7,7 +7,6 @@
 
   --transition-cubic: cubic-bezier(0, 0.17, 0.2, 0.88);
 
-
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
@@ -25,9 +24,9 @@ html {
 }
 
 body {
-font-family: 'Montserrat', sans-serif;
-font-family: 'Poppins', sans-serif;
-  } 
+  font-family: 'Montserrat', sans-serif;
+  font-family: 'Poppins', sans-serif;
+}
 
 .container {
   margin: 0 auto;
@@ -49,6 +48,12 @@ link:visited {
   body {
     background-size: cover;
     background-image: url(../img/bcg-image/mobile-bcg-image.png);
+    @media (min-device-pixel-ratio: 2),
+    (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+      background-image: url(../img/bcg-image/-mobile-bcg-image@2x.png);
+  }
   }
   .container {
     max-width: 375px;
@@ -61,6 +66,12 @@ link:visited {
   body {
     background-size: cover;
     background-image: url(../img/bcg-image/tablet-bcg-image.png);
+    @media (min-device-pixel-ratio: 2),
+      (-webkit-min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+        background-image: url(../img/bcg-image/tablet-bcg-image@2x.png);
+    }
   }
   .container {
     max-width: 768px;
@@ -76,6 +87,12 @@ link:visited {
   body {
     background-size: cover;
     background-image: url(../img/bcg-image/desktop-bcg-img.png);
+    @media (min-device-pixel-ratio: 2),
+    (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+      background-image: url(../img/bcg-image/desktop-bcg-img@2x.png);
+    }
   }
   .container {
     max-width: 1280px;
