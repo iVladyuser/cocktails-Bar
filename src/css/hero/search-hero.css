@@ -6,33 +6,29 @@
   #keyboard-min {
     display: flex;
     justify-content: center;
-   
-padding-left: 15px;
+
+    padding-left: 15px;
     width: 90px;
     height: 34px;
     margin: 0 auto;
 
-
-    color: #FDFDFF;
+    color: #fdfdff;
     margin-bottom: 40px;
-border-color:rgba(126, 143, 221, 0.40);
-border-radius: 8px;
-background: rgba(126, 143, 221, 0.40);
+    border-color: rgba(126, 143, 221, 0.4);
+    border-radius: 8px;
+    background: rgba(126, 143, 221, 0.4);
   }
-  .hero-mobyle-min{
-    
-    
-font-family: Poppins;
-font-size: 14px;
-font-style: normal;
-font-weight: 600;
-line-height: 1.28;
+  .hero-mobyle-min {
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.28;
   }
-  .keyboard-letter{
+  .keyboard-letter {
     display: none;
   }
 }
-
 
 @media screen and (min-width: 767px) {
   #keyboard {
@@ -47,7 +43,7 @@ line-height: 1.28;
     margin-bottom: 50px;
   }
 
-  .hero-mobyle-js{
+  .hero-mobyle-js {
     display: none;
   }
 
@@ -70,8 +66,6 @@ line-height: 1.28;
     font-weight: 600;
     line-height: normal;
   }
-
-  
 }
 
 @media screen and (min-width: 1280px) {
