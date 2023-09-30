@@ -6,7 +6,7 @@ const ingredientsContentEl = document.querySelector(
 );
 
 const modal = document.querySelector('#modal-cocktail');
-modal.classList.remove('is-hidden');
+// modal.classList.remove('is-hidden');
 
 async function fetchIngredient() {
   try {
@@ -17,14 +17,14 @@ async function fetchIngredient() {
 
     renderList(data, ingredientsContentEl);
 
-    console.log(data);
+    console.log(data[0]);
   } catch (error) {
     console.error('Error while getting ingredient:', error);
     throw error;
   }
 }
 
-fetchIngredient();
+// fetchIngredient();
 
 const renderList = (arr, container) => {
   const markup = arr
@@ -34,10 +34,18 @@ const renderList = (arr, container) => {
             <p class="ingredient-type">${item.type}</p>
             <p class="ingredient-desrc">${item.description}</p>
             <ul class="ingredient-characteristic-list">
-            <li class="ingredient-characteristic-item"><p>Type: </p></li>
-            <li class="ingredient-characteristic-item"><p>Country of origin: ${item.country}</p></li>
-            <li class="ingredient-characteristic-item"><p>Alcohol by volume: ${item.abv} %</p></li>
-            <li class="ingredient-characteristic-item"><p>Flavour: ${item.flavour}</p></li>
+            <li class="ingredient-characteristic-item"><p>Type: ${
+              item.type || 'Нажаль дані тимчасово відсутні'
+            }</p></li>
+            <li class="ingredient-characteristic-item"><p>Country of origin: ${
+              item.country || 'Нажаль дані тимчасово відсутні'
+            }</p></li>
+            <li class="ingredient-characteristic-item"><p>Alcohol by volume: ${
+              item.abv || 'Нажаль дані тимчасово відсутні'
+            } %</p></li>
+            <li class="ingredient-characteristic-item"><p>Flavour: ${
+              item.flavour || 'Нажаль дані тимчасово відсутні'
+            }</p></li>
             </ul>
             `
     )
