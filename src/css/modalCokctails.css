@@ -9,11 +9,11 @@
 
     transition: all 250ms linear;
 }
-.backdrop.is-hidden {
+/* .backdrop.is-hidden {
     pointer-events: all;
     opacity: 1;
     visibility: hidden;
-}
+} */
 
 .modal {
     position: absolute;
