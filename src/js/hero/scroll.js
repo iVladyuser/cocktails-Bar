@@ -1,13 +1,12 @@
 document.addEventListener('DOMContentLoaded', function () {
   const button = document.querySelector('.btn-hero-scroll');
+  const targetElement = document.querySelector(
+    '.js__cocktails__list.cocktails-list'
+  );
 
   button.addEventListener('click', function () {
-    const targetElement = document.getElementById('cocktail-container');
     if (targetElement) {
-      window.scrollTo({
-        top: targetElement.offsetTop,
-        behavior: 'smooth',
-      });
+      targetElement.scrollIntoView({ behavior: 'smooth' });
     }
   });
 });
