@@ -4,8 +4,9 @@ export const BASE_URL = 'https://drinkify.b.goit.study/api/v1';
 
 export async function getCocktailsByLetter(letterOrNumber) {
   const url = `${BASE_URL}/cocktails?f=${letterOrNumber}`;
-  const response = await axios.get(url);
-  return response.data;
+  const data = await axios.get(url);
+  console.log(data);
+  return data.cocktails;
 };
 
 
@@ -22,9 +23,9 @@ export async function getCocktailsByLetter(letterOrNumber) {
  
 export async function searchCocktailsByName(name) {
   const url = `${BASE_URL}/cocktails/search?s=${name}`;
-  const response = await axios.get(url);
-  return response.cocktails;
-}
+  const data = await axios.get(url);
+  return data.cocktails;
+};
 
 // Список коктейлів за назвою
 // export async function searchCocktailsByName(s) {
