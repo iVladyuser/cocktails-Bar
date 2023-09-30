@@ -3,10 +3,15 @@ import axios from "axios";
 export const BASE_URL = 'https://drinkify.b.goit.study/api/v1';
 
 export async function getCocktailsByLetter(letterOrNumber) {
-  const url = `${BASE_URL}/cocktails?f=${letterOrNumber}`;
-  const data = await axios.get(url);
-  console.log(data);
-  return data.cocktails;
+  try {
+    const url = `${BASE_URL}/cocktails?f=${letterOrNumber}`;
+  const response = await axios.get(url);
+  return response.data.cocktails;
+  }
+  catch (error) {
+    console.error("Помилка при отриманні коктейлів", error);
+    throw error;
+  }
 };
 
 
@@ -22,10 +27,15 @@ export async function getCocktailsByLetter(letterOrNumber) {
 // }
  
 export async function searchCocktailsByName(name) {
-  const url = `${BASE_URL}/cocktails/search?s=${name}`;
-  const data = await axios.get(url);
-  return data.cocktails;
-};
+  try {
+    const url = `${BASE_URL}/cocktails/search?s=${name}`;
+    const response = await axios.get(url);
+    return response.data.cocktails;
+  } catch (error) {
+    console.error('Помилка при пошуку коктейлів за іменем:', error);
+    throw error; 
+  }
+}
 
 // Список коктейлів за назвою
 // export async function searchCocktailsByName(s) {
