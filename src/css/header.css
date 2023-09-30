@@ -22,6 +22,9 @@
 .header-menu{
   display: none;
 }
+.header-list-menu{
+  display: none;
+}
 .header-logo-span {
   color: #000000;
   font-family: Poppins;
@@ -32,13 +35,16 @@
   letter-spacing: -0.16px;
   text-transform: uppercase;
 }
+.header-logo-span-w {
+color: #FDFDFF
+}
 .header-logo {
     display: flex;
     gap: 4px;
   }
 .header-icon-logo{
-    width: 21px;
-    height: 18px;
+    width: 24px;
+    height: 20px;
     fill: #7E8FDD;
 }
 .icon-logo-w{
@@ -46,11 +52,9 @@
 }
 .page-header {
   padding-top: 20px;
-  padding-bottom: 14px;
 }
 .container {
   width: 100%;
-  /* outline: 1px solid tomato; */
 }
 .is-hidden {
   opacity: 0;
@@ -94,9 +98,18 @@ fill:#000000;
   pointer-events: none;
   z-index: 10;
 }
+.check-position{
+  display: flex;
+  gap: 18px;
+align-items: center;
+}
 .mobile-menu-close-icon{
-  width: 32px;
-  height: 32px;
+  fill:#FDFDFF;
+ 
+}
+.mobile-menu-close-icon:hover,
+.mobile-menu-close-icon:focus {
+  fill: #000000;
 }
 .header-mobile-menu.is-open {
   transform: translateX(0);
@@ -105,7 +118,7 @@ fill:#000000;
   pointer-events: auto;
 }
 .mobile-menu-close-btn {
-  position: absolute;
+  /* position: absolute; */
   top: 20px;
   right: 20px;
   display: flex;
@@ -119,15 +132,17 @@ fill:#000000;
   fill: #ffffff;
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.mobile-menu-close-btn:hover,
-.mobile-menu-close-btn:focus {
-  fill: #000000;
-}
+
+
 .header-mobile-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  text-align: center;
+  margin-top: 180px;
+  padding-right: 116px;
+  padding-left: 116px;
   
-  padding-right: 46px;
-  padding-left: 50px;
-  row-gap: 24px;
 }
 
 .header-mobile-menu-link {
@@ -142,7 +157,83 @@ fill:#000000;
 .header-mobile-menu-link:focus {
   color: #000000;
 }
+
+.chevron{
+  display: flex;
+  align-items: center;
+}
+
+.star{
+  display: none;
+}
+/* switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: transparent;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 23px;
+  width: 23px;
+  left: 0px;
+  bottom: 0px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #9CDFDF;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #9CDFDF;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+  border: 1px solid #9CDFDF;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+.switch-desktop{
+  display: none;
+}
 @media screen and (min-width: 768px) {
+.page-header {
+  padding-top: 24px;
+}
   .header-menu-btn-icon {
     width: 32px;
     height: 32px;
@@ -198,9 +289,69 @@ fill:#000000;
     width: 24px;
     height: 24px;
   }
+  .star{
+    display: block;
+  position: absolute;
+  fill: #FDFDFF;
+  opacity: 0.3;
+  width: 391px;
+  height: 391px;
+  bottom: -100px;
+  right: -100px;
+
 }
+.slider.round {
+  border-radius: 34px;
+  border: 1px solid #ffffff;
+}
+}
+
 /* desktop */
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1280px) {
+  .page-header {
+  padding-top: 29px;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 28px;
+  width: 28px;
+  left: 2px;
+  bottom: 0px;
+  background-color: #9CDFDF;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #ffffff;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #9CDFDF;
+}
+
+
+
+
+
+.switch {
+  width: 64px;
+  height: 32px;
+}
+  .switch-desktop{
+  display: block;}
+  .header-mobile-menu-list{
+    display: none;
+  }
+  .slider.round {
+  border-radius: 34px;
+  border: 3px solid #000000;
+}
+  .page-header-container{
+  
+justify-content: space-between;
+  }
   .header-menu{
   display: block;
 }

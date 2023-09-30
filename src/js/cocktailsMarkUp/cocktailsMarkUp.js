@@ -34,23 +34,26 @@ const renderList = (arr, container) => {
     .map(
       item =>
         `<li class="cocktail-card">
-     <img src="${item.drinkThumb}" alt="${item.drink}" width ="300" height="300"/>
-   
+       <img class="cocktail-card-img" src="${item.drinkThumb}" alt="${item.drink}" width ="300" height="260"/>
+     
+     <div class="cocktail-description-container" >
      <h2 class="cocktail-title">${item.drink}</h2>
      <p class="cocktail-description">${item.description}</p>
      
-    <div class="cocktail-button-container"> 
-     <button type="button" class="card-button-learn-more">Learn More</button>
-     <button class="button-svg-heart">
+    <ul class="cocktail-button-container"> 
+    <li> <button type="button" class="card-button-learn-more">Learn More</button></li>
+    <li> <button class="button-svg-heart">
      <svg
               class="icon-heart"
               aria-label="icon-heart"
               width="24"
               height="24"
             >
-              <use href="/img/sprite.svg#icon-heart"></use>
+              <use href="/img/sprite.svg#HEART"></use>
             </svg>
      </button>
+     </li>
+     </ul>
      </div>
      </li>`
     )
