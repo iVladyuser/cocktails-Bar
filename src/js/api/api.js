@@ -1,9 +1,19 @@
+import axios from "axios";
+
 export const BASE_URL = 'https://drinkify.b.goit.study/api/v1';
+
+export async function getCocktailsByLetter(letterOrNumber) {
+  const url = `${BASE_URL}/cocktails?f=${letterOrNumber}`;
+  const data = await axios.get(url);
+  console.log(data);
+  return data.cocktails;
+};
 
 
 // Список коктейлів за літерою або за цифрою
-export async function getCocktailsByLetter(letterOrNumber) {
-  const response = await fetch(`${BASE_URL}/cocktails?f=${letterOrNumber}`, {
+
+export async function getCocktailsByLetter(f) {
+  const response = await fetch(`${BASE_URL}/cocktails?letterOrNumber=${f}`, {
   });
   if (!response.ok) {
     throw new Error('Не вдалося отримати дані про коктейлі');
@@ -23,7 +33,7 @@ export async function searchCocktailsByName(name) {
   const data = await response.json();
   return data.cocktails;
 }
-
+  
 // Зберігаємо в localStorage
 export function saveToFavorites(cocktail) {
   const favorites = getFavorites();
