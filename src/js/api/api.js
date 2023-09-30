@@ -2,8 +2,8 @@ export const BASE_URL = 'https://drinkify.b.goit.study/api/v1';
 
 
 // Список коктейлів за літерою або за цифрою
-export async function getCocktailsByLetter(f) {
-  const response = await fetch(`${BASE_URL}/cocktails?letterOrNumber=${f}`, {
+export async function getCocktailsByLetter(letterOrNumber) {
+  const response = await fetch(`${BASE_URL}/cocktails?f=${letterOrNumber}`, {
   });
   if (!response.ok) {
     throw new Error('Не вдалося отримати дані про коктейлі');
@@ -13,8 +13,8 @@ export async function getCocktailsByLetter(f) {
 }
 
 // Список коктейлів за назвою
-export async function searchCocktailsByName(s) {
-  const response = await fetch(`${BASE_URL}/cocktails/search?name=${s}`, {
+export async function searchCocktailsByName(name) {
+  const response = await fetch(`${BASE_URL}/cocktails/search?s=${name}`, {
    
   });
   if (!response.ok) {
