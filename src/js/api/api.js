@@ -4,8 +4,8 @@ export const BASE_URL = 'https://drinkify.b.goit.study/api/v1';
 
 export async function getCocktailsByLetter(letterOrNumber) {
   try {
-    const url = `${BASE_URL}/cocktails?f=${letterOrNumber}`;
-  const response = await axios.get(url);
+    const url = `${BASE_URL}/cocktails/search/?f=${letterOrNumber}`;
+    const response = await axios.get(url);
   return response.data.cocktails;
   }
   catch (error) {
