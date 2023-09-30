@@ -23,7 +23,7 @@
 .cocktail-card:not(:last-child) {
   margin-bottom: 20px;
 }
-.cocktail-card img {
+.cocktail-card-img{
   width: 100%;
   height: 289px;
   padding-top: 14px;
@@ -102,8 +102,11 @@
   color: var(--light-letters-color);
 }
 .button-svg-heart{
+fill: var(--main-color); 
+}
+.button-svg-heart:hover,
+.button-svg-heart:focus{
   fill: var(--light-letters-color);
- 
 }
 .button-svg-heart {
   display: flex;
