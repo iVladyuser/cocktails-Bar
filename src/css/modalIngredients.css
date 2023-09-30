@@ -33,6 +33,10 @@
     list-style: disc inside;
 }
 
+.ingredient-characteristic-item {
+    padding-left: 8px;
+}
+
 .ingredient-characteristic-item::marker {
     font-size: 10px;
     color: rgba(36, 36, 36, 0.8);
