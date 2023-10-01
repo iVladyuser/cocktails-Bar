@@ -75,10 +75,12 @@ const renderCocktailList = (arr, container) => {
 
 closeModalBtn.addEventListener("click", closeModal)
 
+
 async function closeModal() {
   backDrop.classList.add('is-hidden');
-  location.reload()
+  // location.reload()
 }
+
 
 
 // // export { renderCocktailCard, createOnClickForModal };
