@@ -1,9 +1,6 @@
-.active {
-  background: var(--hover-color);
-}
 
 @media screen and (max-width: 767px) {
-  #keyboard-min {
+  #keyboardmin {
     display: flex;
     justify-content: center;
 
@@ -13,6 +10,7 @@
     margin: 0 auto;
 
     color: #fdfdff;
+    margin-top: 40px;
     margin-bottom: 40px;
     border-color: rgba(126, 143, 221, 0.4);
     border-radius: 8px;
@@ -39,6 +37,7 @@
 
     width: 664px;
     margin: 0 auto;
+    margin-top: 100px;
 
     margin-bottom: 50px;
   }
@@ -130,4 +129,8 @@
   .search-js {
     width: 300px;
   }
+}
+
+.active {
+  background: var(--hover-color);
 }
