@@ -148,13 +148,14 @@
     <div class="search-input-block">
       <input
         type="text"
-        class="search-js"
+        class="text-input"
         name="search"
         id="search"
         placeholder="Search"
         required
         pattern="[a-zA-Zа-яА-ЯіІїЇґҐєЄʼ0-9 ]+"
       />
+      <p class="visually-hidden">Text field value: <span class="output"></span></p>
       <div class="container-svg">
         <svg
           class="input-icon-hero"
@@ -165,6 +166,7 @@
           <use href="./img/sprite.svg#icon-search"></use>
         </svg>
       </div>
+      
     </div>
   </form>
 </section>

@@ -34,7 +34,7 @@ function setOutput(event) {
     event.currentTarget.options[selectedOptionIndex].text;
 
   textOutput.textContent = selectedOptionText;
-  console.log(selectedOptionText);
+ 
 const letterOrNumber = selectedOptionText;
 }
 
@@ -79,7 +79,7 @@ keyBoard.addEventListener("click", (e) => {
     }
  e.tarqet = button.textContent;
     const letterOrNumber =  button.textContent;
-    console.log(letterOrNumber);
+   
     
     getCocktailsByLetter(letterOrNumber);
 });
@@ -88,7 +88,13 @@ keyBoard.addEventListener("click", (e) => {
 
 
 // INPUT
-// const textInput = document.querySelector(".search-js");
-// let input = document.querySelector('input');
-// const name = input.value;
-// input.addEventListener("input", searchCocktailsByName(name));
+
+const textInput = document.querySelector(".text-input");
+const output = document.querySelector(".output");
+
+textInput.addEventListener("input", (event) => {
+  output.textContent = event.currentTarget.value;
+ 
+  const name = output.textContent;
+console.log(name);
+});
