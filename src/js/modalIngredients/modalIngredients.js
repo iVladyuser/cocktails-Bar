@@ -6,7 +6,7 @@ const ingredientsContentEl = document.querySelector(
 );
 
 const modal = document.querySelector('#modal-cocktail');
-modal.classList.remove('is-hidden');
+// modal.classList.remove('is-hidden');
 
 async function fetchIngredient() {
   try {
@@ -24,7 +24,7 @@ async function fetchIngredient() {
   }
 }
 
-fetchIngredient();
+// fetchIngredient();
 
 const renderList = (arr, container) => {
   const markup = arr
