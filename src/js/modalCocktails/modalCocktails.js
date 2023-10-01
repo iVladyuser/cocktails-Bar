@@ -76,10 +76,10 @@ const backDrop = document.querySelector('#modal-cocktail');
 //   };
 // }
 
-export async function fetchCocktail(cocktailId) {
+export async function fetchCocktail(drinkId) {
   try {
     const response = await axios.get(
-      `${BASE_URL}/cocktails/lookup/?id=${cocktailId}`
+      `${BASE_URL}/cocktails/lookup/?id=${drinkId}`
     );
     const data = response.data;
 
