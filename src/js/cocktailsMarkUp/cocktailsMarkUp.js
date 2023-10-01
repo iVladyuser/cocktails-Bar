@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { BASE_URL } from '../api/api';
-import { renderCocktailCard } from '../modalCocktails/modalCocktails';
+import { fetchCocktail } from '../modalCocktails/modalCocktails';
 
 export async function fetchCocktailGallery() {
   try {
@@ -39,7 +39,7 @@ function renderList(arr, container) {
      <p class="cocktail-description">${item.description}</p>
      
     <ul class="cocktail-button-container"> 
-    <button type="button" class="card-button-learn-more" data-drink="${item.drink}">Learn More</button>
+    <button type="button" class="card-button-learn-more" data-drink="${item._id}">Learn More</button>
     <li> <button class="button-svg-heart">
      <svg
               class="icon-heart"
@@ -61,15 +61,13 @@ function renderList(arr, container) {
   const learnMoreButtons = document.querySelectorAll('.card-button-learn-more');
   learnMoreButtons.forEach(button => {
     button.addEventListener('click', () => {
-      const drinkName = button.getAttribute('data-drink');
-      renderCocktailCard(drinkName);
+      const drinkId = button.getAttribute('data-drink');
+      fetchCocktail(drinkId);
     });
   });
-
 }
 
 fetchCocktailGallery();
-
 
 // import axios from 'axios';
 
@@ -108,12 +106,12 @@ fetchCocktailGallery();
 //       item =>
 //         `<li class="cocktail-card">
 //        <img class="cocktail-card-img" src="${item.drinkThumb}" alt="${item.drink}" width ="300" height="260"/>
-     
+
 //      <div class="cocktail-description-container" >
 //      <h2 class="cocktail-title">${item.drink}</h2>
 //      <p class="cocktail-description">${item.description}</p>
-     
-//     <ul class="cocktail-button-container"> 
+
+//     <ul class="cocktail-button-container">
 //     <li> <button type="button" class="card-button-learn-more">Learn More</button></li>
 //     <li> <button class="button-svg-heart">
 //      <svg

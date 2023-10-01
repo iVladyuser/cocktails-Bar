@@ -1,0 +1,51 @@
+.ingredient-name {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.ingredient-type {
+    margin-top: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    color: rgba(36, 36, 36, 0.5);
+}
+
+.ingredient-type::after {
+    content: '';
+    display: block;
+    margin-top: 20px;
+    width: 100%;
+    border: 1px solid rgba(36, 36, 36, 0.1);
+}
+
+.ingredient-descr {
+    margin-top: 20px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: rgba(36, 36, 36, 0.5);
+}
+
+.ingredient-characteristic-list {
+    margin-top: 40px;
+    list-style: disc inside;
+}
+
+.ingredient-characteristic-item {
+    padding-left: 8px;
+}
+
+.ingredient-characteristic-item::marker {
+    font-size: 10px;
+    color: rgba(36, 36, 36, 0.8);
+}
+
+.ingredient-characteristic-descr {
+    display: inline;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: rgba(36, 36, 36, 0.8);
+}
