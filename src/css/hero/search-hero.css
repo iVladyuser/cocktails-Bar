@@ -1,4 +1,15 @@
-
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
 @media screen and (max-width: 767px) {
   #keyboardmin {
     display: flex;
@@ -37,7 +48,6 @@
 
     width: 664px;
     margin: 0 auto;
-    margin-top: 100px;
 
     margin-bottom: 50px;
   }
@@ -73,9 +83,7 @@
   }
 }
 
-.notactive {
-  background: rgba(126, 143, 221, 0.4);
-}
+
 
 /* Search */
 
