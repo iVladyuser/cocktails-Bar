@@ -64,6 +64,7 @@
 import axios from 'axios';
 import { BASE_URL } from '../api/api';
 import { saveToFavorites, removeFromFavorites } from '../api/api';
+import { fetchIngredient } from '../modalIngredients/modalIngredients';
 
 const modalCocktailContent = document.querySelector('.modal-cocktail__content');
 const backDrop = document.querySelector('#modal-cocktail');
@@ -85,7 +86,9 @@ export async function fetchCocktail(drinkId) {
 
     renderCocktailList(data, modalCocktailContent);
 
-    console.log(data[0]);
+    moveToIngredient();
+
+    // console.log(data[0]);
   } catch (error) {
     console.error('Error while getting cocktail:', error);
     throw error;
@@ -130,3 +133,14 @@ const renderCocktailList = (arr, container) => {
 };
 
 // // export { renderCocktailCard, createOnClickForModal };
+
+function moveToIngredient() {
+  const ingredientList = document.querySelectorAll('.modal-header__link');
+  const ingredientLink = ingredientList.forEach(item =>
+    item.addEventListener('click', event => {
+      const ingredientId = event.target.dataset.ingredient;
+
+      fetchIngredient(ingredientId);
+    })
+  );
+}

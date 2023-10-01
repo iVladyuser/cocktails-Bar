@@ -4,15 +4,24 @@ import { BASE_URL } from '../api/api';
 const ingredientsContentEl = document.querySelector(
   '.modal-ingredients__content'
 );
+const ingredientLink = document.querySelector('.modal-header__link');
+// ingredientLink.addEventListener('click', console.log('hi'));
 
-const modal = document.querySelector('#modal-cocktail');
-// modal.classList.remove('is-hidden');
+const backDrop = document.querySelector('#modal-cocktail');
+const modal = document.querySelector('.modal');
+// modal.addEventListener('click', event => {
+//   if (event.currentTarget === event.target) {
+//     return;
+//   }
+//   document.querySelectorAll('.modal-header__link').forEach(item => {
+//     console.log(item);
+//   });
+// });
+// backDrop.classList.remove('is-hidden');
 
-async function fetchIngredient() {
+export async function fetchIngredient(ingredientId) {
   try {
-    const response = await axios.get(
-      `${BASE_URL}/ingredients/64aebb7f82d96cc69e0eb4a5`
-    );
+    const response = await axios.get(`${BASE_URL}/ingredients/${ingredientId}`);
     const data = response.data;
 
     renderList(data, ingredientsContentEl);
@@ -24,7 +33,7 @@ async function fetchIngredient() {
   }
 }
 
-// fetchIngredient();
+// fetchIngredient(64aebb7f82d96cc69e0eb4a5);
 
 const renderList = (arr, container) => {
   const markup = arr
@@ -51,5 +60,5 @@ const renderList = (arr, container) => {
     )
     .join('');
 
-  container.insertAdjacentHTML('afterbegin', markup);
+  container.innerHTML = markup;
 };
