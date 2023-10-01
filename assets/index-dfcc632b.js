@@ -43,7 +43,7 @@ function print() { __p += __j.call(arguments, '') }
       <button class="modal-btn-addfavorites">Add to favorite</button>
       <button class="modal-btn-back" data-modal-close aria-label="close">Back</button> 
       </div>
-   `).join("");u.insertAdjacentHTML("afterbegin",i),El.classList.remove("is-hidden")};J_.addEventListener("click",Q_);async function Q_(){El.classList.add("is-hidden"),location.reload()}async function ev(){try{const s=`${go}/cocktails/`,u=window.innerWidth;let i=8;u>=1280&&(i=9);const d=await po.get(s,{params:{r:i}});if(d.status!==200)throw new Error(`HTTP Error! Status: ${d.status}`);tv(d.data,document.querySelector(".js__cocktails__list"))}catch(s){throw console.error("Помилка при отриманні галереї:",s),s}}function tv(s,u){const i=s.map(S=>`<li class="cocktail-card">
+   `).join("");u.insertAdjacentHTML("afterbegin",i),El.classList.remove("is-hidden")};J_.addEventListener("click",Q_);async function Q_(){El.classList.add("is-hidden")}async function ev(){try{const s=`${go}/cocktails/`,u=window.innerWidth;let i=8;u>=1280&&(i=9);const d=await po.get(s,{params:{r:i}});if(d.status!==200)throw new Error(`HTTP Error! Status: ${d.status}`);tv(d.data,document.querySelector(".js__cocktails__list"))}catch(s){throw console.error("Помилка при отриманні галереї:",s),s}}function tv(s,u){const i=s.map(S=>`<li class="cocktail-card">
         <div class="container__img" >
        <img class="cocktail-card-img" src="${S.drinkThumb}" alt="${S.drink}" width ="300" height="260"/>
      </div>
