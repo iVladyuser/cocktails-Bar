@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { BASE_URL } from '../api/api';
-import { renderCocktailCard } from '../modalCocktails/modalCocktails';
+import { fetchCocktail } from '../modalCocktails/modalCocktails';
 
 export async function fetchCocktailGallery() {
   try {
@@ -39,7 +39,7 @@ function renderList(arr, container) {
      <p class="cocktail-description">${item.description}</p>
      
     <ul class="cocktail-button-container"> 
-    <button type="button" class="card-button-learn-more" data-drink="${item.drink}">Learn More</button>
+    <button type="button" class="card-button-learn-more" data-drink="${item._id}">Learn More</button>
     <li> <button class="button-svg-heart">
      <svg
               class="icon-heart"
@@ -47,7 +47,7 @@ function renderList(arr, container) {
               width="24"
               height="24"
             >
-              <use href="../img/sprite.svg#HEART"></use>
+              <path d="M15.6306 3.4574C15.2475 3.07416 14.7927 2.77014 14.2921 2.56272C13.7915 2.3553 13.2549 2.24854 12.7131 2.24854C12.1712 2.24854 11.6347 2.3553 11.1341 2.56272C10.6335 2.77014 10.1786 3.07416 9.79558 3.4574L9.00058 4.2524L8.20558 3.4574C7.43181 2.68364 6.38235 2.24894 5.28808 2.24894C4.1938 2.24894 3.14435 2.68364 2.37058 3.4574C1.59681 4.23117 1.16211 5.28063 1.16211 6.3749C1.16211 7.46918 1.59681 8.51864 2.37058 9.2924L3.16558 10.0874L9.00058 15.9224L14.8356 10.0874L15.6306 9.2924C16.0138 8.90934 16.3178 8.45451 16.5253 7.95392C16.7327 7.45333 16.8394 6.91677 16.8394 6.3749C16.8394 5.83304 16.7327 5.29648 16.5253 4.79589C16.3178 4.29529 16.0138 3.84047 15.6306 3.4574Z" stroke="#FDFDFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>">
             </svg>
      </button>
      </li>
@@ -61,15 +61,13 @@ function renderList(arr, container) {
   const learnMoreButtons = document.querySelectorAll('.card-button-learn-more');
   learnMoreButtons.forEach(button => {
     button.addEventListener('click', () => {
-      const drinkName = button.getAttribute('data-drink');
-      renderCocktailCard(drinkName);
+      const drinkId = button.getAttribute('data-drink');
+      fetchCocktail(drinkId);
     });
   });
-
 }
 
 fetchCocktailGallery();
-
 
 // import axios from 'axios';
 
@@ -108,12 +106,12 @@ fetchCocktailGallery();
 //       item =>
 //         `<li class="cocktail-card">
 //        <img class="cocktail-card-img" src="${item.drinkThumb}" alt="${item.drink}" width ="300" height="260"/>
-     
+
 //      <div class="cocktail-description-container" >
 //      <h2 class="cocktail-title">${item.drink}</h2>
 //      <p class="cocktail-description">${item.description}</p>
-     
-//     <ul class="cocktail-button-container"> 
+
+//     <ul class="cocktail-button-container">
 //     <li> <button type="button" class="card-button-learn-more">Learn More</button></li>
 //     <li> <button class="button-svg-heart">
 //      <svg

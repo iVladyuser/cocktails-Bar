@@ -30,20 +30,20 @@ const renderList = (arr, container) => {
   const markup = arr
     .map(
       item => `
-            <h2 class="ingredient-name">${item.title}</h2>
+            <h3 class="ingredient-name">${item.title}</h3>
             <p class="ingredient-type">${item.type}</p>
-            <p class="ingredient-desrc">${item.description}</p>
+            <p class="ingredient-descr">${item.description}</p>
             <ul class="ingredient-characteristic-list">
-            <li class="ingredient-characteristic-item"><p>Type: ${
+            <li class="ingredient-characteristic-item"><p class="ingredient-characteristic-descr">Type: ${
               item.type || 'Нажаль дані тимчасово відсутні'
             }</p></li>
-            <li class="ingredient-characteristic-item"><p>Country of origin: ${
+            <li class="ingredient-characteristic-item"><p class="ingredient-characteristic-descr">Country of origin: ${
               item.country || 'Нажаль дані тимчасово відсутні'
             }</p></li>
-            <li class="ingredient-characteristic-item"><p>Alcohol by volume: ${
+            <li class="ingredient-characteristic-item"><p class="ingredient-characteristic-descr">Alcohol by volume: ${
               item.abv || 'Нажаль дані тимчасово відсутні'
             } %</p></li>
-            <li class="ingredient-characteristic-item"><p>Flavour: ${
+            <li class="ingredient-characteristic-item"><p class="ingredient-characteristic-descr">Flavour: ${
               item.flavour || 'Нажаль дані тимчасово відсутні'
             }</p></li>
             </ul>
