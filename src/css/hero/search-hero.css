@@ -48,7 +48,7 @@
 
     width: 664px;
     margin: 0 auto;
-    margin-top: 100px;
+    /* margin-top: 100px; */
 
     margin-bottom: 50px;
   }
@@ -114,7 +114,7 @@
   fill: #242424;
 }
 
-.search-js {
+.text-input {
   width: 290px;
   height: 44px;
   border-radius: 80px;

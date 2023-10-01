@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const BASE_URL = 'https://drinkify.b.goit.study/api/v1';
-import { letterOrNumber } from '../hero/search-hero';
+// import { letterOrNumber } from '../hero/search-hero';
 export async function getCocktailsByLetter(letterOrNumber) {
   try {
     const url = `${BASE_URL}/cocktails/search/?f=${letterOrNumber}`;
