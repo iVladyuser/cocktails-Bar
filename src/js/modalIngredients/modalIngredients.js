@@ -15,6 +15,8 @@ export async function fetchIngredient(ingredientId) {
 
     renderList(data, ingredientsContentEl);
 
+    addToLocalStorage();
+
     const backButtonEl = document.querySelector(
       '[data-modal-close-ingredients]'
     );
@@ -62,7 +64,9 @@ const renderList = (arr, container) => {
             }</p></li>
             </ul>
             <div class="modal-bottons">
-            <button class="modal-btn-addfavorites" data-modal-add-ingredients>Add to favorite</button>
+            <button class="modal-btn-addfavorites" data-modal-add-ingredients data-ingredient="${
+              item._id
+            }">Add to favorite</button>
             <button class="modal-btn-back" data-modal-close-ingredients aria-label="close">Back</button> 
             </div>
             `
@@ -71,3 +75,13 @@ const renderList = (arr, container) => {
 
   container.innerHTML = markup;
 };
+
+async function addToLocalStorage() {
+  const addFavoritesBtn = document.querySelector(
+    '[data-modal-add-ingredients]'
+  );
+  addFavoritesBtn.addEventListener('click', event => {
+    const ingredientId = event.target.dataset.ingredient;
+    localStorage.setItem('ingredientId', ingredientId);
+  });
+}
