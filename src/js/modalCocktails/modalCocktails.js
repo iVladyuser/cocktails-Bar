@@ -82,7 +82,13 @@ const renderCocktailList = (arr, container) => {
 };
 
 closeModalBtn.addEventListener('click', closeModal);
-backDrop.addEventListener('click', closeModal);
+backDrop.addEventListener('click', event => {
+  const backdrop = event.target.classList.contains('backdrop');
+  if (!backdrop) {
+    return;
+  }
+  closeModal();
+});
 
 async function closeModal() {
   backDrop.classList.add('is-hidden');
