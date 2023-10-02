@@ -92,6 +92,7 @@ color: #FDFDFF
 .page-header-container {
   
   display: flex;
+  position: relative;
   justify-content: space-between;
   align-items: center;
 }
@@ -169,9 +170,7 @@ align-items: center;
   gap: 14px;
   text-align: center;
   margin-top: 180px;
-  padding-right: 116px;
-  padding-left: 116px;
-  
+ 
 }
 
 .header-mobile-menu-link {
@@ -209,7 +208,17 @@ letter-spacing: 0.28px;
 {
 color: #FDFDFF;
 }
-
+ .cursor-list{
+  cursor: pointer;
+      display: flex;
+    align-items: center;
+  
+}
+.hidden-list{
+  flex-direction: column;
+    align-items: center;
+      gap: 8px;
+}
 .star{
   display: none;
 }
@@ -341,8 +350,6 @@ input:checked + .slider:before {
   position: absolute;
   fill: #FDFDFF;
   opacity: 0.3;
-  width: 391px;
-  height: 391px;
   bottom: -100px;
   right: -100px;
 
@@ -355,11 +362,15 @@ input:checked + .slider:before {
 
 /* desktop */
 @media screen and (min-width: 1280px) {
-  
+  .cursor-list{
+  cursor: pointer;
+      display: flex;
+    align-items: center;
+}
   .mobile-desktop-menu{
     display: flex;
   }
-  #hiddenDiv {
+  .hiddenDiv {
    border-radius: 16px;
 background: #7E8FDD;
 padding: 18px 24px;
@@ -367,9 +378,9 @@ flex-direction: column;
 justify-content: center;
 align-items: flex-start;
 gap: 8px;
-    position: fixed;
-    top: 68px;
-    left: 210px;
+   position: absolute;
+    top: 33px;
+    left: 121px
 }
   
   .chevron-desing{
