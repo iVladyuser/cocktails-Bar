@@ -35,6 +35,10 @@
     border-radius: 4px;
 }
 
+.ingredient-descr-wrapper::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(36, 36, 36, 0.8);
+}
+
 .ingredient-descr {
     font-weight: 400;
     font-size: 14px;
