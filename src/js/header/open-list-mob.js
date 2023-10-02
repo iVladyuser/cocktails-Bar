@@ -1,5 +1,5 @@
-const sprite = document.querySelector(".sprite");
-const hiddenDiv = document.querySelector(".hiddenDiv");
+const sprite = document.querySelector(".spriteMob");
+const hiddenDiv = document.querySelector(".hiddenDivMob");
 
 // Функция для изменения спрайта при открытии и закрытии
 function toggleSprite() {

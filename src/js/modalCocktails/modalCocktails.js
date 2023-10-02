@@ -3,11 +3,12 @@ import { BASE_URL } from '../api/api';
 import { fetchIngredient } from '../modalIngredients/modalIngredients';
 // import { saveToFavorites, removeFromFavorites } from '../api/api';
 
+const backDrop = document.querySelector('#modal-cocktail');
+const modal = document.querySelector('.modal');
 const modalCocktailContent = document.querySelector('.modal-cocktail__content');
 const modalIngredientsContent = document.querySelector(
   '.modal-ingredients__content'
 );
-const backDrop = document.querySelector('#modal-cocktail');
 const closeModalBtn = document.querySelector('[data-modal-close]');
 // backDrop.classList.remove('is-hidden');
 
@@ -29,7 +30,8 @@ export async function fetchCocktail(drinkId) {
 
     moveToIngredient();
 
-    console.log(data[0]);
+    const modalBtnBackClose = document.querySelector('[data-modal-back-close]');
+    modalBtnBackClose.addEventListener('click', closeModal);
   } catch (error) {
     console.error('Error while getting cocktail:', error);
     throw error;
@@ -69,7 +71,7 @@ const renderCocktailList = (arr, container) => {
       </div>
       <div class="modal-bottons">
       <button class="modal-btn-addfavorites">Add to favorite</button>
-      <button class="modal-btn-back" data-modal-close aria-label="close">Back</button> 
+      <button class="modal-btn-back" data-modal-back-close aria-label="close">Back</button> 
       </div>
    `
     )
@@ -80,10 +82,18 @@ const renderCocktailList = (arr, container) => {
 };
 
 closeModalBtn.addEventListener('click', closeModal);
+backDrop.addEventListener('click', event => {
+  const backdrop = event.target.classList.contains('backdrop');
+  if (!backdrop) {
+    return;
+  }
+  closeModal();
+});
 
 async function closeModal() {
   backDrop.classList.add('is-hidden');
   setTimeout(() => {
+    modal.classList.remove('modal-ingredient');
     modalIngredientsContent.style.display = 'none';
     modalCocktailContent.style.display = 'block';
   }, 300);
@@ -94,6 +104,10 @@ async function moveToIngredient() {
   const ingredientList = document.querySelectorAll('.modal-header__link');
   ingredientList.forEach(item =>
     item.addEventListener('click', event => {
+      event.preventDefault();
+
+      modal.classList.add('modal-ingredient');
+
       modalCocktailContent.style.display = 'none';
 
       const ingredientId = event.target.dataset.ingredient;
