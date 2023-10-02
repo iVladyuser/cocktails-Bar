@@ -200,7 +200,7 @@ searchInput.addEventListener('blur', () => {
 
 
 
-// // Initialize the pagination component
+// Initialize the pagination component
 // const paginationContainer = document.getElementById('pagination');
 // const pagination = new Pagination(paginationContainer, {
 //   totalItems: 100, 
@@ -209,14 +209,14 @@ searchInput.addEventListener('blur', () => {
 //   centerAlign: true, 
 // });
 
-// // Add an event listener for page changes
+// Add an event listener for page changes
 // pagination.on('afterMove', event => {
 //   const currentPage = event.page;
 //   // Fetch and render the data for the new page
 //   fetchCocktailGalleryByPage(currentPage);
 // });
 
-// // Function to fetch and render data based on the current page
+// Function to fetch and render data based on the current page
 // async function fetchCocktailGalleryByPage(page) {
 //   try {
 //     const url = `${BASE_URL}/cocktails/search/?page=${page}`;
@@ -232,7 +232,7 @@ searchInput.addEventListener('blur', () => {
 //       document.querySelector('.js__cocktails__list')
 //     );
 
-//     lastSearchText = ''; // Reset lastSearchText if using pagination
+    // lastSearchText = ''; // Reset lastSearchText if using pagination
 //   } catch (error) {
 //     console.error('Error fetching gallery by page:', error);
 
