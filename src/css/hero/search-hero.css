@@ -252,7 +252,7 @@ border: 1px solid #9CDFDF;
   border: 2px solid var(--main-color);
 
   /* text */
-  color: rgba(36, 36, 36, 0.2);
+  color: rgba(36, 36, 36);
   font-family: Poppins;
   font-size: 14px;
   font-style: normal;
