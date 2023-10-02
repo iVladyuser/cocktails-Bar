@@ -3,11 +3,12 @@ import { BASE_URL } from '../api/api';
 import { fetchIngredient } from '../modalIngredients/modalIngredients';
 // import { saveToFavorites, removeFromFavorites } from '../api/api';
 
+const backDrop = document.querySelector('#modal-cocktail');
+const modal = document.querySelector('.modal');
 const modalCocktailContent = document.querySelector('.modal-cocktail__content');
 const modalIngredientsContent = document.querySelector(
   '.modal-ingredients__content'
 );
-const backDrop = document.querySelector('#modal-cocktail');
 const closeModalBtn = document.querySelector('[data-modal-close]');
 // backDrop.classList.remove('is-hidden');
 
@@ -28,8 +29,6 @@ export async function fetchCocktail(drinkId) {
     renderCocktailList(data, modalCocktailContent);
 
     moveToIngredient();
-
-    console.log(data[0]);
   } catch (error) {
     console.error('Error while getting cocktail:', error);
     throw error;
@@ -84,6 +83,7 @@ closeModalBtn.addEventListener('click', closeModal);
 async function closeModal() {
   backDrop.classList.add('is-hidden');
   setTimeout(() => {
+    modal.classList.remove('modal-ingredient');
     modalIngredientsContent.style.display = 'none';
     modalCocktailContent.style.display = 'block';
   }, 300);
@@ -94,6 +94,10 @@ async function moveToIngredient() {
   const ingredientList = document.querySelectorAll('.modal-header__link');
   ingredientList.forEach(item =>
     item.addEventListener('click', event => {
+      event.preventDefault();
+
+      modal.classList.add('modal-ingredient');
+
       modalCocktailContent.style.display = 'none';
 
       const ingredientId = event.target.dataset.ingredient;

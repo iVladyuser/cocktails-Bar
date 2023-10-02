@@ -20,8 +20,22 @@
     border: 1px solid rgba(36, 36, 36, 0.1);
 }
 
-.ingredient-descr {
+.ingredient-descr-wrapper {
     margin-top: 20px;
+    max-height: 100px;
+    overflow-y: scroll;
+}
+
+.ingredient-descr-wrapper::-webkit-scrollbar {
+    width: 8px;
+}
+
+.ingredient-descr-wrapper::-webkit-scrollbar-thumb {
+    background-color: rgba(36, 36, 36, 0.5);
+    border-radius: 4px;
+}
+
+.ingredient-descr {
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
@@ -48,4 +62,11 @@
     font-size: 14px;
     line-height: 18px;
     color: rgba(36, 36, 36, 0.8);
+}
+
+@media screen and (min-width: 768px) {
+    .modal-ingredient {
+        min-height: 0;
+        max-height: 506px;
+    }
 }
