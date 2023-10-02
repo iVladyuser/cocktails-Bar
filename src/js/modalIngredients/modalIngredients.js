@@ -56,6 +56,10 @@ const renderList = (arr, container) => {
               item.flavour || 'Нажаль дані тимчасово відсутні'
             }</p></li>
             </ul>
+            <div class="modal-bottons">
+            <button class="modal-btn-addfavorites" data-modal-add-ingredients>Add to favorite</button>
+            <button class="modal-btn-back" data-modal-close-ingredients aria-label="close">Back</button> 
+            </div>
             `
     )
     .join('');
