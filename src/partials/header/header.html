@@ -3,9 +3,24 @@
  
 
   <div class="container page-header-container">
-   
+   <div class="mobile-desktop-menu">
+<a href="" class="header-mobile-menu-link home-link link"><span class="menu-list-mob">Home</span></a>
+      <a href="" class="header-mobile-menu-link favorite-link link"><span class="menu-list-mob">Favorite</span></a>
 
-         
+      <div>
+        <svg id="sprite" class="chevron-desing" width="24" height="24">
+        <use href="./img/sprite.svg#icon-chevron-down"></use>
+      </svg>
+      
+      </div> 
+      
+    <div id="hiddenDiv" class="hidden-list" style="display: none;">
+        <!-- Содержимое div блока -->
+        <a href="./favCocktails.html" class="header-mobile-list link">Favorite cocktails</a>
+    <a href="./ingredients.html" class="header-mobile-list link">Favorite ingredients</a>
+      </div>
+      </div> 
+       
     <a class="header-logo" href="./index.html"
         ><span class="header-logo-span">Drinkify</span
         ><svg class="header-icon-logo" width="24" height="20" >

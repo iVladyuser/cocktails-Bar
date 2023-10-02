@@ -252,7 +252,7 @@ border: 1px solid #9CDFDF;
   border: 2px solid var(--main-color);
 
   /* text */
-  color: rgb(0, 0, 0);
+  color: rgba(36, 36, 36, 0.2);
   font-family: Poppins;
   font-size: 14px;
   font-style: normal;
@@ -260,7 +260,9 @@ border: 1px solid #9CDFDF;
   line-height: normal;
   padding-left: 42px;
 }
-
+.text-input.placeholder {
+  color: rgba(36, 36, 36, 0.2);
+}
 @media screen and (min-width: 375px) {
   .search-js {
     width: 335px;
