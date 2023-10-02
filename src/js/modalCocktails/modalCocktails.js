@@ -1,73 +1,11 @@
-// // import { saveToFavorites, removeFromFavorites } from '../api/api';
-
-// // const modalCocktailContent = document.querySelector('.modal-cocktail__content');
-// // const backDrop = document.querySelector('#modal-cocktail');
-
-// // function createOnClickForModal() {
-// //   return () => {
-// //     saveToFavorites();
-// //     removeFromFavorites();
-// //   };
-// // }
-
-// function renderCocktailCard(data) {
-//   const ingredients = [
-//     data.strIngredient1,
-//     data.strIngredient2,
-//     data.strIngredient3,
-//     data.strIngredient4,
-//     data.strIngredient5,
-//     data.strIngredient6,
-//     data.strIngredient7,
-//     data.strIngredient8,
-//     data.strIngredient9,
-//     data.strIngredient10,
-//     data.strIngredient11,
-//     data.strIngredient12,
-//     data.strIngredient13,
-//     data.strIngredient14,
-//     data.strIngredient15,
-//   ].filter(item => item);
-
-//   const markup = `
-//       <div class="modal-header">
-//         <img class="modal-header__img" src="${data.drinkThumb}" alt="${
-//     data.drink
-//   }" loading="lazy" width="280" height="280" />
-//         <div class="modal-header__heading">
-//           <h2 class="modal-header__title">${data.drink}</h2>
-//           <h3 class="modal-header__subtitle">ingredients</h3>
-//           <p class="modal-header__text">Per cocktail</p>
-//           <ul class="modal-header__list">
-//             ${ingredients
-//               .map(
-//                 item => `<li class="modal-header__item">
-//                     <a href="#" class="modal-header__link" data-ingredient="${item}">✶ ${item}</a>
-//                   </li>`
-//               )
-//               .join('')}
-//           </ul>
-//         </div>
-//       </div>
-//       <div class="modal-header--bottom">
-//       <h3 class="modal-header__subtitle">instructions:</h3>
-//       <p class="modal-header__text">${data.description}</p>
-//       </div>
-//    `;
-
-//   modalCocktailContent.innerHTML = markup;
-//   backDrop.classList.remove('is-hidden');
-// }
-
-// export { renderCocktailCard, createOnClickForModal };
 
 import axios from 'axios';
 import { BASE_URL } from '../api/api';
-import { saveToFavorites, removeFromFavorites } from '../api/api';
-import { fetchIngredient } from '../modalIngredients/modalIngredients';
+// import { saveToFavorites, removeFromFavorites } from '../api/api';
 
 const modalCocktailContent = document.querySelector('.modal-cocktail__content');
 const backDrop = document.querySelector('#modal-cocktail');
+const closeModalBtn = document.querySelector("[data-modal-close]");
 // backDrop.classList.remove('is-hidden');
 
 // function createOnClickForModal() {
@@ -86,9 +24,7 @@ export async function fetchCocktail(drinkId) {
 
     renderCocktailList(data, modalCocktailContent);
 
-    moveToIngredient();
-
-    // console.log(data[0]);
+    console.log(data[0]);
   } catch (error) {
     console.error('Error while getting cocktail:', error);
     throw error;
@@ -104,7 +40,7 @@ const renderCocktailList = (arr, container) => {
       <div class="modal-header">
         <img class="modal-header__img" src="${item.drinkThumb}" alt="${
         item.drink
-      }" loading="lazy" width="280" height="280" />
+      }" loading="lazy" width="288" height="277" />
         <div class="modal-header__heading">
           <h2 class="modal-header__title">${item.drink}</h2>
           <h3 class="modal-header__subtitle">ingredients</h3>
@@ -113,7 +49,7 @@ const renderCocktailList = (arr, container) => {
             ${item.ingredients
               .map(
                 item => `<li class="modal-header__item">
-                    <a href="#" class="modal-header__link" data-ingredient="${item.ingredientId}">${item.title}</a>
+                    <a href="#" class="modal-header__link" data-ingredient="${item.ingredientId}">${item.measure} ${item.title}</a>
                   </li>`
               )
               .join('')}
@@ -121,8 +57,12 @@ const renderCocktailList = (arr, container) => {
         </div>
       </div>
       <div class="modal-header--bottom">
-      <h3 class="modal-header__subtitle">instructions:</h3>
-      <p class="modal-header__text">${item.description}</p>
+      <h3 class="modal-header__subtitle modal-header__subtitle-inst">instructions:</h3>
+      <p class="modal-header__text modal-header__text-inst">${item.description}</p> 
+      </div>
+      <div class="modal-bottons">
+      <button class="modal-btn-addfavorites">Add to favorite</button>
+      <button class="modal-btn-back" data-modal-close aria-label="close">Back</button> 
       </div>
    `
     )
@@ -132,15 +72,15 @@ const renderCocktailList = (arr, container) => {
   backDrop.classList.remove('is-hidden');
 };
 
-// // export { renderCocktailCard, createOnClickForModal };
 
-function moveToIngredient() {
-  const ingredientList = document.querySelectorAll('.modal-header__link');
-  const ingredientLink = ingredientList.forEach(item =>
-    item.addEventListener('click', event => {
-      const ingredientId = event.target.dataset.ingredient;
+closeModalBtn.addEventListener("click", closeModal)
 
-      fetchIngredient(ingredientId);
-    })
-  );
+
+async function closeModal() {
+  backDrop.classList.add('is-hidden');
+  // location.reload()
 }
+
+
+
+// // export { renderCocktailCard, createOnClickForModal };
