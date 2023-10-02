@@ -5,7 +5,6 @@ import { fetchIngredient } from '../modalIngredients/modalIngredients';
 
 const backDrop = document.querySelector('#modal-cocktail');
 const modal = document.querySelector('.modal');
-const modalBtnBackClose = document.querySelector('.modal-btn-back')
 const modalCocktailContent = document.querySelector('.modal-cocktail__content');
 const modalIngredientsContent = document.querySelector(
   '.modal-ingredients__content'
@@ -30,6 +29,9 @@ export async function fetchCocktail(drinkId) {
     renderCocktailList(data, modalCocktailContent);
 
     moveToIngredient();
+
+    const modalBtnBackClose = document.querySelector('[data-modal-back-close]');
+    modalBtnBackClose.addEventListener('click', closeModal);
   } catch (error) {
     console.error('Error while getting cocktail:', error);
     throw error;
@@ -69,7 +71,7 @@ const renderCocktailList = (arr, container) => {
       </div>
       <div class="modal-bottons">
       <button class="modal-btn-addfavorites">Add to favorite</button>
-      <button class="modal-btn-back" data-modal-close aria-label="close">Back</button> 
+      <button class="modal-btn-back" data-modal-back-close aria-label="close">Back</button> 
       </div>
    `
     )
@@ -80,9 +82,7 @@ const renderCocktailList = (arr, container) => {
 };
 
 closeModalBtn.addEventListener('click', closeModal);
-// modalBtnBackClose.addEventListener('click', closeModal);
-// backDrop.addEventListener('click', closeModal);
-
+backDrop.addEventListener('click', closeModal);
 
 async function closeModal() {
   backDrop.classList.add('is-hidden');
@@ -112,7 +112,5 @@ async function moveToIngredient() {
     })
   );
 }
-
-
 
 // // export { renderCocktailCard, createOnClickForModal };
