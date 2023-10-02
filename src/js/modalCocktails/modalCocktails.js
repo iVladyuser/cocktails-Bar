@@ -5,6 +5,7 @@ import { fetchIngredient } from '../modalIngredients/modalIngredients';
 
 const backDrop = document.querySelector('#modal-cocktail');
 const modal = document.querySelector('.modal');
+const modalBtnBackClose = document.querySelector('.modal-btn-back')
 const modalCocktailContent = document.querySelector('.modal-cocktail__content');
 const modalIngredientsContent = document.querySelector(
   '.modal-ingredients__content'
@@ -79,6 +80,9 @@ const renderCocktailList = (arr, container) => {
 };
 
 closeModalBtn.addEventListener('click', closeModal);
+// modalBtnBackClose.addEventListener('click', closeModal);
+// backDrop.addEventListener('click', closeModal);
+
 
 async function closeModal() {
   backDrop.classList.add('is-hidden');
@@ -108,5 +112,7 @@ async function moveToIngredient() {
     })
   );
 }
+
+
 
 // // export { renderCocktailCard, createOnClickForModal };
