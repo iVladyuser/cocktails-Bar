@@ -197,46 +197,7 @@ searchInput.addEventListener('blur', () => {
 });
 
 
-// Initialize the pagination component
-const paginationContainer = document.getElementById('pagination');
-const pagination = new Pagination(paginationContainer, {
-  totalItems: 100, 
-  itemsPerPage: 10,
-  visiblePages: 5, 
-  centerAlign: true, 
-});
 
-// Add an event listener for page changes
-pagination.on('afterMove', event => {
-  const currentPage = event.page;
-  // Fetch and render the data for the new page
-  fetchCocktailGalleryByPage(currentPage);
-});
-
-// Function to fetch and render data based on the current page
-async function fetchCocktailGalleryByPage(page) {
-  try {
-    const url = `${BASE_URL}/cocktails/search/?page=${page}`;
-
-    const response = await axios.get(url);
-    console.log('Response:', response.data);
-    if (response.status !== 200) {
-      throw new Error(`HTTP Error! Status: ${response.status}`);
-    }
-
-    renderGalleryOrError(
-      response.data,
-      document.querySelector('.js__cocktails__list')
-    );
-
-    lastSearchText = ''; // Reset lastSearchText if using pagination
-  } catch (error) {
-    console.error('Error fetching gallery by page:', error);
-
-    renderErrorBlock(document.querySelector('.js__cocktails__list'));
-    hideMainTitle();
-  }
-}
 
 
 
