@@ -1,11 +1,14 @@
-
 import axios from 'axios';
 import { BASE_URL } from '../api/api';
+import { fetchIngredient } from '../modalIngredients/modalIngredients';
 // import { saveToFavorites, removeFromFavorites } from '../api/api';
 
 const modalCocktailContent = document.querySelector('.modal-cocktail__content');
+const modalIngredientsContent = document.querySelector(
+  '.modal-ingredients__content'
+);
 const backDrop = document.querySelector('#modal-cocktail');
-const closeModalBtn = document.querySelector("[data-modal-close]");
+const closeModalBtn = document.querySelector('[data-modal-close]');
 // backDrop.classList.remove('is-hidden');
 
 // function createOnClickForModal() {
@@ -23,6 +26,8 @@ export async function fetchCocktail(drinkId) {
     const data = response.data;
 
     renderCocktailList(data, modalCocktailContent);
+
+    moveToIngredient();
 
     console.log(data[0]);
   } catch (error) {
@@ -58,7 +63,9 @@ const renderCocktailList = (arr, container) => {
       </div>
       <div class="modal-header--bottom">
       <h3 class="modal-header__subtitle modal-header__subtitle-inst">instructions:</h3>
-      <p class="modal-header__text modal-header__text-inst">${item.description}</p> 
+      <p class="modal-header__text modal-header__text-inst">${
+        item.description
+      }</p> 
       </div>
       <div class="modal-bottons">
       <button class="modal-btn-addfavorites">Add to favorite</button>
@@ -68,19 +75,34 @@ const renderCocktailList = (arr, container) => {
     )
     .join('');
 
-  container.insertAdjacentHTML('afterbegin', markup);
+  container.innerHTML = markup;
   backDrop.classList.remove('is-hidden');
 };
 
-
-closeModalBtn.addEventListener("click", closeModal)
-
+closeModalBtn.addEventListener('click', closeModal);
 
 async function closeModal() {
   backDrop.classList.add('is-hidden');
+  setTimeout(() => {
+    modalIngredientsContent.style.display = 'none';
+    modalCocktailContent.style.display = 'block';
+  }, 300);
   // location.reload()
 }
 
+async function moveToIngredient() {
+  const ingredientList = document.querySelectorAll('.modal-header__link');
+  ingredientList.forEach(item =>
+    item.addEventListener('click', event => {
+      modalCocktailContent.style.display = 'none';
 
+      const ingredientId = event.target.dataset.ingredient;
+
+      fetchIngredient(ingredientId);
+
+      modalIngredientsContent.style.display = 'block';
+    })
+  );
+}
 
 // // export { renderCocktailCard, createOnClickForModal };
