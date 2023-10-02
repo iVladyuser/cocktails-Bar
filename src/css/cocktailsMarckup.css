@@ -2,7 +2,9 @@
   padding-top: 40px;
   padding-bottom: 80px;
 }
-
+.cocktails-list{
+  margin: 0 auto;
+}
 .main-title {
   color: var(--dark-letters-color);
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -24,25 +26,20 @@
   margin-bottom: 20px;
 }
 .container__img {
-  display: flex;
-  justify-content: center;
   padding-top: 14px;
   padding-left: 14px;
   padding-right: 14px;
 }
 .cocktail-card-img {
-  max-width: 100%;
-  max-height: 100%;
   border-radius: 16px;
-  background: var(--light-letters-color);
+  background: transparent;
   box-shadow: 0px 4px 46px 0px rgba(0, 0, 0, 0.05);
 }
 /* Dscription  */
 .cocktail-description-container {
   padding: 0 20px 20px 20px;
   margin-top: 20px;
-  background-color: var(--light-letters-color);
-  border-radius: 20px;
+  background-color: transparent;
 }
 .cocktail-title {
   font-family: Poppins;
@@ -74,11 +71,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
 }
 
 .card-button-learn-more {
-  padding: 12px 30px;
+  padding: 14px 48px;
 
   font-family: inherit;
   font-weight: 600;
@@ -88,8 +85,6 @@
 
   background-color: transparent;
   text-transform: uppercase;
-  min-width: 200px;
-  min-height: 40px;
 
   border-radius: 12px;
   border: 1px solid var(--main-color);
@@ -115,7 +110,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 16px;
+  padding: 14px;
 
   border-radius: 12px;
   background-color: var(--main-color);
@@ -126,7 +121,6 @@
 .icon-heart {
   width: 18px;
   height: 18px;
-  flex-shrink: 0;
 }
 /* 375 */
 @media screen and (min-width: 375px) {
@@ -138,6 +132,7 @@
     min-height: 48px;
   }
   .button-svg-heart {
+    padding: 16px;
     min-width: 48px;
     min-height: 48px;
   }
@@ -150,6 +145,7 @@
   }
   .cocktails-list {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     column-gap: 16px;
     row-gap: 32px;
@@ -163,9 +159,6 @@
   .cocktail-description-container {
     padding: 0 24px 24px 24px;
     margin-top: 24px;
-  }
-  .cocktail-card-img {
-    max-height: 289px;
   }
   .cocktail-title {
     font-size: 20px;
@@ -198,8 +191,5 @@
   }
   .main-title {
     margin-bottom: 44px;
-  }
-  .card-button-learn-more {
-    min-width: 225px;
   }
 }
