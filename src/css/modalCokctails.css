@@ -122,6 +122,10 @@
 
   
 }
+
+.modal-header__link:hover{
+    color: var(--main-color);
+}
 .modal-header__subtitle-inst{
     margin-bottom: 40px;
 }
@@ -211,7 +215,10 @@
     gap: 18px;
     flex-direction: row;
     }
-    .modal-header__img{margin-bottom: 20px;}
+    .modal-header__img{
+        margin-bottom: 20px;
+        margin-right: 0;
+    }
     .modal-header__subtitle-inst {
             margin-bottom: 20px;
         }
