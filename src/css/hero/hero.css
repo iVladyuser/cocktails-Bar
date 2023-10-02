@@ -77,7 +77,7 @@
   }
   .girl-img-hero {
     position: relative;
-    z-index: 100;
+    z-index: 1;
     max-width: 100%;
     height: auto;
   }
@@ -202,7 +202,7 @@
     width: 100%;
     max-width: 100%;
     height: auto;
-    z-index: 100;
+    z-index: 1;
   }
 
   .img-text {
