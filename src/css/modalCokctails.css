@@ -6,22 +6,25 @@
     height: 100%;
     z-index: 3;
     background-color: rgb(21 21 21 / 60%);
+    overflow: scroll;
 
     transition: all 250ms linear;
 }
-/* .backdrop.is-hidden {
+.backdrop.is-hidden {
     pointer-events: all;
     opacity: 1;
     visibility: hidden;
-} */
+}
 
 .modal {
+
     position: absolute;
     width: 100vw;
     min-height: 100vh;
     padding: 40px 20px 40px 20px;
     background-color: var(--modal-background);
     z-index: 1;
+    
 }
     
 
@@ -51,22 +54,173 @@
     height: 18px;
 }
 
-@media screen and (min-width: 768px) {
-.modal {
-transform: translate(-50%, -50%);
-top: 50%;
-left: 50%;
-width: 600px;
-min-height: 569px;
-padding: 40px;
-border-radius: 20px;
-background-color: var(--modal-background);
+
+.modal-bottons {
+    margin-top: 40px;
+    display: flex;
+    gap: 18px;
+    flex-direction: row;
+
 }
-}
+
     
-/* @media screen and(min-width: 1280px) {
- .modal {
-width: 600px;
-min-height: 569px;
+
+.modal-header{ 
+    margin-bottom: 20px;
 }
-} */
+
+.modal-header__img{
+    margin-right: auto;
+
+    width: 295px;
+    height: 277px;
+    border-radius: 16px;
+    margin-bottom: 40px;
+}
+.modal-header__title{
+    color: var(--dark-letters-color);
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+.modal-header__subtitle{
+    color: var(--dark-letters-color);
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.12;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+.modal-header__text{
+    color: rgba(36, 36, 36, 0.50);
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.29;
+    margin-bottom: 20px;
+    
+}
+.modal-header__list{
+    display: inline-flex;
+    flex-direction: column;
+    gap: 8px;
+   list-style-type: disc;
+   margin-left: 20px;
+
+    color: rgba(36, 36, 36, 0.80);
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.29;
+
+  
+}
+.modal-header__subtitle-inst{
+    margin-bottom: 40px;
+}
+
+.modal-bottons{
+    
+     flex-direction: column;
+}
+
+.modal-btn-addfavorites{
+    display: inline-flex;
+    /* align-items: flex-start; */
+    gap: 10px;
+    padding: 16px 44px;
+    min-width: 100%;
+    height: 56px;
+    border-radius: 12px;
+    background: var(--main-color);
+    border-color: transparent;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.33;
+    letter-spacing: 0.36px;
+    text-transform: uppercase;
+    color: var(--light-letters-color);
+}
+
+
+.modal-btn-addfavorites:hover{
+    background: #6E7FCF;
+}
+
+.modal-btn-back{
+    display: inline-flex;
+    padding: 16px 60px;
+    align-items: flex-start;
+    gap: 10px;
+    min-width: 100%;
+    height: 56px;
+    color: #242424;
+
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.33; 
+    letter-spacing: 0.36px;
+    text-transform: uppercase;
+
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+
+    border-color: transparent;
+    border-radius: 12px;
+    background: rgba(36, 36, 36, 0.10);
+}
+.modal-btn-back:hover{
+    background: rgba(36, 36, 36, 0.20);
+}
+
+@media screen and (min-width: 768px) {
+    .modal {
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        width: 600px;
+        min-height: 569px;
+        padding: 40px;
+        border-radius: 20px;
+        background-color: var(--modal-background);
+    }
+    .modal-header {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    }
+    .modal-bottons {
+    margin-top: 40px;
+    display: inline-flex;
+    gap: 18px;
+    flex-direction: row;
+    }
+    .modal-header__img{margin-bottom: 20px;}
+    .modal-header__subtitle-inst {
+            margin-bottom: 20px;
+        }
+    .modal-btn-addfavorites{
+        min-width: 251px;
+        
+    }
+    .modal-btn-back{
+        min-width: 172px;
+
+    }
+}
