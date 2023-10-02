@@ -1,9 +1,8 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
-import { BASE_URL } from '../api/api';
-import { fetchCocktail } from '../modalCocktails/modalCocktails';
-import { saveToFavorites, removeFromFavorites } from './js/api/api'; // 
-import { renderList } from './js/hero/hero';
+// import { fetchCocktail } from '../modalCocktails/modalCocktails';
+// import { saveToFavorites, removeFromFavorites } from './js/api/api'; // 
+// import { renderList } from './js/hero/hero';
 
 document.addEventListener('DOMContentLoaded', () => {
   // Вибираємо всі кнопки "Add to Favorites" та "Remove from Favorites"
