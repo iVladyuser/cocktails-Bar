@@ -32,14 +32,17 @@ function renderList(arr, container) {
       item =>
         `<li class="cocktail-card">
         <div class="container__img" >
-       <img class="cocktail-card-img" src="${item.drinkThumb}" alt="${item.drink}" width ="300" height="260"/>
+       <img class="cocktail-card-img" src="${item.drinkThumb}" alt="${item.drink}"
+        
+        onerror="this.src='../img/hero/girl-mobile.png'; this.alt='${item.drink}'"/>
      </div>
+
      <div class="cocktail-description-container" >
      <h2 class="cocktail-title">${item.drink}</h2>
      <p class="cocktail-description">${item.description}</p>
      
     <ul class="cocktail-button-container"> 
-    <button type="button" class="card-button-learn-more" data-drink="${item._id}">Learn More</button>
+    <li> <button type="button" class="card-button-learn-more" data-drink="${item._id}">Learn More</button></li>
     <li> <button class="button-svg-heart">
      <svg
               class="icon-heart"
