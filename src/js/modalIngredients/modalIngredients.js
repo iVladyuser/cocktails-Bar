@@ -47,16 +47,18 @@ const renderList = (arr, container) => {
             </div>
             <ul class="ingredient-characteristic-list">
             <li class="ingredient-characteristic-item"><p class="ingredient-characteristic-descr">Type: ${
-              item.type || 'Нажаль дані тимчасово відсутні'
+              item.type || 'Unfortunately, the data is temporarily unavailable'
             }</p></li>
             <li class="ingredient-characteristic-item"><p class="ingredient-characteristic-descr">Country of origin: ${
-              item.country || 'Нажаль дані тимчасово відсутні'
+              item.country ||
+              'Unfortunately, the data is temporarily unavailable'
             }</p></li>
             <li class="ingredient-characteristic-item"><p class="ingredient-characteristic-descr">Alcohol by volume: ${
-              item.abv || 'Нажаль дані тимчасово відсутні'
+              item.abv || 'Unfortunately, the data is temporarily unavailable'
             } %</p></li>
             <li class="ingredient-characteristic-item"><p class="ingredient-characteristic-descr">Flavour: ${
-              item.flavour || 'Нажаль дані тимчасово відсутні'
+              item.flavour ||
+              'Unfortunately, the data is temporarily unavailable'
             }</p></li>
             </ul>
             <div class="modal-bottons">
