@@ -355,11 +355,15 @@ input:checked + .slider:before {
 
 /* desktop */
 @media screen and (min-width: 1280px) {
-  
+  .cursor-list{
+  cursor: pointer;
+      display: flex;
+    align-items: center;
+}
   .mobile-desktop-menu{
     display: flex;
   }
-  #hiddenDiv {
+  .hiddenDiv {
    border-radius: 16px;
 background: #7E8FDD;
 padding: 18px 24px;
