@@ -200,33 +200,34 @@ searchInput.addEventListener('blur', () => {
 const paginationContainer = document.querySelector('.pagination-container');
 
 // Function to render pagination
-function renderPagination(totalPages, currentPage, onPageChange) {
-  const pagination = new Pagination(paginationContainer, {
-    totalItems: totalPages,
-    itemsPerPage: 9,
-    visiblePages: 5, 
-    centerAlign: false,
-    template: {
-      page: '<a href="#" class="tui-page-btn">{{page}}</a>',
-      currentPage: '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
-    },
-  });
+// function renderPagination(totalPages, currentPage, onPageChange) {
+//   const pagination = new Pagination(paginationContainer, {
+//     totalItems: totalPages,
+//     itemsPerPage: 9,
+//     visiblePages: 5, 
+//     centerAlign: true,
+//     usageStatistics: false,
+//     template: {
+//       page: '<a href="#" class="tui-page-btn">{{page}}</a>',
+//       currentPage: '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
+//     },
+//   });
 
-  pagination.on('beforeMove', event => {
-    const newPage = event.page;
-    onPageChange(newPage);
-  });
+//   pagination.on('afterMove', event => {
+//     const newPage = event.page;
+//     onPageChange(newPage);
+//   });
 
-  pagination.moveToPage(currentPage);
-}
+//   pagination.moveToPage(currentPage);
+// }
 
-// // Modify your renderGalleryOrError function to accept a currentPage parameter
-function renderGalleryOrError(arr, container, currentPage) {
-renderGalleryOrError(
-  response.data,
-  document.querySelector('.js__cocktails__list')
-);
-}
+// // // Modify your renderGalleryOrError function to accept a currentPage parameter
+// function renderGalleryOrError(arr, container, currentPage) {
+// renderGalleryOrError(
+//   response.data,
+//   document.querySelector('.js__cocktails__list')
+// );
+// }
 //   const totalPages = Math.ceil(arr.length / 9); 
 
 //   // Render pagination
