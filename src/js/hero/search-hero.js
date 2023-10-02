@@ -197,43 +197,47 @@ searchInput.addEventListener('blur', () => {
 });
 
 
-// // Initialize the pagination component
-// const paginationContainer = document.getElementById('pagination');
-// const pagination = new Pagination(paginationContainer, {
-//   totalItems: 100, 
-//   itemsPerPage: 10,
-//   visiblePages: 5, 
-//   centerAlign: true, 
-// });
+const paginationContainer = document.querySelector('.pagination-container');
 
-// // Add an event listener for page changes
-// pagination.on('afterMove', event => {
-//   const currentPage = event.page;
-//   // Fetch and render the data for the new page
-//   fetchCocktailGalleryByPage(currentPage);
-// });
+// Function to render pagination
+function renderPagination(totalPages, currentPage, onPageChange) {
+  const pagination = new Pagination(paginationContainer, {
+    totalItems: totalPages,
+    itemsPerPage: 9,
+    visiblePages: 5, 
+    centerAlign: false,
+    template: {
+      page: '<a href="#" class="tui-page-btn">{{page}}</a>',
+      currentPage: '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
+    },
+  });
 
-// // Function to fetch and render data based on the current page
-// async function fetchCocktailGalleryByPage(page) {
-//   try {
-//     const url = `${BASE_URL}/cocktails/search/?page=${page}`;
+  pagination.on('beforeMove', event => {
+    const newPage = event.page;
+    onPageChange(newPage);
+  });
 
-//     const response = await axios.get(url);
-//     console.log('Response:', response.data);
-//     if (response.status !== 200) {
-//       throw new Error(`HTTP Error! Status: ${response.status}`);
-//     }
+  pagination.moveToPage(currentPage);
+}
 
-//     renderGalleryOrError(
-//       response.data,
-//       document.querySelector('.js__cocktails__list')
-//     );
+// // Modify your renderGalleryOrError function to accept a currentPage parameter
+function renderGalleryOrError(arr, container, currentPage) {
+renderGalleryOrError(
+  response.data,
+  document.querySelector('.js__cocktails__list')
+);
+}
+//   const totalPages = Math.ceil(arr.length / 9); 
 
-//     lastSearchText = ''; // Reset lastSearchText if using pagination
-//   } catch (error) {
-//     console.error('Error fetching gallery by page:', error);
-
-//     renderErrorBlock(document.querySelector('.js__cocktails__list'));
-//     hideMainTitle();
-//   }
+//   // Render pagination
+//   renderPagination(totalPages, currentPage, newPage => {
+//     const start = (newPage - 1) * 10;
+//     const end = start + 10;
+//     const displayedItems = arr.slice(start, end);
+//     renderGalleryOrError(displayedItems, container, newPage);
+//   });
 // }
+
+
+
+
