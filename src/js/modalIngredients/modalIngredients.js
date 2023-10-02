@@ -1,23 +1,12 @@
 import axios from 'axios';
 import { BASE_URL } from '../api/api';
 
+const backDrop = document.querySelector('#modal-cocktail');
+const modal = document.querySelector('.modal');
+const modalCocktailContent = document.querySelector('.modal-cocktail__content');
 const ingredientsContentEl = document.querySelector(
   '.modal-ingredients__content'
 );
-const ingredientLink = document.querySelector('.modal-header__link');
-// ingredientLink.addEventListener('click', console.log('hi'));
-
-const backDrop = document.querySelector('#modal-cocktail');
-const modal = document.querySelector('.modal');
-// modal.addEventListener('click', event => {
-//   if (event.currentTarget === event.target) {
-//     return;
-//   }
-//   document.querySelectorAll('.modal-header__link').forEach(item => {
-//     console.log(item);
-//   });
-// });
-// backDrop.classList.remove('is-hidden');
 
 export async function fetchIngredient(ingredientId) {
   try {
@@ -26,6 +15,18 @@ export async function fetchIngredient(ingredientId) {
 
     renderList(data, ingredientsContentEl);
 
+    const backButtonEl = document.querySelector(
+      '[data-modal-close-ingredients]'
+    );
+
+    const handleClickBackButton = () => {
+      ingredientsContentEl.style.display = 'none';
+      modalCocktailContent.style.display = 'block';
+      modal.classList.remove('modal-ingredient');
+      backButtonEl.removeEventListener('click', handleClickBackButton);
+    };
+    backButtonEl.addEventListener('click', handleClickBackButton);
+
     console.log(data[0]);
   } catch (error) {
     console.error('Error while getting ingredient:', error);
@@ -33,7 +34,7 @@ export async function fetchIngredient(ingredientId) {
   }
 }
 
-// fetchIngredient(64aebb7f82d96cc69e0eb4a5);
+// fetchIngredient(64f1d5cc69d8333cf130fc22);
 
 const renderList = (arr, container) => {
   const markup = arr
