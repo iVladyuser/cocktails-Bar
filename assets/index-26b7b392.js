@@ -12,6 +12,10 @@ import"./styles-474f7b72.js";function zt(t,e){return function(){return t.apply(e
             <li class="ingredient-characteristic-item"><p class="ingredient-characteristic-descr">Alcohol by volume: ${r.abv||"Нажаль дані тимчасово відсутні"} %</p></li>
             <li class="ingredient-characteristic-item"><p class="ingredient-characteristic-descr">Flavour: ${r.flavour||"Нажаль дані тимчасово відсутні"}</p></li>
             </ul>
+            <div class="modal-bottons">
+            <button class="modal-btn-addfavorites" data-modal-add-ingredients>Add to favorite</button>
+            <button class="modal-btn-back" data-modal-close-ingredients aria-label="close">Back</button> 
+            </div>
             `).join("");e.innerHTML=n},Tt=document.querySelector(".modal-cocktail__content"),ue=document.querySelector(".modal-ingredients__content"),fe=document.querySelector("#modal-cocktail"),Un=document.querySelector("[data-modal-close]");async function de(t){try{const n=(await X.get(`${q}/cocktails/lookup/?id=${t}`)).data;$n(n,Tt),zn(),console.log(n[0])}catch(e){throw console.error("Error while getting cocktail:",e),e}}const $n=(t,e)=>{const n=t.map(r=>`
       <div class="modal-header">
         <img class="modal-header__img" src="${r.drinkThumb}" alt="${r.drink}" loading="lazy" width="288" height="277" />
