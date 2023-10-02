@@ -341,8 +341,6 @@ input:checked + .slider:before {
   position: absolute;
   fill: #FDFDFF;
   opacity: 0.3;
-  width: 391px;
-  height: 391px;
   bottom: -100px;
   right: -100px;
 
