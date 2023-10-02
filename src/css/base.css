@@ -36,23 +36,18 @@ link:visited {
   color: inherit;
 }
 
-/* .link:hover, 
-  .link:focus,
-  .link:active,
-  .order-btn:active,
-  .filter-btn:active {
-    color: var(--accent-color);
-  } */
 
 @media screen and (max-width: 767.9px) {
   body {
     background-size: cover;
     background-image: url(../img/bcg-image/mobile-bcg-image.png);
-    @media (min-device-pixel-ratio: 2),
-    (-webkit-min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
-      background-image: url(../img/bcg-image/mobile-bcg-image@2x.png);
+    
+  }
+  @media screen and (min-device-pixel-ratio: 2),
+  screen and (min-resolution: 192dpi),
+  screen and (min-resolution: 2dppx) {
+  body {
+    background-image: url(../img/bcg-image/mobile-bcg-image@2x.png);
   }
   }
   .container {
