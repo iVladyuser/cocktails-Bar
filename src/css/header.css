@@ -370,7 +370,7 @@ input:checked + .slider:before {
   .mobile-desktop-menu{
     display: flex;
   }
-  .hiddenDiv {
+  .dark-theme .hiddenDiv {
    border-radius: 16px;
 background: #7E8FDD;
 padding: 18px 24px;
@@ -382,7 +382,18 @@ gap: 8px;
     top: 33px;
     left: 121px
 }
-  
+  .light-theme .hiddenDiv  {
+   border-radius: 16px;
+background: #ff4d00;
+padding: 18px 24px;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+gap: 8px;
+   position: absolute;
+    top: 33px;
+    left: 121px
+}
   .chevron-desing{
     fill: #7E8FDD ;
   }

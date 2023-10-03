@@ -71,6 +71,7 @@
 @media screen and (min-width: 768px) {
     .modal-ingredient {
         min-height: 0;
-        max-height: 506px;
     }
+
+
 }
