@@ -58,7 +58,7 @@
 }
 .icon-social:hover,
 .icon-social:focus{
-  transition: transform 250 ms liner;
+  transition: transform 250ms linear;
   transform: scale(1.1);
 }
 @media screen and (min-width: 768px) {

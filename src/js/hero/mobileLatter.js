@@ -12,14 +12,14 @@ const choices = new Choices(element, {
     );
 
 
-    const elementChoice = document.querySelector('.choices');
-    elementChoice.addEventListener("change", (e) => {
-        if(e.target.nodeName  !== "OPTION"){
-            return;
-        }
-      const newClass = document.querySelector (".choices__inner")
-      newClass.classList.add("actives");
-    }
+    // const elementChoice = document.querySelector('.choices');
+    // elementChoice.addEventListener("change", (e) => {
+    //     if(e.target.nodeName  !== "OPTION"){
+    //         return;
+    //     }
+    //   const newClass = document.querySelector (".choices__inner")
+    //   newClass.classList.add("actives");
+    // }
 
-    )
+    // )
     
