@@ -15,7 +15,7 @@ export async function fetchIngredient(ingredientId, ingredientName) {
 
     renderList(data, ingredientsContentEl, ingredientName);
 
-    changeAddBtnValue();
+    // changeAddBtnValue();
 
     addToLocalStorage();
 
@@ -88,19 +88,23 @@ async function addToLocalStorage() {
   addFavoritesBtn.addEventListener('click', event => {
     const ingredientId = event.target.dataset.ingredient;
     const inStorage = JSON.parse(localStorage.getItem(KEY_FAVORITE));
+
     if (inStorage === null) {
       ingredientsArray.push(ingredientId);
       localStorage.setItem(KEY_FAVORITE, JSON.stringify(ingredientsArray));
-      changeAddBtnValue();
+      addFavoritesBtn.textContent = 'Remove from favorite';
+      // changeAddBtnValue();
       return;
     } else {
       if (inStorage.includes(ingredientId)) {
         return;
       }
     }
+
     ingredientsArray.push(ingredientId);
     localStorage.setItem(KEY_FAVORITE, JSON.stringify(ingredientsArray));
-    changeAddBtnValue();
+    addFavoritesBtn.textContent = 'Remove from favorite';
+
     // console.log(inStorage);
   });
 }
@@ -110,8 +114,8 @@ async function changeAddBtnValue() {
     '[data-modal-add-ingredients]'
   );
   const btnDataId = addFavoritesBtn.dataset.ingredient;
-  // const btnValue = addFavoritesBtn.textContent;
   const inStorage = JSON.parse(localStorage.getItem(KEY_FAVORITE));
+
   if (inStorage === null) {
     return;
   } else {
@@ -120,5 +124,20 @@ async function changeAddBtnValue() {
     }
   }
 
-  // console.log(btnValue);
+  // if (addFavoritesBtn.textContent === 'Remove from favorite') {
+  //   const indexId = inStorage.findIndex(id => id === btnDataId);
+  //   console.log(indexId);
+  // }
+  // console.log(indexId);
+}
+
+async function changeRemoveBtnValue() {
+  const addFavoritesBtn = document.querySelector(
+    '[data-modal-add-ingredients]'
+  );
+  const btnDataId = addFavoritesBtn.dataset.ingredient;
+  const inStorage = JSON.parse(localStorage.getItem(KEY_FAVORITE));
+
+  const indexId = inStorage.findIndex(id => id === btnDataId);
+  console.log(indexId);
 }
