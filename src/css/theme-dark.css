@@ -1,4 +1,4 @@
-/* hero-css */
+/* 
 .title-hero {
     color: var(--light-letters-color);
 }
@@ -60,7 +60,7 @@
 
 }
 
-/* search-hero-css */
+
 .actives {
     background: #9CDFDF;
     border: 1px solid #9CDFDF;
@@ -146,15 +146,14 @@
     background: var(--hover-color);
 } 
 
-/* coctailsMarckup-css */
 
- .main-title {
+.main-title {
     color: var(--light-letters-color);
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 } 
 
-/* Card  */
- .cocktail-card {
+
+.cocktail-card {
     background-color: var(--light-letters-color);
     box-shadow: 0px 4px 46px 0px rgba(0, 0, 0, 0.05);
 }
@@ -162,10 +161,10 @@
 .cocktail-card-img {
     background: transparent;
     box-shadow: 0px 4px 46px 0px rgba(0, 0, 0, 0.05);
-} */
+} 
 
-/* Dscription  */
- .cocktail-description-container {
+
+.cocktail-description-container {
     background-color: transparent;
 }
 
@@ -175,11 +174,9 @@
 
 .cocktail-description {
     color: var(--light-letters-color);
-} */
+} 
 
-/* Buttons  */
-
- .card-button-learn-more {
+.card-button-learn-more {
     color: var(--light-letters-color);
     background-color: transparent;
     border: 1px solid var(--main-color);
@@ -206,21 +203,18 @@
 
 .button-svg-heart {
     background-color: var(--main-color);
-} */
+}
 
-/* favCoctails-css */
-
- .title-page {
+.title-page {
     color: #242424;
 }
 
 .text-span {
     color: #9cdfdf;
-} */
+} 
 
-/* header-css */
 
- .header-logo-span {
+.header-logo-span {
     color: #000000;
 }
 
@@ -248,10 +242,9 @@
 .header-menu-btn-icon {
     fill: #000000;
 
-} */
+} 
 
-/* mobile menu */
- .header-mobile-menu {
+.header-mobile-menu {
     background: #7E8FDD;
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -317,10 +310,9 @@ input:checked+.slider:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(26px);
-} */
+} 
 
-/* Rounded sliders */
- .slider.round {
+.slider.round {
     border: 1px solid #9CDFDF;
 }
 
@@ -343,12 +335,10 @@ input:checked+.slider:before {
         border-radius: 34px;
         border: 1px solid #ffffff;
     }
-} */
-
-/* desktop */
- @media screen and (min-width: 1280px) {
+} 
 
 
+@media screen and (min-width: 1280px) {
     .hiddenDiv {
         background: #7E8FDD;
     }
@@ -393,11 +383,9 @@ input:checked+.slider:before {
     .header-menu-link:focus {
         color: #0c0c0c;
     }
-} */
+}
 
-/* modalCokctails-css */
-
- .backdrop {
+.backdrop {
     background-color: rgb(21 21 21 / 60%);
     transition: all 250ms linear;
 }
@@ -435,7 +423,7 @@ input:checked+.slider:before {
     background: var(--main-color);
     border-color: transparent;
     color: var(--light-letters-color);
-} */
+}
 
 .modal-btn-addfavorites:hover {
     background: #6E7FCF;
@@ -456,11 +444,9 @@ input:checked+.slider:before {
         background-color: var(--modal-background);
     }
 
-} */
+}
 
-/* modalIngredients-css */
-
- .ingredient-type {
+.ingredient-type {
     color: rgba(36, 36, 36, 0.5);
 }
 
@@ -486,4 +472,4 @@ input:checked+.slider:before {
 
 .ingredient-characteristic-descr {
     color: rgba(36, 36, 36, 0.8);
-}
+}  */
