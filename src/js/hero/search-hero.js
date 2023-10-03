@@ -83,7 +83,7 @@ function updateMainTitle(text) {
 function hideMainTitle() {
   mainTitle.style.display = 'none';
 }
-
+let cocktailData = [];
 export async function fetchCocktailGalleryByName(name) {
   try {
     const url = `${BASE_URL}/cocktails/search/?s=${name}`;
@@ -93,12 +93,12 @@ export async function fetchCocktailGalleryByName(name) {
     if (response.status !== 200) {
       throw new Error(`HTTP Error! Status: ${response.status}`);
     }
+    cocktailData = response.data;
 
     renderGalleryOrError(
-      response.data,
+      cocktailData,
       document.querySelector('.js__cocktails__list')
     );
-
     updateMainTitle('Searching results');
   } catch (error) {
     console.error('Помилка при отриманні галереї за назвою:', error);
@@ -196,7 +196,6 @@ searchInput.addEventListener('blur', () => {
   });
 });
 
-
 const paginationContainer = document.querySelector('.pagination-container');
 
 // Function to render pagination
@@ -204,7 +203,7 @@ const paginationContainer = document.querySelector('.pagination-container');
 //   const pagination = new Pagination(paginationContainer, {
 //     totalItems: totalPages,
 //     itemsPerPage: 9,
-//     visiblePages: 5, 
+//     visiblePages: 5,
 //     centerAlign: true,
 //     usageStatistics: false,
 //     template: {
@@ -228,7 +227,7 @@ const paginationContainer = document.querySelector('.pagination-container');
 //   document.querySelector('.js__cocktails__list')
 // );
 // }
-//   const totalPages = Math.ceil(arr.length / 9); 
+//   const totalPages = Math.ceil(arr.length / 9);
 
 //   // Render pagination
 //   renderPagination(totalPages, currentPage, newPage => {
@@ -238,7 +237,3 @@ const paginationContainer = document.querySelector('.pagination-container');
 //     renderGalleryOrError(displayedItems, container, newPage);
 //   });
 // }
-
-
-
-
