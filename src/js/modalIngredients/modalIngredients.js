@@ -15,7 +15,9 @@ export async function fetchIngredient(ingredientId, ingredientName) {
 
     renderList(data, ingredientsContentEl, ingredientName);
 
-    // addToLocalStorage();
+    changeAddBtnValue();
+
+    addToLocalStorage();
 
     const backButtonEl = document.querySelector(
       '[data-modal-close-ingredients]'
@@ -76,12 +78,47 @@ const renderList = (arr, container, ingredientName) => {
   container.innerHTML = markup;
 };
 
-// async function addToLocalStorage() {
-//   const addFavoritesBtn = document.querySelector(
-//     '[data-modal-add-ingredients]'
-//   );
-//   addFavoritesBtn.addEventListener('click', event => {
-//     const ingredientId = event.target.dataset.ingredient;
-//     localStorage.setItem('ingredientId', ingredientId);
-//   });
-// }
+const KEY_FAVORITE = 'favoriteIngredients';
+const ingredientsArray = JSON.parse(localStorage.getItem(KEY_FAVORITE)) ?? [];
+
+async function addToLocalStorage() {
+  const addFavoritesBtn = document.querySelector(
+    '[data-modal-add-ingredients]'
+  );
+  addFavoritesBtn.addEventListener('click', event => {
+    const ingredientId = event.target.dataset.ingredient;
+    const inStorage = JSON.parse(localStorage.getItem(KEY_FAVORITE));
+    if (inStorage === null) {
+      ingredientsArray.push(ingredientId);
+      localStorage.setItem(KEY_FAVORITE, JSON.stringify(ingredientsArray));
+      changeAddBtnValue();
+      return;
+    } else {
+      if (inStorage.includes(ingredientId)) {
+        return;
+      }
+    }
+    ingredientsArray.push(ingredientId);
+    localStorage.setItem(KEY_FAVORITE, JSON.stringify(ingredientsArray));
+    changeAddBtnValue();
+    // console.log(inStorage);
+  });
+}
+
+async function changeAddBtnValue() {
+  const addFavoritesBtn = document.querySelector(
+    '[data-modal-add-ingredients]'
+  );
+  const btnDataId = addFavoritesBtn.dataset.ingredient;
+  // const btnValue = addFavoritesBtn.textContent;
+  const inStorage = JSON.parse(localStorage.getItem(KEY_FAVORITE));
+  if (inStorage === null) {
+    return;
+  } else {
+    if (inStorage.includes(btnDataId)) {
+      addFavoritesBtn.textContent = 'Remove from favorite';
+    }
+  }
+
+  // console.log(btnValue);
+}

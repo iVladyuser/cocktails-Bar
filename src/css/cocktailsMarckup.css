@@ -22,6 +22,13 @@
   border-radius: 20px;
   box-shadow: 0px 4px 46px 0px rgba(0, 0, 0, 0.05);
 }
+.cocktail-card:hover,
+.cocktail-card:focus {
+  box-shadow: 0 0 2px #7e8fdd, 0 0 5px #7e8fdd, 0 0 8px #7e8fdd;
+ /* animation: pulsate-light 4s infinite alternate; */
+  transition: transform 250ms linear;
+  transform: scale(1.05);
+}
 .cocktail-card:not(:last-child) {
   margin-bottom: 20px;
 }
@@ -192,4 +199,65 @@
   .main-title {
     margin-bottom: 44px;
   }
+}
+
+/* Dark  */
+.dark-theme .main-title {
+  color: var(--light-letters-color);
+} 
+
+.dark-theme .cocktail-card {
+background-color: #232330; ;
+}
+.dark-theme .cocktail-card:hover,
+.dark-theme .cocktail-card:focus {
+  box-shadow: 0 0 2px #fff, 0 0 5px #fdfdff, 0 0 8px #fdfdff;
+  transition: transform 250ms linear;
+  transform: scale(1.05);
+}
+
+.dark-theme .cocktail-card-img {
+  background: transparent;
+} 
+
+
+.dark-theme .cocktail-description-container {
+  background-color: transparent;
+}
+
+.dark-theme .cocktail-title {
+  color: var(--light-letters-color);
+}
+
+.dark-theme .cocktail-description {
+  color: var(--light-letters-color);
+} 
+
+.dark-theme .card-button-learn-more {
+  color: var(--light-letters-color);
+  background-color: transparent;
+  border: 1px solid var(--main-color);
+
+  transition: color 2550ms var(--transition-cubic),
+  background-color 250ms var(--transition-cubic);
+}
+
+.card-button-learn-more:hover,
+.card-button-learn-more:focus {
+  background-color: var(--main-color);
+  color: var(--light-letters-color);
+}
+
+.button-svg-heart {
+  fill: var(--main-color);
+  transition: fill 250ms var(--transition-cubic);
+}
+
+.button-svg-heart:hover,
+.button-svg-heart:focus {
+  fill: var(--light-letters-color);
+}
+
+.button-svg-heart {
+  background-color: var(--main-color);
 }
