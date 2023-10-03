@@ -1,22 +1,94 @@
-/* hero-css */
-/* .title-hero {
+@media screen and (max-width: 767.9px) {
+    body {
+      background-size: cover;
+      background-image: url(../img/bcg-image/dark-mobile-bcg-image.png);
+      
+    }
+
+    @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    body {
+      background-image: url(../img/bcg-image/dark-mobile-bcg-image@2x.png);
+    }
+    }
+    .container {
+      max-width: 375px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+  
+  @media screen and (min-width: 768px) {
+    body {
+      background-size: cover;
+      background-image: url(../img/bcg-image/dark-tablet-bcg-image.png);
+    }
+      @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    body {
+          background-image: url(../img/bcg-image/dark-tablet-bcg-image@2x.png);
+      }
+    }
+    .container {
+      max-width: 768px;
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+    .section {
+      padding-top: 100px;
+    }
+  }
+  
+  @media screen and (min-width: 1280px) {
+    body {
+      background-size: cover;
+      background-image: url(../img/bcg-image/desktop-bcg-img.png);
+    }
+   
+    .dark-theme body {
+      background-size: cover;
+      background-image: url(../img/bcg-image/dark-desktop-bcg-img.png);
+    }
+    @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+      body {
+        background-image: url(../img/bcg-image/desktop-bcg-img@2x.png);
+      }
+    
+       .dark-theme  body {
+        background-image: url(../img/bcg-image/dark-desktop-bcg-img@2x.png);
+      }
+    }
+    .container {
+      max-width: 1280px;
+      padding-left: 100px;
+      padding-right: 100px;
+    }
+  }
+  
+
+
+.dark-theme .title-hero {
     color: var(--light-letters-color);
 }
 
-.title-hero-span {
+.dark-theme .title-hero-span {
     color: var(--main-color);
 }
 
-.hero-text {
+.dark-theme .hero-text {
     color: var(--light-letters-color);
 }
 
-.btn-hero-scroll {
+.dark-theme .btn-hero-scroll {
     background: var(--main-color);
     color: var(--light-letters-color);
 }
 
-.rectangle {
+.dark-theme .rectangle {
     background: var(--main-color);
     box-shadow: 0px 28px 75px 0px rgba(88, 109, 204, 0.5);
 }
@@ -58,10 +130,10 @@
         color: var(--light-letters-color);
     }
 
-} */
+}
 
-/* search-hero-css */
-/* .actives {
+
+.actives {
     background: #9CDFDF;
     border: 1px solid #9CDFDF;
 }
@@ -144,17 +216,16 @@
 
 .active {
     background: var(--hover-color);
-} */
+} 
 
-/* coctailsMarckup-css */
 
-/* .main-title {
+.main-title {
     color: var(--light-letters-color);
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-} */
+} 
 
-/* Card  */
-/* .cocktail-card {
+
+.cocktail-card {
     background-color: var(--light-letters-color);
     box-shadow: 0px 4px 46px 0px rgba(0, 0, 0, 0.05);
 }
@@ -162,10 +233,10 @@
 .cocktail-card-img {
     background: transparent;
     box-shadow: 0px 4px 46px 0px rgba(0, 0, 0, 0.05);
-} */
+} 
 
-/* Dscription  */
-/* .cocktail-description-container {
+
+.cocktail-description-container {
     background-color: transparent;
 }
 
@@ -175,11 +246,9 @@
 
 .cocktail-description {
     color: var(--light-letters-color);
-} */
+} 
 
-/* Buttons  */
-
-/* .card-button-learn-more {
+.card-button-learn-more {
     color: var(--light-letters-color);
     background-color: transparent;
     border: 1px solid var(--main-color);
@@ -206,21 +275,18 @@
 
 .button-svg-heart {
     background-color: var(--main-color);
-} */
+}
 
-/* favCoctails-css */
-
-/* .title-page {
+.title-page {
     color: #242424;
 }
 
 .text-span {
     color: #9cdfdf;
-} */
+} 
 
-/* header-css */
 
-/* .header-logo-span {
+.header-logo-span {
     color: #000000;
 }
 
@@ -248,10 +314,9 @@
 .header-menu-btn-icon {
     fill: #000000;
 
-} */
+} 
 
-/* mobile menu */
-/* .header-mobile-menu {
+.header-mobile-menu {
     background: #7E8FDD;
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -317,10 +382,9 @@ input:checked+.slider:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(26px);
-} */
+} 
 
-/* Rounded sliders */
-/* .slider.round {
+.slider.round {
     border: 1px solid #9CDFDF;
 }
 
@@ -343,12 +407,10 @@ input:checked+.slider:before {
         border-radius: 34px;
         border: 1px solid #ffffff;
     }
-} */
-
-/* desktop */
-/* @media screen and (min-width: 1280px) {
+} 
 
 
+@media screen and (min-width: 1280px) {
     .hiddenDiv {
         background: #7E8FDD;
     }
@@ -393,11 +455,9 @@ input:checked+.slider:before {
     .header-menu-link:focus {
         color: #0c0c0c;
     }
-} */
+}
 
-/* modalCokctails-css */
-
-/* .backdrop {
+.backdrop {
     background-color: rgb(21 21 21 / 60%);
     transition: all 250ms linear;
 }
@@ -456,11 +516,9 @@ input:checked+.slider:before {
         background-color: var(--modal-background);
     }
 
-} */
+}
 
-/* modalIngredients-css */
-
-/* .ingredient-type {
+.ingredient-type {
     color: rgba(36, 36, 36, 0.5);
 }
 
@@ -486,4 +544,4 @@ input:checked+.slider:before {
 
 .ingredient-characteristic-descr {
     color: rgba(36, 36, 36, 0.8);
-} */
+} 
