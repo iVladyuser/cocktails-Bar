@@ -45,7 +45,7 @@ export function pagination(cocktailData) {
     const endIndex = startIndex + itemsPerPage;
     const paginatedData = cocktailData.slice(startIndex, endIndex);
 
-    // Тут мжете вставляти розмітку на сторінку, рендерити картки
+    // Тут вставляти розмітку на сторінку, рендерити картки
     console.log(paginatedData);
     renderList();
   }
