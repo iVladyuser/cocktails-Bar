@@ -1,7 +1,7 @@
 // import axios from 'axios';
 // import Notiflix from 'notiflix';
 // // import { fetchCocktail } from '../modalCocktails/modalCocktails';
-// // import { saveToFavorites, removeFromFavorites } from './js/api/api'; // 
+// // import { saveToFavorites, removeFromFavorites } from './js/api/api'; //
 // // import { renderList } from './js/hero/hero';
 
 // document.addEventListener('DOMContentLoaded', () => {
