@@ -217,66 +217,6 @@
 .active {
     background: var(--hover-color);
 } 
-
-
-.main-title {
-    color: var(--light-letters-color);
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-} 
-
-
-.cocktail-card {
-    background-color: var(--light-letters-color);
-    box-shadow: 0px 4px 46px 0px rgba(0, 0, 0, 0.05);
-}
-
-.cocktail-card-img {
-    background: transparent;
-    box-shadow: 0px 4px 46px 0px rgba(0, 0, 0, 0.05);
-} 
-
-
-.cocktail-description-container {
-    background-color: transparent;
-}
-
-.cocktail-title {
-    color: var(--light-letters-color);
-}
-
-.cocktail-description {
-    color: var(--light-letters-color);
-} 
-
-.card-button-learn-more {
-    color: var(--light-letters-color);
-    background-color: transparent;
-    border: 1px solid var(--main-color);
-
-    transition: color 250ms var(--transition-cubic),
-        background-color 250ms var(--transition-cubic);
-}
-
-.card-button-learn-more:hover,
-.card-button-learn-more:focus {
-    background-color: var(--main-color);
-    color: var(--light-letters-color);
-}
-
-.button-svg-heart {
-    fill: var(--main-color);
-    transition: fill 250ms var(--transition-cubic);
-}
-
-.button-svg-heart:hover,
-.button-svg-heart:focus {
-    fill: var(--light-letters-color);
-}
-
-.button-svg-heart {
-    background-color: var(--main-color);
-}
-
 .title-page {
     color: #242424;
 }
