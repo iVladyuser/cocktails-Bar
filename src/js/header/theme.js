@@ -57,31 +57,65 @@
 
 
 
-const switchTheme = () => {
-  const rootEl = document.documentElement;
-  let dataTheme = rootEl.getAttribute('data-theme'),
-    newTheme;
-  newTheme = dataTheme === 'light' ? 'dark' : 'light';
-  console.log(newTheme);
-  rootEl.setAttribute('data-theme', newTheme);
+// const switchTheme = () => {
+//   const rootEl = document.documentElement;
+//   let dataTheme = rootEl.getAttribute ('data-theme'),
+//     newTheme;
+//   newTheme = dataTheme === 'light' ? 'dark' : 'light';
+//   console.log(newTheme);
+//   rootEl.setAttribute('data-theme', newTheme);
 
-  localStorage.setItem('theme', newTheme);
+//   localStorage.setItem('theme', newTheme);
+// };
+
+// document.getElementById('theme-switcher')
+//   .addEventListener('change', switchTheme);
+
+
+// const savedTheme = localStorage.getItem('theme');
+// if (savedTheme) {
+//   document.documentElement.setAttribute('data-theme', savedTheme);
+  
+//   if (savedTheme === 'dark') {
+//     document.getElementById('theme-switcher').checked = true;
+//   }
+// }
+
+const switchTheme = () => {
+    const rootEl = document.documentElement;
+    let currentTheme = rootEl.getAttribute('data-theme');
+    let newTheme;
+
+    if (currentTheme === 'light') {
+        newTheme = 'dark';
+    } else {
+        newTheme = 'light';
+    }
+
+    console.log(newTheme);
+    rootEl.setAttribute('data-theme', newTheme);
+
+    // Удаление текущего класса и добавление нового класса к корневому элементу
+    rootEl.classList.remove(currentTheme + '-theme');
+    rootEl.classList.add(newTheme + '-theme');
+
+    localStorage.setItem('theme', newTheme);
 };
 
 document.getElementById('theme-switcher')
-  .addEventListener('change', switchTheme);
-
+    .addEventListener('change', switchTheme);
 
 const savedTheme = localStorage.getItem('theme');
 if (savedTheme) {
-  document.documentElement.setAttribute('data-theme', savedTheme);
-  
-  if (savedTheme === 'dark') {
-    document.getElementById('theme-switcher').checked = true;
-  }
+    document.documentElement.setAttribute('data-theme', savedTheme);
+
+    // Установка класса в соответствии с сохраненной темой
+    document.documentElement.classList.add(savedTheme + '-theme');
+
+    if (savedTheme === 'dark') {
+        document.getElementById('theme-switcher').checked = true;
+    }
 }
-
-
 
 
 
