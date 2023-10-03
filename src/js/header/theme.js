@@ -95,7 +95,7 @@ const switchTheme = () => {
     console.log(newTheme);
     rootEl.setAttribute('data-theme', newTheme);
 
-    // Удаление текущего класса и добавление нового класса к корневому элементу
+    
     rootEl.classList.remove(currentTheme + '-theme');
     rootEl.classList.add(newTheme + '-theme');
 
@@ -109,7 +109,7 @@ const savedTheme = localStorage.getItem('theme');
 if (savedTheme) {
     document.documentElement.setAttribute('data-theme', savedTheme);
 
-    // Установка класса в соответствии с сохраненной темой
+    
     document.documentElement.classList.add(savedTheme + '-theme');
 
     if (savedTheme === 'dark') {
