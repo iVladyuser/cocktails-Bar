@@ -8,14 +8,14 @@ const ingredientsContentEl = document.querySelector(
   '.modal-ingredients__content'
 );
 
-export async function fetchIngredient(ingredientId) {
+export async function fetchIngredient(ingredientId, ingredientName) {
   try {
     const response = await axios.get(`${BASE_URL}/ingredients/${ingredientId}`);
     const data = response.data;
 
-    renderList(data, ingredientsContentEl);
+    renderList(data, ingredientsContentEl, ingredientName);
 
-    addToLocalStorage();
+    // addToLocalStorage();
 
     const backButtonEl = document.querySelector(
       '[data-modal-close-ingredients]'
@@ -29,7 +29,7 @@ export async function fetchIngredient(ingredientId) {
     };
     backButtonEl.addEventListener('click', handleClickBackButton);
 
-    console.log(data[0]);
+    // console.log(data[0]);
   } catch (error) {
     console.error('Error while getting ingredient:', error);
     throw error;
@@ -38,12 +38,12 @@ export async function fetchIngredient(ingredientId) {
 
 // fetchIngredient(64f1d5cc69d8333cf130fc22);
 
-const renderList = (arr, container) => {
+const renderList = (arr, container, ingredientName) => {
   const markup = arr
     .map(
       item => `
-            <h3 class="ingredient-name">${item.title}</h3>
-            <p class="ingredient-type">${item.type}</p>
+            <h3 class="ingredient-name">${ingredientName}</h3>
+            <p class="ingredient-type">${item.title}</p>
             <div class="ingredient-descr-wrapper">
             <p class="ingredient-descr">${item.description}</p>
             </div>
@@ -76,12 +76,12 @@ const renderList = (arr, container) => {
   container.innerHTML = markup;
 };
 
-async function addToLocalStorage() {
-  const addFavoritesBtn = document.querySelector(
-    '[data-modal-add-ingredients]'
-  );
-  addFavoritesBtn.addEventListener('click', event => {
-    const ingredientId = event.target.dataset.ingredient;
-    localStorage.setItem('ingredientId', ingredientId);
-  });
-}
+// async function addToLocalStorage() {
+//   const addFavoritesBtn = document.querySelector(
+//     '[data-modal-add-ingredients]'
+//   );
+//   addFavoritesBtn.addEventListener('click', event => {
+//     const ingredientId = event.target.dataset.ingredient;
+//     localStorage.setItem('ingredientId', ingredientId);
+//   });
+// }

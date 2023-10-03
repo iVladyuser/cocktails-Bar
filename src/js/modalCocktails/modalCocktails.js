@@ -26,6 +26,8 @@ export async function fetchCocktail(drinkId) {
     );
     const data = response.data;
 
+    // console.log(data[0]);
+
     renderCocktailList(data, modalCocktailContent);
 
     moveToIngredient();
@@ -111,8 +113,9 @@ async function moveToIngredient() {
       modalCocktailContent.style.display = 'none';
 
       const ingredientId = event.target.dataset.ingredient;
+      const ingredientName = event.target.textContent;
 
-      fetchIngredient(ingredientId);
+      fetchIngredient(ingredientId, ingredientName);
 
       modalIngredientsContent.style.display = 'block';
     })
