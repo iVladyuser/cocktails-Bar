@@ -124,6 +124,19 @@ export async function fetchCocktailGallery(letterOrNumber) {
     const response = await axios.get(url);
      cocktailData = response.data;
     
+    //  function isMobile() {
+      //     if (window.innerWidth >= 768) {
+      //       return false;
+      //     } else {
+      //       return true;
+      //     }
+      //   }
+      //   if (window.innerWidth >= 1280) {
+      //     cardsPerPage = 9;
+      //   } else {
+      //     cardsPerPage = 8;
+      //   }
+      //   const itemsPerPage = cardsPerPage; // Кількість елементів на сторінці
     const options = {
       totalItems: cocktailData.length,
       itemsPerPage: 10,
