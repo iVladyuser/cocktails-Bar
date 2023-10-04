@@ -2,8 +2,14 @@
   padding-top: 40px;
   padding-bottom: 80px;
 }
-.cocktails-list{
-  margin: 0 auto;
+.container-random-cocktails-gallary {
+  width: 320px;
+}
+.cocktails-list {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
 }
 .main-title {
   color: var(--dark-letters-color);
@@ -21,17 +27,17 @@
   background-color: var(--light-letters-color);
   border-radius: 20px;
   box-shadow: 0px 4px 46px 0px rgba(0, 0, 0, 0.05);
+  transition: transform 250ms ease-in-out, box-shadow 250ms ease-in-out,
+    animation 250ms ease-in-out;
 }
 .cocktail-card:hover,
 .cocktail-card:focus {
   box-shadow: 0 0 2px #7e8fdd, 0 0 5px #7e8fdd, 0 0 8px #7e8fdd;
- /* animation: pulsate-light 4s infinite alternate; */
-  transition: transform 250ms linear;
+  animation: pulsate-light 4s infinite alternate;
+  transition: transform 250ms ease-in-out, box-shadow 250ms ease-in-out;
   transform: scale(1.05);
 }
-.cocktail-card:not(:last-child) {
-  margin-bottom: 20px;
-}
+
 .container__img {
   padding-top: 14px;
   padding-left: 14px;
@@ -92,6 +98,7 @@
 
   background-color: transparent;
   text-transform: uppercase;
+  text-wrap: nowrap;
 
   border-radius: 12px;
   border: 1px solid var(--main-color);
@@ -105,32 +112,41 @@
   background-color: var(--main-color);
   color: var(--light-letters-color);
 }
-.button-svg-heart {
+/* .button-svg-heart {
   fill: var(--main-color);
   transition: fill 250ms var(--transition-cubic);
-}
-.button-svg-heart:hover,
+} */
+/* .button-svg-heart:hover,
 .button-svg-heart:focus {
   fill: var(--light-letters-color);
-}
+} */
 .button-svg-heart {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 14px;
-
-  border-radius: 12px;
-  background-color: var(--main-color);
+  display: block;
+  padding: 16px;
+  width: 48px;
+  height: 48px;
   border: none;
-  min-width: 43px;
-  min-height: 43px;
+  border-radius: 12px;
+  background: var(--main-color);
+  transition: fill 250ms var(--transition-cubic);
+}
+.button-svg-heart.is-favorite .icon-heart {
+  fill: var(--light-letters-color);
+}
+.is-favorite {
+  fill: var(--light-letters-color);
 }
 .icon-heart {
   width: 18px;
   height: 18px;
+  fill: none;
+  pointer-events: none;
 }
 /* 375 */
 @media screen and (min-width: 375px) {
+  .container-random-cocktails-gallary {
+    width: 375px;
+  }
   .card-button-learn-more {
     font-size: 14px;
     padding: 14px 71px;
@@ -138,27 +154,25 @@
     min-width: 232px;
     min-height: 48px;
   }
-  .button-svg-heart {
-    padding: 16px;
-    min-width: 48px;
-    min-height: 48px;
-  }
+
 }
 /* 768 */
 @media screen and (min-width: 768px) {
+  .container-random-cocktails-gallary {
+    width: 768px;
+  }
   .markup__section {
     padding-top: 50px;
     padding-bottom: 100px;
   }
+  .main-title {
+    font-size: 40px;
+  }
   .cocktails-list {
-    display: flex;
-    justify-content: center;
+    flex-direction: row;
     flex-wrap: wrap;
     column-gap: 16px;
     row-gap: 32px;
-  }
-  .cocktail-card:not(:last-child) {
-    margin-bottom: 0;
   }
   .cocktail-card {
     width: calc((100% - 32px) / 2);
@@ -182,13 +196,17 @@
     min-width: 225px;
     min-height: 56px;
   }
-  .button-svg-heart {
-    min-width: 56px;
-    min-height: 56px;
+  .icon-heart {
+    width: 24px;
+    height: 24px;
+    
   }
 }
 
 @media screen and (min-width: 1280px) {
+  .container-random-cocktails-gallary {
+    width: 1280px;
+  }
   .cocktails-list {
     column-gap: 24px;
     row-gap: 44px;
@@ -204,10 +222,10 @@
 /* Dark  */
 .dark-theme .main-title {
   color: var(--light-letters-color);
-} 
+}
 
 .dark-theme .cocktail-card {
-background-color: #232330; ;
+  background-color: #232330;
 }
 .dark-theme .cocktail-card:hover,
 .dark-theme .cocktail-card:focus {
@@ -218,8 +236,7 @@ background-color: #232330; ;
 
 .dark-theme .cocktail-card-img {
   background: transparent;
-} 
-
+}
 
 .dark-theme .cocktail-description-container {
   background-color: transparent;
@@ -231,7 +248,7 @@ background-color: #232330; ;
 
 .dark-theme .cocktail-description {
   color: var(--light-letters-color);
-} 
+}
 
 .dark-theme .card-button-learn-more {
   color: var(--light-letters-color);
@@ -239,7 +256,7 @@ background-color: #232330; ;
   border: 1px solid var(--main-color);
 
   transition: color 2550ms var(--transition-cubic),
-  background-color 250ms var(--transition-cubic);
+    background-color 250ms var(--transition-cubic);
 }
 
 .card-button-learn-more:hover,
