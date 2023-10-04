@@ -113,6 +113,7 @@
 //   });
 // });
 
+import { fetchCocktail, renderCocktailList } from './js/modalCocktails/modalCocktails';
 
 const KEY_FAVORITE = 'favoriteCocktails';
 const favoriteCocktailList = document.querySelector('.add-to-favorite-coctail-list');
