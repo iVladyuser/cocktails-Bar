@@ -105,7 +105,9 @@ const switchTheme = () => {
 document.getElementById('theme-switcher')
     .addEventListener('change', switchTheme);
 
-const savedTheme = localStorage.getItem('theme');
+    document.getElementById('theme-switcher-mobile')
+    .addEventListener('change', switchTheme);
+    const savedTheme = localStorage.getItem('theme');
 if (savedTheme) {
     document.documentElement.setAttribute('data-theme', savedTheme);
 
