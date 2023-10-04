@@ -1,4 +1,4 @@
-import"./styles-d286961e.js";const e="favoriteCocktails",r=document.querySelector(".add-to-favorite-coctail-list"),s=JSON.parse(localStorage.getItem(e))??[],c=(t,o)=>{const i=t.map(a=>`
+import"./styles-b213e41c.js";const e="favoriteCocktails",r=document.querySelector(".add-to-favorite-coctail-list"),s=JSON.parse(localStorage.getItem(e))??[],c=(t,o)=>{const i=t.map(a=>`
         <li class="favorite-cocktail-item">
         <div class="container__img" >
        <img class="favorite-cocktail-card-img" src="${a.drinkThumb}" alt="${a.drink}"/>
