@@ -1,9 +1,9 @@
 import Pagination from 'tui-pagination';
-import { renderList } from '../cocktailsMarkUp/cocktailsMarkUp';
-
+import { fetchCocktailGalleryByName } from '../hero/search-hero';
+console.log(fetchCocktailGalleryByName());
 const galleryCocktails = document.querySelector('.cocktails-list');
 
-export function pagination(cocktailData) {
+export function pagination(arr) {
   function isMobile() {
     if (window.innerWidth >= 768) {
       return false;
@@ -19,7 +19,7 @@ export function pagination(cocktailData) {
   const itemsPerPage = cardsPerPage; // Кількість елементів на сторінці
   console.log(cardsPerPage);
   let currentPage = 1; // Поточна сторінка
-  const totalItems = cocktailData.length; // Загальна кількість елементів
+  const totalItems = arr.length; // Загальна кількість елементів
 
   const container = document.getElementById('pagination');
 
@@ -43,10 +43,10 @@ export function pagination(cocktailData) {
   function renderPage() {
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
-    const paginatedData = cocktailData.slice(startIndex, endIndex);
+    const paginatedData = arr.slice(startIndex, endIndex);
 
     // Тут вставляти розмітку на сторінку, рендерити картки
-    console.log(paginatedData);
+    console.log(arr);
     renderList();
   }
 
