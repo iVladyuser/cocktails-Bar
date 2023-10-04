@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { BASE_URL } from '../api/api';
 
-const backDrop = document.querySelector('#modal-cocktail');
 const modal = document.querySelector('.modal');
 const modalCocktailContent = document.querySelector('.modal-cocktail__content');
 const ingredientsContentEl = document.querySelector(
@@ -15,7 +14,19 @@ export async function fetchIngredient(ingredientId, ingredientName) {
 
     renderList(data, ingredientsContentEl, ingredientName);
 
-    // changeAddBtnValue();
+    const inStorage = JSON.parse(localStorage.getItem(KEY_FAVORITE));
+    const addFavoritesBtn = document.querySelector(
+      '[data-modal-add-ingredients]'
+    );
+    const btnDataId = addFavoritesBtn.dataset.ingredient;
+
+    if (inStorage === null) {
+      addToLocalStorage();
+    } else {
+      if (inStorage.includes(btnDataId)) {
+        addFavoritesBtn.textContent = 'Remove from favorite';
+      }
+    }
 
     addToLocalStorage();
 
@@ -30,15 +41,11 @@ export async function fetchIngredient(ingredientId, ingredientName) {
       backButtonEl.removeEventListener('click', handleClickBackButton);
     };
     backButtonEl.addEventListener('click', handleClickBackButton);
-
-    // console.log(data[0]);
   } catch (error) {
     console.error('Error while getting ingredient:', error);
     throw error;
   }
 }
-
-// fetchIngredient(64f1d5cc69d8333cf130fc22);
 
 const renderList = (arr, container, ingredientName) => {
   const markup = arr
@@ -82,64 +89,52 @@ const KEY_FAVORITE = 'favoriteIngredients';
 const ingredientsArray = JSON.parse(localStorage.getItem(KEY_FAVORITE)) ?? [];
 
 async function addToLocalStorage() {
-  const addFavoritesBtn = document.querySelector(
-    '[data-modal-add-ingredients]'
-  );
-  addFavoritesBtn.addEventListener('click', event => {
+  const favoritesBtn = document.querySelector('[data-modal-add-ingredients]');
+
+  const handleClickAddButton = event => {
     const ingredientId = event.target.dataset.ingredient;
     const inStorage = JSON.parse(localStorage.getItem(KEY_FAVORITE));
 
     if (inStorage === null) {
       ingredientsArray.push(ingredientId);
       localStorage.setItem(KEY_FAVORITE, JSON.stringify(ingredientsArray));
-      addFavoritesBtn.textContent = 'Remove from favorite';
-      // changeAddBtnValue();
+      favoritesBtn.textContent = 'Remove from favorite';
+      favoritesBtn.removeEventListener('click', handleClickAddButton);
+      favoritesBtn.addEventListener('click', handleClickRemoveButton);
       return;
     } else {
       if (inStorage.includes(ingredientId)) {
+        favoritesBtn.removeEventListener('click', handleClickAddButton);
+        favoritesBtn.addEventListener('click', handleClickRemoveButton);
         return;
       }
     }
 
     ingredientsArray.push(ingredientId);
     localStorage.setItem(KEY_FAVORITE, JSON.stringify(ingredientsArray));
-    addFavoritesBtn.textContent = 'Remove from favorite';
+    favoritesBtn.textContent = 'Remove from favorite';
+    favoritesBtn.removeEventListener('click', handleClickAddButton);
+    favoritesBtn.addEventListener('click', handleClickRemoveButton);
+  };
 
-    // console.log(inStorage);
-  });
-}
+  const handleClickRemoveButton = event => {
+    const ingredientId = event.target.dataset.ingredient;
+    const inStorage = JSON.parse(localStorage.getItem(KEY_FAVORITE));
 
-async function changeAddBtnValue() {
-  const addFavoritesBtn = document.querySelector(
-    '[data-modal-add-ingredients]'
-  );
-  const btnDataId = addFavoritesBtn.dataset.ingredient;
-  const inStorage = JSON.parse(localStorage.getItem(KEY_FAVORITE));
+    const indexId = inStorage.findIndex(id => id === ingredientId);
+    ingredientsArray.splice(indexId, 1);
+    localStorage.setItem(KEY_FAVORITE, JSON.stringify(ingredientsArray));
+    favoritesBtn.textContent = 'Add to favorite';
+    favoritesBtn.removeEventListener('click', handleClickRemoveButton);
+    favoritesBtn.addEventListener('click', handleClickAddButton);
+    console.log(indexId);
+  };
 
-  if (inStorage === null) {
-    return;
-  } else {
-    if (inStorage.includes(btnDataId)) {
-      addFavoritesBtn.textContent = 'Remove from favorite';
-    }
+  if (favoritesBtn.textContent === 'Add to favorite') {
+    favoritesBtn.addEventListener('click', handleClickAddButton);
   }
 
-  // if (addFavoritesBtn.textContent === 'Remove from favorite') {
-  //   const indexId = inStorage.findIndex(id => id === btnDataId);
-  //   console.log(indexId);
-  // }
-  // console.log(indexId);
+  if (favoritesBtn.textContent === 'Remove from favorite') {
+    favoritesBtn.addEventListener('click', handleClickRemoveButton);
+  }
 }
-
-async function changeRemoveBtnValue() {
-  const addFavoritesBtn = document.querySelector(
-    '[data-modal-add-ingredients]'
-  );
-  const btnDataId = addFavoritesBtn.dataset.ingredient;
-  const inStorage = JSON.parse(localStorage.getItem(KEY_FAVORITE));
-
-  const indexId = inStorage.findIndex(id => id === btnDataId);
-  console.log(indexId);
-}
-
-
