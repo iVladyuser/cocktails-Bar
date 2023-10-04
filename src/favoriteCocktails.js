@@ -113,3 +113,49 @@
 //   });
 // });
 
+
+const KEY_FAVORITE = 'favoriteCocktails';
+const favoriteCocktailList = document.querySelector('.add-to-favorite-coctail-list');
+
+
+const favoriteCocktail = JSON.parse(localStorage.getItem(KEY_FAVORITE)) ?? [];
+
+
+const renderFavoriteCocktail = (arr, container) => {
+  const markup = arr
+    .map(
+      item => `
+        <li class="favorite-cocktail-item">
+        <div class="container__img" >
+       <img class="favorite-cocktail-card-img" src="${item.drinkThumb}" alt="${item.drink}"/>
+        </div>
+
+     <div class="cocktail-description-container" >
+     <h3 class="favorite-cocktail-name">${item.drink}</h3>
+     <p class="favorite-cocktail-descr">${item.description}</p>
+
+    <div class="modal-favorite-bottons modal-favorite-cocktail-bottons">
+            <button class="modal-btn-favorites-learnmore" data-modal-addtofavorites-ingredients data-ingredient="${
+              item._id
+            }">Learn more</button>
+            <button class="modal-btn-remove" data-modal-remove-ingredients aria-label="remove">
+            <svg
+              class="icon-trash"
+              aria-label="icon-thash"
+              width="18"
+              height="18"
+            >
+            <use href="./img/sprite.svg#icon-trash-01"></use>
+            </svg></button>
+            </div> 
+     </div>
+     </li>`
+    )
+    .join('');
+
+  container.innerHTML = markup;
+
+};
+
+
+renderFavoriteCocktail(favoriteCocktail, favoriteCocktailList)

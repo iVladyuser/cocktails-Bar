@@ -1,0 +1,70 @@
+.add-to-favorite-coctail-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.favorite-cocktail-item {
+    min-width: 335px;
+    height: auto;
+
+    border-radius: 20px;
+    background: var(--modal-background);
+    box-shadow: 0px 4px 46px 0px rgba(0, 0, 0, 0.05);
+}
+.favorite-cocktail-card-img{
+    width: 316px;
+    height: 289px;
+    border-radius: 16px;
+}
+/* .dark-theme .favorite-ingredient-item{
+    background: #232330;
+    box-shadow: 0px 4px 46px 0px rgba(0, 0, 0, 0.05);
+} */
+
+.favorite-cocktail-descr {
+    height: auto;
+    color: var(--dark-letters-color);
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.28;
+
+    margin-bottom: 24px;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.favorite-cocktail-name {
+    color: var(--dark-letters-color);
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.33;
+
+    margin-bottom: 14px;
+}
+.modal-favorite-cocktail-bottons{
+    margin-bottom: 24px;
+}
+
+@media screen and (min-width: 768px) {
+    .add-to-favorite-coctail-list {
+
+        flex-direction: row;
+        flex-wrap: wrap;
+        row-gap: 32px;
+        column-gap: 16px;
+    }
+
+    .favorite-cocktail-item {
+        width: 344px;
+        height: 523px;
+    }
+
+}

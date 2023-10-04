@@ -1,5 +1,5 @@
 
-import { fetchIngredient } from './js/modalIngredients/modalIngredients'
+// import { fetchIngredient } from './js/modalIngredients/modalIngredients'
 const KEY_FAVORITE = 'favoriteIngredients';
 const favoriteIngredientsList = document.querySelector('.add-to-favorite-list');
 
@@ -39,18 +39,20 @@ const renderFavoriteIngridient = (arr, container) => {
     .join('');
 
   container.innerHTML = markup;
+
+  //  const favoriteLearnMoreButtons = document.querySelectorAll('.modal-btn-favorites-learnmore');
+  //  favoriteLearnMoreButtons.forEach(button => {
+  //   button.addEventListener('click', () => {
+  //     const ingredientId = button.getAttribute('data-ingridient');
+  //     fetchIngridient(ingredientId);
+  //   });
+  // });
+
 };
 
 
 renderFavoriteIngridient(favoriteIngredient, favoriteIngredientsList)
 
-//  const favoriteLearnMoreButtons = document.querySelectorAll('.modal-btn-favorites-learnmore');
-//   learnMoreButtons.forEach(button => {
-//     button.addEventListener('click', () => {
-//       const favIngridientId = button.getAttribute('data-drink');
-//       fetchIngridient(ingredientId, ingredientName);
-//     });
-//   });
-// }
+
 
 
