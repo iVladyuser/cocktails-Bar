@@ -104,7 +104,9 @@ async function addToLocalStorage(data) {
 
     ingredientsArray.push(data[0]);
     localStorage.setItem(KEY_FAVORITE, JSON.stringify(ingredientsArray));
+
     favoritesBtn.textContent = 'Remove from favorite';
+
     favoritesBtn.removeEventListener('click', handleClickAddButton);
     favoritesBtn.addEventListener('click', handleClickRemoveButton);
   };
@@ -112,11 +114,13 @@ async function addToLocalStorage(data) {
   const handleClickRemoveButton = event => {
     const ingredientId = event.target.dataset.ingredient;
     const inStorage = JSON.parse(localStorage.getItem(KEY_FAVORITE));
-
     const indexId = inStorage.findIndex(({ _id }) => _id === ingredientId);
+
     ingredientsArray.splice(indexId, 1);
     localStorage.setItem(KEY_FAVORITE, JSON.stringify(ingredientsArray));
+
     favoritesBtn.textContent = 'Add to favorite';
+
     favoritesBtn.removeEventListener('click', handleClickRemoveButton);
     favoritesBtn.addEventListener('click', handleClickAddButton);
   };
