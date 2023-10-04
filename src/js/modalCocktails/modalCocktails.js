@@ -43,7 +43,7 @@ export async function fetchCocktail(drinkId) {
   }
 }
 
-const renderCocktailList = (arr, container) => {
+export const renderCocktailList = (arr, container) => {
   const markup = arr
     .map(
       item => `
