@@ -1,28 +1,56 @@
-// const KEY_FAVORITE = 'favoriteIngredients';
-// const favoriteIngredientsList = document.querySelector('.add-to-favorite-list');
 
-// const favoriteIngredient = JSON.parse(localStorage.getItem(KEY_FAVORITE)) ?? [];
+import { fetchIngredient } from './js/modalIngredients/modalIngredients'
+const KEY_FAVORITE = 'favoriteIngredients';
+const favoriteIngredientsList = document.querySelector('.add-to-favorite-list');
 
-// const renderFavoriteIngridient = (arr, container) => {
-//   const markup = arr
-//     .map(
-//       item => `
-//             <h3 class="ingredient-name">${ingredientName}</h3>
-//             <p class="ingredient-alcohol-type">Alcohol:${item.alcohol}</p>
-//             <div class="ingredient-descr-wrapper">
-//             <p class="ingredient-descr">${item.description}</p>
-//             </div>
-//             <div class="modal-favorite-bottons">
-//             <button class="modal-btn-favorites-learnmore" data-modal-addtofavorites-ingredients data-ingredient="${
-//               item._id
-//             }">Learn more</button>
-//             <button class="modal-btn-remove" data-modal-remove-ingredients aria-label="remove">remove</button> 
-//             </div>
-//             `
-//     )
-//     .join('');
 
-//   container.innerHTML = markup;
-// };
+const favoriteIngredient = JSON.parse(localStorage.getItem(KEY_FAVORITE)) ?? [];
 
-// renderFavoriteIngridient(favoriteIngredient, favoriteIngredientsList)
+
+const renderFavoriteIngridient = (arr, container) => {
+  const markup = arr
+    .map(
+      item => `
+           <li class="favorite-ingredient-item">
+           <div class="favorite-ingridient-content">
+            <h3 class="favorite-ingredient-name">${item.title}</h3>
+            <p class="favorite-ingredient-alcohol-type">Alcoholic: ${item.alcohol}</p>
+          
+            <p class="favorite-ingredient-descr">${item.description}</p>
+           
+            <div class="modal-favorite-bottons">
+            <button class="modal-btn-favorites-learnmore" data-modal-addtofavorites-ingredients data-ingredient="${
+              item._id
+            }">Learn more</button>
+            <button class="modal-btn-remove" data-modal-remove-ingredients aria-label="remove">
+            <svg
+              class="icon-trash"
+              aria-label="icon-thash"
+              width="18"
+              height="18"
+            >
+            <use href="./img/sprite.svg#icon-trash-01"></use>
+            </svg></button>
+            </div>
+            </div>
+            </li> 
+            `
+    )
+    .join('');
+
+  container.innerHTML = markup;
+};
+
+
+renderFavoriteIngridient(favoriteIngredient, favoriteIngredientsList)
+
+//  const favoriteLearnMoreButtons = document.querySelectorAll('.modal-btn-favorites-learnmore');
+//   learnMoreButtons.forEach(button => {
+//     button.addEventListener('click', () => {
+//       const favIngridientId = button.getAttribute('data-drink');
+//       fetchIngridient(ingredientId, ingredientName);
+//     });
+//   });
+// }
+
+
