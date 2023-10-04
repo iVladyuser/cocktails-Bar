@@ -1,5 +1,3 @@
-import './open-list-mob.js';
-
 
 (() => {
   const mobileMenu = document.querySelector('.js-menu-container');

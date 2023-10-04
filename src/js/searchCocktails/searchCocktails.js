@@ -1,9 +1,7 @@
 // import Pagination from 'tui-pagination';
 // import { fetchCocktailGalleryByName } from '../hero/search-hero';
-
+// console.log(fetchCocktailGalleryByName());
 // const galleryCocktails = document.querySelector('.cocktails-list');
-
-// let cardsPerPage = 0;
 
 // export function pagination(arr) {
 //   function isMobile() {
@@ -19,9 +17,9 @@
 //     cardsPerPage = 8;
 //   }
 //   const itemsPerPage = cardsPerPage; // Кількість елементів на сторінці
-//   // console.log(cardsPerPage);
+//   console.log(cardsPerPage);
 //   let currentPage = 1; // Поточна сторінка
-//   const totalItems = 0 // Загальна кількість елементів
+//   const totalItems = arr.length; // Загальна кількість елементів
 
 //   const container = document.getElementById('pagination');
 
@@ -38,22 +36,22 @@
 //   // Обробник зміни сторінки
 //   pagination.on('beforeMove', event => {
 //     currentPage = event.page;
-//     // renderPage();
+//     renderPage();
 //   });
 
-  //Функція для відображення данних на сторінці
-  // function renderPage() {
-  //   const startIndex = (currentPage - 1) * itemsPerPage;
-  //   const endIndex = startIndex + itemsPerPage;
-  //   const paginatedData = arr.slice(startIndex, endIndex);
+//   //Функція для відображення данних на сторінці
+//   function renderPage() {
+//     const startIndex = (currentPage - 1) * itemsPerPage;
+//     const endIndex = startIndex + itemsPerPage;
+//     const paginatedData = arr.slice(startIndex, endIndex);
 
-  //   // Тут вставляти розмітку на сторінку, рендерити картки
-  //   console.log(arr);
-  //   renderList();
-  // }
+//     // Тут вставляти розмітку на сторінку, рендерити картки
+//     console.log(arr);
+//     renderList();
+//   }
 
-  // Ініціалізація початкової сторінки
-  // fetchCocktailGallery();
+//   // Ініціалізація початкової сторінки
+//   fetchCocktailGallery();
 // }
 
 

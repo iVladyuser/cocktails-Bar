@@ -122,19 +122,13 @@
 } */
 .button-svg-heart {
   display: block;
-  padding: 16px;
+  padding: 14px;
   width: 48px;
   height: 48px;
   border: none;
   border-radius: 12px;
   background: var(--main-color);
   transition: fill 250ms var(--transition-cubic);
-}
-.button-svg-heart.is-favorite .icon-heart {
-  fill: var(--light-letters-color);
-}
-.is-favorite {
-  fill: var(--light-letters-color);
 }
 .icon-heart {
   width: 18px;
@@ -196,11 +190,16 @@
     min-width: 225px;
     min-height: 56px;
   }
-  .icon-heart {
+  .button-svg-heart {
+    padding: 16px;
+    width: 56px;
+    height: 56px;
+  }
+  /* .icon-heart {
     width: 24px;
     height: 24px;
     
-  }
+  } */
 }
 
 @media screen and (min-width: 1280px) {

@@ -1,5 +1,5 @@
 
-// import { fetchIngredient } from './js/modalIngredients/modalIngredients'
+import { fetchIngredient, renderList } from './js/modalIngredients/modalIngredients'
 const KEY_FAVORITE = 'favoriteIngredients';
 const favoriteIngredientsList = document.querySelector('.add-to-favorite-list');
 

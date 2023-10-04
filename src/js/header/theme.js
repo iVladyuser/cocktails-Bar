@@ -95,35 +95,38 @@ const switchTheme = () => {
     console.log(newTheme);
     rootEl.setAttribute('data-theme', newTheme);
 
-    
     rootEl.classList.remove(currentTheme + '-theme');
     rootEl.classList.add(newTheme + '-theme');
 
     localStorage.setItem('theme', newTheme);
 };
 
-document.getElementById('theme-switcher')
-    .addEventListener('change', switchTheme);
+const themeSwitcher = document.getElementById('theme-switcher');
+const themeSwitcherMobile = document.getElementById('theme-switcher-mobile');
 
-    document.getElementById('theme-switcher-mobile')
-    .addEventListener('change', switchTheme);
-    const savedTheme = localStorage.getItem('theme');
+themeSwitcher.addEventListener('change', () => {
+    // Изменения кнопки themeSwitcher
+    switchTheme();
+    themeSwitcherMobile.checked = themeSwitcher.checked; // Синхронизируем состояние
+});
+
+themeSwitcherMobile.addEventListener('change', () => {
+    // Изменения кнопки themeSwitcherMobile
+    switchTheme();
+    themeSwitcher.checked = themeSwitcherMobile.checked; // Синхронизируем состояние
+});
+
+const savedTheme = localStorage.getItem('theme');
 if (savedTheme) {
     document.documentElement.setAttribute('data-theme', savedTheme);
 
-    
     document.documentElement.classList.add(savedTheme + '-theme');
 
     if (savedTheme === 'dark') {
-        document.getElementById('theme-switcher').checked = true;
+        themeSwitcher.checked = true;
+        themeSwitcherMobile.checked = true;
     }
 }
-
-
-
-
-
-
 
 
 
