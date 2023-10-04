@@ -7,19 +7,8 @@ import '../../css/hero/search-hero.css';
 const element = document.querySelector('.hero-mobyle-js');
 const choices = new Choices(element, {
     searchEnabled: false,
-    itemSelectText: ""
+    itemSelectText: "",
+    allowHTML: true,
 }
     );
-
-
-    // const elementChoice = document.querySelector('.choices');
-    // elementChoice.addEventListener("change", (e) => {
-    //     if(e.target.nodeName  !== "OPTION"){
-    //         return;
-    //     }
-    //   const newClass = document.querySelector (".choices__inner")
-    //   newClass.classList.add("actives");
-    // }
-
-    // )
     

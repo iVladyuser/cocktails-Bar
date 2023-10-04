@@ -13,16 +13,21 @@
 /* BLACK THEEM START*/
 
 
-.dark-theme .choices__list--dropdown.choices__item,.choices__list[aria-expanded] .choices__item {
+.dark-theme {.choices__list--dropdown.choices__item,
+.choices__list[aria-expanded] .choices__item {
   color: #FDFDFF;
   }
-  
-  .dark-theme .choices__list--dropdown,.choices__list[aria-expanded] {
+}
+  .dark-theme {.choices__list--dropdown,
+  .choices__list[aria-expanded] {
     background: #232330;
   } 
-  .dark-theme .choices__list--dropdown.choices__item--selectable.is-highlighted, .choices__list[aria-expanded] .choices__item--selectable.is-highlighted {
+}
+  .dark-theme {.choices__list--dropdown.choices__item--selectable.is-highlighted, 
+  .choices__list[aria-expanded] .choices__item--selectable.is-highlighted {
       background-color: #232330;
   } 
+}
 /* INPUT */
 
   .dark-theme .input-icon-hero {
