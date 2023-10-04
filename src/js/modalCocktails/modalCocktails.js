@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { BASE_URL } from '../api/api';
 import { fetchIngredient } from '../modalIngredients/modalIngredients';
-// import { saveToFavorites, removeFromFavorites } from '../api/api';
 
 const backDrop = document.querySelector('#modal-cocktail');
 const modal = document.querySelector('.modal');
@@ -10,14 +9,6 @@ const modalIngredientsContent = document.querySelector(
   '.modal-ingredients__content'
 );
 const closeModalBtn = document.querySelector('[data-modal-close]');
-// backDrop.classList.remove('is-hidden');
-
-// function createOnClickForModal() {
-//   return () => {
-//     saveToFavorites();
-//     removeFromFavorites();
-//   };
-// }
 
 export async function fetchCocktail(drinkId) {
   try {
@@ -26,21 +17,31 @@ export async function fetchCocktail(drinkId) {
     );
     const data = response.data;
 
-    // console.log(data[0]);
-
     renderCocktailList(data, modalCocktailContent);
 
     moveToIngredient();
 
+    const inStorage = JSON.parse(localStorage.getItem(KEY_FAVORITE));
+    const idInStorage = inStorage.some(({ _id }) => _id === drinkId);
+
+    const addFavoritesBtn = document.querySelector(
+      '[data-modal-add-cocktails]'
+    );
+
+    if (idInStorage) {
+      addFavoritesBtn.textContent = 'Remove from favorite';
+    }
+
+    addToLocalStorage(data);
+
     const modalBtnBackClose = document.querySelector('[data-modal-back-close]');
     modalBtnBackClose.addEventListener('click', closeModal);
+    console.log(data);
   } catch (error) {
     console.error('Error while getting cocktail:', error);
     throw error;
   }
 }
-
-// fetchCocktail('639b6de9ff77d221f190c57e');
 
 const renderCocktailList = (arr, container) => {
   const markup = arr
@@ -72,10 +73,12 @@ const renderCocktailList = (arr, container) => {
       }</p> 
       </div>
       <div class="modal-bottons">
-      <button class="modal-btn-addfavorites">Add to favorite</button>
+      <button class="modal-btn-addfavorites" data-modal-add-cocktails data-cocktail="${
+        item._id
+      }">Add to favorite</button>
       <button class="modal-btn-back" data-modal-back-close aria-label="close">Back</button> 
       </div>
-   `
+      `
     )
     .join('');
 
@@ -101,7 +104,6 @@ async function closeModal() {
     modalCocktailContent.innerHTML = '';
     modalIngredientsContent.innerHTML = '';
   }, 300);
-  // location.reload()
 }
 
 async function moveToIngredient() {
@@ -124,4 +126,50 @@ async function moveToIngredient() {
   );
 }
 
-// // export { renderCocktailCard, createOnClickForModal };
+const KEY_FAVORITE = 'favoriteCocktails';
+const cocktailsArray = JSON.parse(localStorage.getItem(KEY_FAVORITE)) ?? [];
+if (localStorage.getItem(KEY_FAVORITE) === null) {
+  localStorage.setItem(KEY_FAVORITE, JSON.stringify([]));
+}
+
+async function addToLocalStorage(data) {
+  const favoritesBtn = document.querySelector('[data-modal-add-cocktails]');
+
+  const handleClickAddButton = event => {
+    const cocktailId = event.target.dataset.cocktail;
+    const inStorage = JSON.parse(localStorage.getItem(KEY_FAVORITE));
+    const idInStorage = inStorage.some(({ _id }) => _id === cocktailId);
+
+    if (idInStorage) {
+      favoritesBtn.removeEventListener('click', handleClickAddButton);
+      favoritesBtn.addEventListener('click', handleClickRemoveButton);
+      return;
+    }
+
+    cocktailsArray.push(data[0]);
+    localStorage.setItem(KEY_FAVORITE, JSON.stringify(cocktailsArray));
+    favoritesBtn.textContent = 'Remove from favorite';
+    favoritesBtn.removeEventListener('click', handleClickAddButton);
+    favoritesBtn.addEventListener('click', handleClickRemoveButton);
+  };
+
+  const handleClickRemoveButton = event => {
+    const cocktailId = event.target.dataset.cocktail;
+    const inStorage = JSON.parse(localStorage.getItem(KEY_FAVORITE));
+
+    const indexId = inStorage.findIndex(({ _id }) => _id === cocktailId);
+    cocktailsArray.splice(indexId, 1);
+    localStorage.setItem(KEY_FAVORITE, JSON.stringify(cocktailsArray));
+    favoritesBtn.textContent = 'Add to favorite';
+    favoritesBtn.removeEventListener('click', handleClickRemoveButton);
+    favoritesBtn.addEventListener('click', handleClickAddButton);
+  };
+
+  if (favoritesBtn.textContent === 'Add to favorite') {
+    favoritesBtn.addEventListener('click', handleClickAddButton);
+  }
+
+  if (favoritesBtn.textContent === 'Remove from favorite') {
+    favoritesBtn.addEventListener('click', handleClickRemoveButton);
+  }
+}
