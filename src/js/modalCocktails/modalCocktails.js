@@ -98,6 +98,8 @@ async function closeModal() {
     modal.classList.remove('modal-ingredient');
     modalIngredientsContent.style.display = 'none';
     modalCocktailContent.style.display = 'block';
+    modalCocktailContent.innerHTML = '';
+    modalIngredientsContent.innerHTML = '';
   }, 300);
   // location.reload()
 }

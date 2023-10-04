@@ -15,20 +15,17 @@ export async function fetchIngredient(ingredientId, ingredientName) {
     renderList(data, ingredientsContentEl, ingredientName);
 
     const inStorage = JSON.parse(localStorage.getItem(KEY_FAVORITE));
+    const idInStorage = inStorage.some(({ _id }) => _id === ingredientId);
+
     const addFavoritesBtn = document.querySelector(
       '[data-modal-add-ingredients]'
     );
-    const btnDataId = addFavoritesBtn.dataset.ingredient;
 
-    if (inStorage === null) {
-      addToLocalStorage();
-    } else {
-      if (inStorage.includes(btnDataId)) {
-        addFavoritesBtn.textContent = 'Remove from favorite';
-      }
+    if (idInStorage) {
+      addFavoritesBtn.textContent = 'Remove from favorite';
     }
 
-    addToLocalStorage();
+    addToLocalStorage(data);
 
     const backButtonEl = document.querySelector(
       '[data-modal-close-ingredients]'
@@ -87,30 +84,25 @@ const renderList = (arr, container, ingredientName) => {
 
 const KEY_FAVORITE = 'favoriteIngredients';
 const ingredientsArray = JSON.parse(localStorage.getItem(KEY_FAVORITE)) ?? [];
+if (localStorage.getItem(KEY_FAVORITE) === null) {
+  localStorage.setItem(KEY_FAVORITE, JSON.stringify([]));
+}
 
-async function addToLocalStorage() {
+async function addToLocalStorage(data) {
   const favoritesBtn = document.querySelector('[data-modal-add-ingredients]');
 
   const handleClickAddButton = event => {
     const ingredientId = event.target.dataset.ingredient;
     const inStorage = JSON.parse(localStorage.getItem(KEY_FAVORITE));
+    const idInStorage = inStorage.some(({ _id }) => _id === ingredientId);
 
-    if (inStorage === null) {
-      ingredientsArray.push(ingredientId);
-      localStorage.setItem(KEY_FAVORITE, JSON.stringify(ingredientsArray));
-      favoritesBtn.textContent = 'Remove from favorite';
+    if (idInStorage) {
       favoritesBtn.removeEventListener('click', handleClickAddButton);
       favoritesBtn.addEventListener('click', handleClickRemoveButton);
       return;
-    } else {
-      if (inStorage.includes(ingredientId)) {
-        favoritesBtn.removeEventListener('click', handleClickAddButton);
-        favoritesBtn.addEventListener('click', handleClickRemoveButton);
-        return;
-      }
     }
 
-    ingredientsArray.push(ingredientId);
+    ingredientsArray.push(data[0]);
     localStorage.setItem(KEY_FAVORITE, JSON.stringify(ingredientsArray));
     favoritesBtn.textContent = 'Remove from favorite';
     favoritesBtn.removeEventListener('click', handleClickAddButton);
@@ -121,13 +113,12 @@ async function addToLocalStorage() {
     const ingredientId = event.target.dataset.ingredient;
     const inStorage = JSON.parse(localStorage.getItem(KEY_FAVORITE));
 
-    const indexId = inStorage.findIndex(id => id === ingredientId);
+    const indexId = inStorage.findIndex(({ _id }) => _id === ingredientId);
     ingredientsArray.splice(indexId, 1);
     localStorage.setItem(KEY_FAVORITE, JSON.stringify(ingredientsArray));
     favoritesBtn.textContent = 'Add to favorite';
     favoritesBtn.removeEventListener('click', handleClickRemoveButton);
     favoritesBtn.addEventListener('click', handleClickAddButton);
-    console.log(indexId);
   };
 
   if (favoritesBtn.textContent === 'Add to favorite') {
