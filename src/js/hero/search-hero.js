@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { BASE_URL } from '../api/api';
 import { fetchCocktail } from '../modalCocktails/modalCocktails';
+// import {pagination } from '../searchCocktails/searchCocktails'
 
 let useMyCode = false;
 let lastSearchText = '';
@@ -93,7 +94,7 @@ export async function fetchCocktailGalleryByName(name) {
       throw new Error(`HTTP Error! Status: ${response.status}`);
     }
     cocktailData = response.data;
-    console.log(cocktailData);
+
 
     renderGalleryOrError(
       cocktailData,
@@ -119,6 +120,7 @@ export async function fetchCocktailGallery(letterOrNumber) {
 
     const response = await axios.get(url);
     console.log('Response:', response.data);
+   
     if (response.status !== 200) {
       throw new Error(`HTTP Error! Status: ${response.status}`);
     }
