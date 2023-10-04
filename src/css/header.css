@@ -63,6 +63,10 @@ align-items: center;
   letter-spacing: -0.16px;
   text-transform: uppercase;
 }
+.dark-theme .header-logo-span {
+  color: #FDFDFF;
+}
+
 .header-logo-span-w {
 color: #FDFDFF
 }
@@ -370,7 +374,7 @@ input:checked + .slider:before {
   .mobile-desktop-menu{
     display: flex;
   }
-  .dark-theme .hiddenDiv {
+  .hiddenDiv {
    border-radius: 16px;
 background: #7E8FDD;
 padding: 18px 24px;
@@ -382,18 +386,7 @@ gap: 8px;
     top: 33px;
     left: 121px
 }
-  .light-theme .hiddenDiv  {
-   border-radius: 16px;
-background: #ff4d00;
-padding: 18px 24px;
-flex-direction: column;
-justify-content: center;
-align-items: flex-start;
-gap: 8px;
-   position: absolute;
-    top: 33px;
-    left: 121px
-}
+
   .chevron-desing{
     fill: #7E8FDD ;
   }
@@ -412,8 +405,13 @@ font-size: 16px;
 font-weight: 400;
 line-height: 18px; /* 112.5% */
 letter-spacing: 0.32px;
-
   }
+
+.dark-theme .header-mobile-menu-link {
+    color: #FDFDFF;
+  }
+
+  
   .page-header {
   padding-top: 29px;
 }

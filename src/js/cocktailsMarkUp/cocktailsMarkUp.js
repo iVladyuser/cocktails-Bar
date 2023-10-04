@@ -26,7 +26,7 @@ export async function fetchCocktailGallery() {
   }
 }
 
-function renderList(arr, container) {
+export function renderList(arr, container) {
   const markup = arr
     .map(
       item =>

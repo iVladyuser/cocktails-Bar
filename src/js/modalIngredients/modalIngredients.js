@@ -141,3 +141,5 @@ async function changeRemoveBtnValue() {
   const indexId = inStorage.findIndex(id => id === btnDataId);
   console.log(indexId);
 }
+
+

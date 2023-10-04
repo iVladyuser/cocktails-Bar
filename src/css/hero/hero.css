@@ -21,6 +21,9 @@
     font-weight: 400;
     line-height: 38px; /* 118.75% */
   }
+  .dark-theme .title-hero {
+    color: #fdfdff;
+  }
   .title-hero-span {
     color: var(--main-color);
     font-family: Poppins;
@@ -37,6 +40,10 @@
     font-weight: 400;
     line-height: 20px; /* 142.*/
   }
+  .dark-theme .hero-text {
+    color: #fdfdff;
+  }
+
   .btn-hero-scroll {
     display: flex;
     padding: 14px 28px;
@@ -77,17 +84,33 @@
   }
   .girl-img-hero {
     position: relative;
-    z-index: 100;
+    z-index: 1;
     max-width: 100%;
     height: auto;
   }
-  .elements-img-hero {
+  .black-elements-img-hero {
     position: absolute;
     z-index: -1;
     max-width: 105%;
     height: auto;
     bottom: -20%;
     left: 0%;
+  }
+  .white-elements-img-hero {
+    display: none;
+  }
+
+  .dark-theme .white-elements-img-hero {
+    display: block;
+    position: absolute;
+    z-index: -1;
+    max-width: 105%;
+    height: auto;
+    bottom: -20%;
+    left: 0%;
+  }
+  .dark-theme .black-elements-img-hero {
+    display: none;
   }
   .img-text {
     margin: auto;
@@ -132,6 +155,9 @@
     font-size: 44px;
     line-height: 48px; /* 109.091% */
   }
+  .dark-theme .title-hero {
+    color: #fdfdff;
+  }
   .title-hero-span {
     color: var(--main-color);
     font-family: Poppins;
@@ -146,6 +172,9 @@
     font-family: Poppins;
     font-size: 16px;
     line-height: 24px; /* 150% */
+  }
+  .dark-theme .hero-text {
+    color: #fdfdff;
   }
   .btn-hero-scroll {
     display: flex;
@@ -187,7 +216,7 @@
     background: var(--main-color);
     box-shadow: 0px 28px 75px 0px rgba(88, 109, 204, 0.5);
   }
-  .elements-img-hero {
+  .black-elements-img-hero {
     position: absolute;
     z-index: -1;
     width: auto;
@@ -197,12 +226,30 @@
     left: -15%;
     right: -10%;
   }
+  .white-elements-img-hero {
+    display: none;
+  }
+  .dark-theme .white-elements-img-hero {
+    display: block;
+    position: absolute;
+    z-index: -1;
+    width: auto;
+    max-width: max-content;
+    height: auto;
+    bottom: -25%;
+    left: -15%;
+    right: -10%;
+  }
+  .dark-theme .black-elements-img-hero {
+    display: none;
+  }
+
   .girl-img-hero {
     position: relative;
     width: 100%;
     max-width: 100%;
     height: auto;
-    z-index: 100;
+    z-index: 1;
   }
 
   .img-text {
@@ -250,13 +297,28 @@
     line-height: 26px; /* 130% */
   }
 
-  .elements-img-hero {
+  .black-elements-img-hero {
     width: 135%;
     max-width: 135%;
     height: auto;
     left: -14%;
     bottom: -13%;
     z-index: 1;
+  }
+  .white-elements-img-hero {
+    display: none;
+  }
+  .dark-theme .white-elements-img-hero {
+    display: block;
+    width: 135%;
+    max-width: 135%;
+    height: auto;
+    left: -14%;
+    bottom: -13%;
+    z-index: 1;
+  }
+  .dark-theme .black-elements-img-hero {
+    display: none;
   }
   .title-img {
     margin-bottom: 51px;

@@ -1,12 +1,11 @@
 import axios from 'axios';
 import { BASE_URL } from '../api/api';
 import { fetchCocktail } from '../modalCocktails/modalCocktails';
-import { Pagination } from 'tui-pagination';
 
 let useMyCode = false;
 let lastSearchText = '';
 
-function renderGalleryOrError(arr, container) {
+export function renderGalleryOrError(arr, container) {
   if (arr.length === 0) {
     container.innerHTML = `
       <div class="block-page-hero">
@@ -83,7 +82,7 @@ function updateMainTitle(text) {
 function hideMainTitle() {
   mainTitle.style.display = 'none';
 }
-
+let cocktailData = [];
 export async function fetchCocktailGalleryByName(name) {
   try {
     const url = `${BASE_URL}/cocktails/search/?s=${name}`;
@@ -93,12 +92,13 @@ export async function fetchCocktailGalleryByName(name) {
     if (response.status !== 200) {
       throw new Error(`HTTP Error! Status: ${response.status}`);
     }
+    cocktailData = response.data;
+    console.log(cocktailData);
 
     renderGalleryOrError(
-      response.data,
+      cocktailData,
       document.querySelector('.js__cocktails__list')
     );
-
     updateMainTitle('Searching results');
   } catch (error) {
     console.error('Помилка при отриманні галереї за назвою:', error);
@@ -195,50 +195,6 @@ searchInput.addEventListener('blur', () => {
     button.classList.remove('active');
   });
 });
-
-
-const paginationContainer = document.querySelector('.pagination-container');
-
-// Function to render pagination
-// function renderPagination(totalPages, currentPage, onPageChange) {
-//   const pagination = new Pagination(paginationContainer, {
-//     totalItems: totalPages,
-//     itemsPerPage: 9,
-//     visiblePages: 5, 
-//     centerAlign: true,
-//     usageStatistics: false,
-//     template: {
-//       page: '<a href="#" class="tui-page-btn">{{page}}</a>',
-//       currentPage: '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
-//     },
-//   });
-
-//   pagination.on('afterMove', event => {
-//     const newPage = event.page;
-//     onPageChange(newPage);
-//   });
-
-//   pagination.moveToPage(currentPage);
-// }
-
-// // // Modify your renderGalleryOrError function to accept a currentPage parameter
-// function renderGalleryOrError(arr, container, currentPage) {
-// renderGalleryOrError(
-//   response.data,
-//   document.querySelector('.js__cocktails__list')
-// );
-// }
-//   const totalPages = Math.ceil(arr.length / 9); 
-
-//   // Render pagination
-//   renderPagination(totalPages, currentPage, newPage => {
-//     const start = (newPage - 1) * 10;
-//     const end = start + 10;
-//     const displayedItems = arr.slice(start, end);
-//     renderGalleryOrError(displayedItems, container, newPage);
-//   });
-// }
-
 
 
 
