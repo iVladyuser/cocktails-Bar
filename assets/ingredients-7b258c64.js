@@ -1,4 +1,4 @@
-import"./styles-d91bea37.js";const o="favoriteIngredients",n=document.querySelector(".add-to-favorite-list"),r=JSON.parse(localStorage.getItem(o))??[],s=(t,i)=>{const a=t.map(e=>`
+import"./styles-d286961e.js";const o="favoriteIngredients",n=document.querySelector(".add-to-favorite-list"),r=JSON.parse(localStorage.getItem(o))??[],s=(t,i)=>{const a=t.map(e=>`
            <li class="favorite-ingredient-item">
            <div class="favorite-ingridient-content">
             <h3 class="favorite-ingredient-name">${e.title}</h3>
