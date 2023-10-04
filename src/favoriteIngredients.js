@@ -1,11 +1,8 @@
-
 // import { fetchIngredient } from './js/modalIngredients/modalIngredients'
 const KEY_FAVORITE = 'favoriteIngredients';
 const favoriteIngredientsList = document.querySelector('.add-to-favorite-list');
 
-
 const favoriteIngredient = JSON.parse(localStorage.getItem(KEY_FAVORITE)) ?? [];
-
 
 const renderFavoriteIngridient = (arr, container) => {
   const markup = arr
@@ -19,9 +16,7 @@ const renderFavoriteIngridient = (arr, container) => {
             <p class="favorite-ingredient-descr">${item.description}</p>
            
             <div class="modal-favorite-bottons">
-            <button class="modal-btn-favorites-learnmore" data-modal-addtofavorites-ingredients data-ingredient="${
-              item._id
-            }">Learn more</button>
+            <button class="modal-btn-favorites-learnmore" data-addtofavorites-ingredients data-ingredient="${item._id}">Learn more</button>
             <button class="modal-btn-remove" data-modal-remove-ingredients aria-label="remove">
             <svg
               class="icon-trash"
@@ -47,12 +42,6 @@ const renderFavoriteIngridient = (arr, container) => {
   //     fetchIngridient(ingredientId);
   //   });
   // });
-
 };
 
-
-renderFavoriteIngridient(favoriteIngredient, favoriteIngredientsList)
-
-
-
-
+renderFavoriteIngridient(favoriteIngredient, favoriteIngredientsList);
