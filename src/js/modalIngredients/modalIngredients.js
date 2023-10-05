@@ -87,7 +87,8 @@ export const renderList = (arr, container, ingredientName) => {
 };
 
 const KEY_FAVORITE = 'favoriteIngredients';
-const ingredientsArray = JSON.parse(localStorage.getItem(KEY_FAVORITE)) ?? [];
+export const ingredientsArray =
+  JSON.parse(localStorage.getItem(KEY_FAVORITE)) ?? [];
 if (localStorage.getItem(KEY_FAVORITE) === null) {
   localStorage.setItem(KEY_FAVORITE, JSON.stringify([]));
 }

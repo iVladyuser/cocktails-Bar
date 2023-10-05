@@ -1,16 +1,22 @@
+import { closeModal } from './js/modalCocktails/modalCocktails';
 import {
   fetchIngredient,
-  renderList,
+  ingredientsArray,
 } from './js/modalIngredients/modalIngredients';
 
+const backDrop = document.querySelector('#modal-cocktail');
 const modal = document.querySelector('.modal');
+const modalCocktailContent = document.querySelector('.modal-cocktail__content');
+const modalIngredientsContent = document.querySelector(
+  '.modal-ingredients__content'
+);
 
 const KEY_FAVORITE = 'favoriteIngredients';
 const favoriteIngredientsList = document.querySelector('.add-to-favorite-list');
 
 const favoriteIngredient = JSON.parse(localStorage.getItem(KEY_FAVORITE)) ?? [];
 
-const renderFavoriteIngridient = (arr, container) => {
+const renderFavoriteIngridient = async (arr, container) => {
   const markup = arr
     .map(
       item => `
@@ -54,13 +60,13 @@ const handleClickRemoveButton = event => {
   const ingredientId = event.target.dataset.removeid;
   const idInStorage = JSON.parse(localStorage.getItem(KEY_FAVORITE));
   const indexId = idInStorage.findIndex(({ _id }) => _id === ingredientId);
-  cocktailsArray.splice(indexId, 1);
-  localStorage.setItem(KEY_FAVORITE, JSON.stringify(cocktailsArray));
+  ingredientsArray.splice(indexId, 1);
+  localStorage.setItem(KEY_FAVORITE, JSON.stringify(ingredientsArray));
 
   const inStorage = JSON.parse(localStorage.getItem(KEY_FAVORITE));
 
-  renderFavoriteCocktail(inStorage, favoriteCocktailList).then(() => {
-    const deleteBtn = document.querySelectorAll('[data-remove-cocktails]');
+  renderFavoriteIngridient(inStorage, favoriteIngredientsList).then(() => {
+    const deleteBtn = document.querySelectorAll('[data-remove-ingredient]');
 
     deleteBtn.forEach(btn =>
       btn.addEventListener('click', handleClickRemoveButton)
@@ -68,7 +74,7 @@ const handleClickRemoveButton = event => {
   });
 
   const learnMoreBtnAfterRepeatRender = document.querySelectorAll(
-    '[data-learnmore-cocktail]'
+    '[data-learnmore-ingredient]'
   );
 
   learnMoreBtnAfterRepeatRender.forEach(btn =>
@@ -96,6 +102,21 @@ const openModal = event => {
     const addFavoritesBtn = document.querySelector(
       '[data-modal-add-ingredients]'
     );
+
+    backDrop.style.display = 'block';
+    modalIngredientsContent.style.display = 'block';
+
+    const backButtonEl = document.querySelector(
+      '[data-modal-close-ingredients]'
+    );
+
+    const handleClickBackButton = event => {
+      event.preventDefault();
+      backDrop.style.display = 'none';
+      closeModal();
+    };
+
+    backButtonEl.addEventListener('click', handleClickBackButton);
 
     modal.classList.add('modal-ingredient');
 
@@ -128,9 +149,7 @@ const openModal = event => {
     };
 
     addFavoritesBtn.addEventListener('click', removeAndClose);
-
-    console.log(addFavoritesBtn);
   });
 };
 
-// learnMoreBtn.forEach(btn => btn.addEventListener('click', openModal));
+learnMoreBtn.forEach(btn => btn.addEventListener('click', openModal));
