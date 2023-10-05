@@ -1,133 +1,134 @@
+.add-to-favorite-list {
+  padding-top: 30px;
+  padding-bottom: 100px;
+}
+.dark-theme .text-page {
+  color: #fdfdff;
+}
 .title-page {
-    margin-top: 80px;
-    margin-bottom: 40px;
+  margin-top: 80px;
+  margin-bottom: 40px;
 }
 
 .add-to-favorite-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .favorite-ingredient-item {
-    min-width: 335px;
-    height: auto;
+  min-width: 335px;
+  height: auto;
 
-    border-radius: 20px;
-    background: var(--modal-background);
-    box-shadow: 0px 4px 46px 0px rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  background: var(--modal-background);
+  box-shadow: 0px 4px 46px 0px rgba(0, 0, 0, 0.05);
 }
 
-.dark-theme .favorite-ingredient-item{
-    background: #232330;
-    box-shadow: 0px 4px 46px 0px rgba(0, 0, 0, 0.05);
+.dark-theme .favorite-ingredient-item {
+  background: #232330;
+  box-shadow: 0px 4px 46px 0px rgba(0, 0, 0, 0.05);
 }
 .favorite-ingridient-content {
-
-    padding: 20px;
+  padding: 20px;
 }
 
 .favorite-ingredient-descr {
-    height: auto;
-    color: var(--dark-letters-color);
-    font-family: Poppins;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1.28;
+  height: auto;
+  color: var(--dark-letters-color);
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.28;
 
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
-.dark-theme .favorite-ingredient-descr{
-    color: #FDFDFF;
+.dark-theme .favorite-ingredient-descr {
+  color: #fdfdff;
 }
 .favorite-ingredient-name {
-    color: var(--dark-letters-color);
-    font-family: Poppins;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 1.33;
+  color: var(--dark-letters-color);
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.33;
 
-    margin-bottom: 4px;
+  margin-bottom: 4px;
 }
 
 .dark-theme .favorite-ingredient-name {
-    color: #FDFDFF;
+  color: #fdfdff;
 }
 .favorite-ingredient-alcohol-type {
-    color: rgba(36, 36, 36, 0.50);
-    font-family: Poppins;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1.28;
+  color: rgba(36, 36, 36, 0.5);
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.28;
 
-    margin-bottom: 14px;
+  margin-bottom: 14px;
 }
 
 .dark-theme .favorite-ingredient-alcohol-type {
-    color: rgba(253, 253, 255, 0.50);;
+  color: rgba(253, 253, 255, 0.5);
 }
 
 .modal-favorite-bottons {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
 }
 
 .modal-btn-favorites-learnmore {
-    min-width: 232px;
-    height: 48px;
-    padding: 14px 71px;
-    border-radius: 12px;
-    border: 1px solid #7E8FDD;
-    background-color: transparent;
+  min-width: 232px;
+  height: 48px;
+  padding: 14px 71px;
+  border-radius: 12px;
+  border: 1px solid #7e8fdd;
+  background-color: transparent;
 
-    color: var(--dark-letters-color);
-    font-family: Poppins;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 1.43;
+  color: var(--dark-letters-color);
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.43;
 
-    letter-spacing: 0.28px;
-    text-transform: uppercase;
+  letter-spacing: 0.28px;
+  text-transform: uppercase;
 }
 .dark-theme .modal-btn-favorites-learnmore {
-    color: #FDFDFF;
+  color: #fdfdff;
 }
 .modal-btn-remove {
+  min-width: 48px;
+  height: 48px;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
 
-    min-width: 48px;
-    height: 48px;
-    padding: 0;
-    justify-content: center;
-    align-items: center;
-
-
-
-    border-radius: 12px;
-    border-color: transparent;
-    background: #7E8FDD;
+  border-radius: 12px;
+  border-color: transparent;
+  background: #7e8fdd;
 }
 
 @media screen and (min-width: 768px) {
-    .add-to-favorite-list {
+  .add-to-favorite-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 32px;
+    column-gap: 16px;
+  }
 
-        flex-direction: row;
-        flex-wrap: wrap;
-        row-gap: 32px;
-        column-gap: 16px;
-    }
-
-    .favorite-ingredient-item {
-        width: 335px;
-    }
-
+  .favorite-ingredient-item {
+    width: 335px;
+  }
 }

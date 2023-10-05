@@ -127,9 +127,27 @@ const favoriteCocktailList = document.querySelector(
 const favoriteCocktail = JSON.parse(localStorage.getItem(KEY_FAVORITE)) ?? [];
 
 const renderFavoriteCocktail = async (arr, container) => {
-  const markup = arr
-    .map(
-      item => `
+  const newTwoContainer = document.querySelector('.add-to-favorite-list');
+  if (arr.length === 0) {
+    newTwoContainer.innerHTML = `
+           <div class="container">
+        <div class="block-page">
+          <svg class="icon-rafiki" >
+          <use href="./img/sprite.svg#icon-rafiki"></use>
+        </svg>
+          <p class="text-page">
+            You haven't added any <br /><span class="text-span"
+              >favorite cocktails</span
+            >
+            yet
+          </p>
+        </div>
+      </div>`;
+  } else {
+    container.innerHTML = '';
+    const markup = arr
+      .map(
+        item => `
         <li class="favorite-cocktail-item">
         <div class="container__img" >
        <img class="favorite-cocktail-card-img" src="${item.drinkThumb}" alt="${item.drink}"/>
@@ -153,12 +171,12 @@ const renderFavoriteCocktail = async (arr, container) => {
             </div> 
      </div>
      </li>`
-    )
-    .join('');
+      )
+      .join('');
 
-  container.innerHTML = markup;
+    container.innerHTML = markup;
+  }
 };
-
 const handleClickRemoveButton = event => {
   const cocktailId = event.target.dataset.removeid;
   const idInStorage = JSON.parse(localStorage.getItem(KEY_FAVORITE));
