@@ -36,7 +36,7 @@ export async function fetchCocktail(drinkId) {
 
     const modalBtnBackClose = document.querySelector('[data-modal-back-close]');
     modalBtnBackClose.addEventListener('click', closeModal);
-    console.log(data);
+    // console.log(data);
   } catch (error) {
     console.error('Error while getting cocktail:', error);
     throw error;
@@ -59,7 +59,9 @@ export const renderCocktailList = (arr, container) => {
             ${item.ingredients
               .map(
                 item => `<li class="modal-header__item">
-                    <a href="#" class="modal-header__link" data-ingredient="${item.ingredientId}">${item.measure} ${item.title}</a>
+                    <a href="#" class="modal-header__link" data-ingredient="${
+                      item.ingredientId
+                    }">${item.measure || ''} ${item.title}</a>
                   </li>`
               )
               .join('')}
@@ -95,7 +97,7 @@ backDrop.addEventListener('click', event => {
   closeModal();
 });
 
-async function closeModal() {
+export async function closeModal() {
   backDrop.classList.add('is-hidden');
   setTimeout(() => {
     modal.classList.remove('modal-ingredient');
@@ -127,7 +129,8 @@ async function moveToIngredient() {
 }
 
 const KEY_FAVORITE = 'favoriteCocktails';
-const cocktailsArray = JSON.parse(localStorage.getItem(KEY_FAVORITE)) ?? [];
+export const cocktailsArray =
+  JSON.parse(localStorage.getItem(KEY_FAVORITE)) ?? [];
 if (localStorage.getItem(KEY_FAVORITE) === null) {
   localStorage.setItem(KEY_FAVORITE, JSON.stringify([]));
 }
