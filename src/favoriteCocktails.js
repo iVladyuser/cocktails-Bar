@@ -113,16 +113,20 @@
 //   });
 // });
 
-import { fetchCocktail, renderCocktailList } from './js/modalCocktails/modalCocktails';
+import {
+  fetchCocktail,
+  closeModal,
+  cocktailsArray,
+} from './js/modalCocktails/modalCocktails';
 
 const KEY_FAVORITE = 'favoriteCocktails';
-const favoriteCocktailList = document.querySelector('.add-to-favorite-coctail-list');
-
+const favoriteCocktailList = document.querySelector(
+  '.add-to-favorite-coctail-list'
+);
 
 const favoriteCocktail = JSON.parse(localStorage.getItem(KEY_FAVORITE)) ?? [];
 
-
-const renderFavoriteCocktail = (arr, container) => {
+const renderFavoriteCocktail = async (arr, container) => {
   const markup = arr
     .map(
       item => `
@@ -136,10 +140,8 @@ const renderFavoriteCocktail = (arr, container) => {
      <p class="favorite-cocktail-descr">${item.description}</p>
 
     <div class="modal-favorite-bottons modal-favorite-cocktail-bottons">
-            <button class="modal-btn-favorites-learnmore" data-modal-addtofavorites-ingredients data-ingredient="${
-              item._id
-            }">Learn more</button>
-            <button class="modal-btn-remove" data-modal-remove-ingredients aria-label="remove">
+            <button class="modal-btn-favorites-learnmore" data-learnmore-cocktail data-cocktail="${item._id}">Learn more</button>
+            <button class="modal-btn-remove" data-remove-cocktails aria-label="remove" data-removeid="${item._id}">
             <svg
               class="icon-trash"
               aria-label="icon-thash"
@@ -155,8 +157,85 @@ const renderFavoriteCocktail = (arr, container) => {
     .join('');
 
   container.innerHTML = markup;
-
 };
 
+const handleClickRemoveButton = event => {
+  const cocktailId = event.target.dataset.removeid;
+  const idInStorage = JSON.parse(localStorage.getItem(KEY_FAVORITE));
+  const indexId = idInStorage.findIndex(({ _id }) => _id === cocktailId);
+  cocktailsArray.splice(indexId, 1);
+  localStorage.setItem(KEY_FAVORITE, JSON.stringify(cocktailsArray));
 
-renderFavoriteCocktail(favoriteCocktail, favoriteCocktailList)
+  const inStorage = JSON.parse(localStorage.getItem(KEY_FAVORITE));
+
+  renderFavoriteCocktail(inStorage, favoriteCocktailList).then(() => {
+    const deleteBtn = document.querySelectorAll('[data-remove-cocktails]');
+
+    deleteBtn.forEach(btn =>
+      btn.addEventListener('click', handleClickRemoveButton)
+    );
+  });
+
+  const learnMoreBtnAfterRepeatRender = document.querySelectorAll(
+    '.modal-btn-favorites-learnmore'
+  );
+
+  learnMoreBtnAfterRepeatRender.forEach(btn =>
+    btn.addEventListener('click', openModal)
+  );
+};
+
+renderFavoriteCocktail(favoriteCocktail, favoriteCocktailList).then(() => {
+  const deleteBtn = document.querySelectorAll('[data-remove-cocktails]');
+
+  deleteBtn.forEach(btn =>
+    btn.addEventListener('click', handleClickRemoveButton)
+  );
+});
+
+// LEARN MORE button and modal
+
+const learnMoreBtn = document.querySelectorAll(
+  '.modal-btn-favorites-learnmore'
+);
+
+const openModal = event => {
+  const drinkId = event.target.dataset.cocktail;
+  fetchCocktail(drinkId).then(() => {
+    const addFavoritesBtn = document.querySelector(
+      '[data-modal-add-cocktails]'
+    );
+
+    const removeAndClose = () => {
+      addFavoritesBtn.removeEventListener('click', removeAndClose);
+
+      closeModal();
+
+      const favoriteCocktailInModal =
+        JSON.parse(localStorage.getItem(KEY_FAVORITE)) ?? [];
+
+      renderFavoriteCocktail(
+        favoriteCocktailInModal,
+        favoriteCocktailList
+      ).then(() => {
+        const deleteBtn = document.querySelectorAll('[data-remove-cocktails]');
+
+        deleteBtn.forEach(btn =>
+          btn.addEventListener('click', handleClickRemoveButton)
+        );
+      });
+
+      const learnMoreBtnAfterCloseModal = document.querySelectorAll(
+        '.modal-btn-favorites-learnmore'
+      );
+
+      learnMoreBtnAfterCloseModal.forEach(btn =>
+        btn.addEventListener('click', openModal)
+      );
+    };
+
+    addFavoritesBtn.addEventListener('click', removeAndClose);
+  });
+};
+
+learnMoreBtn.forEach(btn => btn.addEventListener('click', openModal));

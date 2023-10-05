@@ -53,6 +53,10 @@
     margin-bottom: 24px;
 }
 
+.icon-trash {
+    pointer-events: none;
+}
+
 @media screen and (min-width: 768px) {
     .add-to-favorite-coctail-list {
 
