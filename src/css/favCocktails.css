@@ -6,6 +6,11 @@
   font-weight: 500;
   line-height: 1.16; /* 116.667% */
 }
+
+.dark-theme .title-page{
+ color: #fdfdff;
+}
+
 .block-page {
   display: flex;
   height: 190px;
