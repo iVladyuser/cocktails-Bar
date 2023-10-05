@@ -20,7 +20,7 @@ const renderFavoriteIngridient = async (arr, container) => {
   const newContainer = document.querySelector('.add-to-favorite-list');
   if (arr.length === 0) {
     newContainer.innerHTML = `
-      <div class="block-page-hero">
+      <div class="block-page-hero favorite-block-page">
         <svg class="icon-rafiki" >
           <use href="./img/sprite.svg#icon-rafiki"></use>
         </svg>
