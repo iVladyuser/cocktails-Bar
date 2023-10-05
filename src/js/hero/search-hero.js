@@ -92,12 +92,54 @@ export async function fetchCocktailGalleryByName(name) {
     const url = `${BASE_URL}/cocktails/search/?s=${name}`;
 
     const response = await axios.get(url);
-    console.log('Response:', response.data);
+    // console.log('Response:', response.data);
+    
+    cocktailData = response.data;
+
+    const itemsPerPage =
+      window.innerWidth >= 1280 ? itemsPerPageDesktop : itemsPerPageTablet;
+
+    const totalItems = cocktailData.length;
+
+    const options = {
+      totalItems: totalItems,
+      itemsPerPage: itemsPerPage,
+      visiblePages: 5,
+      page: 1,
+      centerAlign: true,
+      firstItemClassName: 'tui-first-child',
+      lastItemClassName: 'tui-last-child',
+      template: {
+        page: '<a href="#" class="tui-page-btn">{{page}}</a>',
+        currentPage:
+          '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
+        moveButton:
+          '<a href="#" class="tui-page-btn tui-{{type}}">' +
+          '<span class="tui-ico-{{type}}">{{type}}</span>' +
+          '</a>',
+        disabledMoveButton:
+          '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
+          '<span class="tui-ico-{{type}}">{{type}}</span>' +
+          '</span>',
+        moreButton:
+          '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
+          '<span class="tui-ico-ellip">...</span>' +
+          '</a>',
+      },
+    };
+
+    // console.log(options.totalItems);
+
+    const pagination = new Pagination('pagination', options);
+
+    pagination.on('beforeMove', async evt => {
+      const { page } = evt;
+      renderGalleryPage(cocktailData, page, itemsPerPage);
+    });
     if (response.status !== 200) {
       throw new Error(`HTTP Error! Status: ${response.status}`);
     }
-    cocktailData = response.data;
-
+ renderGalleryPage(cocktailData, 1, itemsPerPage);
     renderGalleryOrError(
       cocktailData,
       document.querySelector('.js__cocktails__list')
@@ -159,7 +201,7 @@ export async function fetchCocktailGallery(letterOrNumber) {
       },
     };
 
-    console.log(options.totalItems);
+    // console.log(options.totalItems);
     
     const pagination = new Pagination('pagination', options);
 
@@ -168,7 +210,7 @@ export async function fetchCocktailGallery(letterOrNumber) {
       renderGalleryPage(cocktailData, page, itemsPerPage);
     });
     
-    console.log('Response:', response.data);
+    // console.log('Response:', response.data);
    
     if (response.status !== 200) {
       throw new Error(`HTTP Error! Status: ${response.status}`);
