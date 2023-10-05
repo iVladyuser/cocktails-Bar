@@ -110,6 +110,9 @@ export async function fetchCocktailGalleryByName(name) {
     hideMainTitle();
   }
 }
+     
+  const itemsPerPageTablet = 8;  
+  const itemsPerPageDesktop = 9; 
 
 
 export async function fetchCocktailGallery(letterOrNumber) {
@@ -124,22 +127,14 @@ export async function fetchCocktailGallery(letterOrNumber) {
     const response = await axios.get(url);
      cocktailData = response.data;
     
-    //  function isMobile() {
-      //     if (window.innerWidth >= 768) {
-      //       return false;
-      //     } else {
-      //       return true;
-      //     }
-      //   }
-      //   if (window.innerWidth >= 1280) {
-      //     cardsPerPage = 9;
-      //   } else {
-      //     cardsPerPage = 8;
-      //   }
-      //   const itemsPerPage = cardsPerPage; // Кількість елементів на сторінці
+     const itemsPerPage =
+     window.innerWidth >= 1280 ? itemsPerPageDesktop : itemsPerPageTablet;
+    
+     const totalItems = cocktailData.length;
+
     const options = {
-      totalItems: cocktailData.length,
-      itemsPerPage: 10,
+      totalItems: totalItems,
+      itemsPerPage: itemsPerPage,
       visiblePages: 5,
       page: 1,
       centerAlign: true,
@@ -165,19 +160,13 @@ export async function fetchCocktailGallery(letterOrNumber) {
     };
 
     console.log(options.totalItems);
+    
     const pagination = new Pagination('pagination', options);
+
     pagination.on('beforeMove', async evt => {
       const { page } = evt;
-      const result = await ajax.call({ page });
-
-      if (result) {
-        pagination.movePageTo(page);
-      } else {
-        return false;
-      }
+      renderGalleryPage(cocktailData, page, itemsPerPage);
     });
-
-   
     
     console.log('Response:', response.data);
    
@@ -185,13 +174,9 @@ export async function fetchCocktailGallery(letterOrNumber) {
       throw new Error(`HTTP Error! Status: ${response.status}`);
     }
 
-    renderGalleryOrError(
-      response.data,
-      document.querySelector('.js__cocktails__list')
-      
-    );
+    renderGalleryPage(cocktailData, 1, itemsPerPage);
+     lastSearchText = letterOrNumber;
 
-    lastSearchText = letterOrNumber;
   } catch (error) {
     console.error('Помилка при отриманні галереї:', error);
 
@@ -200,6 +185,12 @@ export async function fetchCocktailGallery(letterOrNumber) {
   }
 }
  
+function renderGalleryPage(data, page, itemsPerPage) {
+  const startIndex = (page - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const pageData = data.slice(startIndex, endIndex);
+  renderGalleryOrError(pageData, document.querySelector('.js__cocktails__list'));
+}
 
 const keyboardButtons = document.querySelectorAll('.keyboard-letter');
 keyboardButtons.forEach(button => {
