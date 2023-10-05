@@ -17,9 +17,21 @@ const favoriteIngredientsList = document.querySelector('.add-to-favorite-list');
 const favoriteIngredient = JSON.parse(localStorage.getItem(KEY_FAVORITE)) ?? [];
 
 const renderFavoriteIngridient = async (arr, container) => {
-  const markup = arr
-    .map(
-      item => `
+  const newContainer = document.querySelector('.add-to-favorite-list');
+  if (arr.length === 0) {
+    newContainer.innerHTML = `
+      <div class="block-page-hero">
+        <svg class="icon-rafiki" >
+          <use href="./img/sprite.svg#icon-rafiki"></use>
+        </svg>
+        <p class="text-page">Sorry, we <span class="text-span">didn’t find</span> any <br>cocktail for you</p>
+      </div>
+    `;
+  } else {
+    container.innerHTML = '';
+    const markup = arr
+      .map(
+        item => `
            <li class="favorite-ingredient-item">
            <div class="favorite-ingridient-content">
             <h3 class="favorite-ingredient-name">${item.title}</h3>
@@ -42,20 +54,20 @@ const renderFavoriteIngridient = async (arr, container) => {
             </div>
             </li> 
             `
-    )
-    .join('');
+      )
+      .join('');
 
-  container.innerHTML = markup;
+    container.innerHTML = markup;
 
-  //  const favoriteLearnMoreButtons = document.querySelectorAll('.modal-btn-favorites-learnmore');
-  //  favoriteLearnMoreButtons.forEach(button => {
-  //   button.addEventListener('click', () => {
-  //     const ingredientId = button.getAttribute('data-ingridient');
-  //     fetchIngridient(ingredientId);
-  //   });
-  // });
+    //  const favoriteLearnMoreButtons = document.querySelectorAll('.modal-btn-favorites-learnmore');
+    //  favoriteLearnMoreButtons.forEach(button => {
+    //   button.addEventListener('click', () => {
+    //     const ingredientId = button.getAttribute('data-ingridient');
+    //     fetchIngridient(ingredientId);
+    //   });
+    // });
+  }
 };
-
 const handleClickRemoveButton = event => {
   const ingredientId = event.target.dataset.removeid;
   const idInStorage = JSON.parse(localStorage.getItem(KEY_FAVORITE));
