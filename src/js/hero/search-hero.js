@@ -97,7 +97,6 @@ export async function fetchCocktailGalleryByName(name) {
     }
     cocktailData = response.data;
 
-
     renderGalleryOrError(
       cocktailData,
       document.querySelector('.js__cocktails__list')
@@ -189,7 +188,21 @@ function renderGalleryPage(data, page, itemsPerPage) {
   const startIndex = (page - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const pageData = data.slice(startIndex, endIndex);
-  renderGalleryOrError(pageData, document.querySelector('.js__cocktails__list'));
+
+  const galleryList = document.querySelector('.js__cocktails__list');
+  renderGalleryOrError(pageData, galleryList);
+
+  if (data.length <= itemsPerPage) {
+    const pagination = document.querySelector('.tui-pagination');
+    if (pagination) {
+      pagination.style.display = 'none';
+    }
+  } else {
+    const pagination = document.querySelector('.tui-pagination');
+    if (pagination) {
+      pagination.style.display = 'block';
+    }
+  }
 }
 
 const keyboardButtons = document.querySelectorAll('.keyboard-letter');
