@@ -65,7 +65,7 @@
     line-height: 26px;
     white-space: nowrap;
     font-weight: normal;
- border: 1px solid var(--main-color);
+    border: 1px solid var(--main-color);
 }
 
 .tui-pagination .tui-prev-is-ellip {
@@ -79,4 +79,3 @@
 .tui-pagination .tui-first+.tui-prev, .tui-pagination .tui-next+.tui-last {
     border: 1px solid var(--main-color);
 }
-
