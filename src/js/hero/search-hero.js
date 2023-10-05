@@ -3,7 +3,7 @@ import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import { BASE_URL } from '../api/api';
 import { fetchCocktail } from '../modalCocktails/modalCocktails';
-// import {pagination } from '../searchCocktails/searchCocktails'
+
 
 let useMyCode = false;
 let lastSearchText = '';
