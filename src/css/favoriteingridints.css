@@ -18,10 +18,10 @@
     box-shadow: 0px 4px 46px 0px rgba(0, 0, 0, 0.05);
 }
 
-/* .dark-theme .favorite-ingredient-item{
+.dark-theme .favorite-ingredient-item{
     background: #232330;
     box-shadow: 0px 4px 46px 0px rgba(0, 0, 0, 0.05);
-} */
+}
 .favorite-ingridient-content {
 
     padding: 20px;
@@ -43,7 +43,9 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
-
+.dark-theme .favorite-ingredient-descr{
+    color: #FDFDFF;
+}
 .favorite-ingredient-name {
     color: var(--dark-letters-color);
     font-family: Poppins;
@@ -55,6 +57,9 @@
     margin-bottom: 4px;
 }
 
+.dark-theme .favorite-ingredient-name {
+    color: #FDFDFF;
+}
 .favorite-ingredient-alcohol-type {
     color: rgba(36, 36, 36, 0.50);
     font-family: Poppins;
@@ -64,6 +69,10 @@
     line-height: 1.28;
 
     margin-bottom: 14px;
+}
+
+.dark-theme .favorite-ingredient-alcohol-type {
+    color: rgba(253, 253, 255, 0.50);;
 }
 
 .modal-favorite-bottons {
@@ -90,7 +99,9 @@
     letter-spacing: 0.28px;
     text-transform: uppercase;
 }
-
+.dark-theme .modal-btn-favorites-learnmore {
+    color: #FDFDFF;
+}
 .modal-btn-remove {
 
     min-width: 48px;
