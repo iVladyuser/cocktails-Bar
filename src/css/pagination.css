@@ -89,3 +89,16 @@
 .tui-pagination .tui-next + .tui-last {
   border: 1px solid var(--main-color);
 }
+.tui-pagination .tui-prev {
+  display: none;
+}
+
+.tui-pagination .tui-next {
+  display: none;
+}
+.tui-pagination .tui-first {
+  display: none;
+}
+.tui-pagination .tui-last {
+  display: none;
+}
