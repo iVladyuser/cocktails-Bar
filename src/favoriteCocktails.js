@@ -177,7 +177,7 @@ const handleClickRemoveButton = event => {
   });
 
   const learnMoreBtnAfterRepeatRender = document.querySelectorAll(
-    '.modal-btn-favorites-learnmore'
+    '[data-learnmore-cocktail]'
   );
 
   learnMoreBtnAfterRepeatRender.forEach(btn =>
@@ -195,9 +195,7 @@ renderFavoriteCocktail(favoriteCocktail, favoriteCocktailList).then(() => {
 
 // LEARN MORE button and modal
 
-const learnMoreBtn = document.querySelectorAll(
-  '.modal-btn-favorites-learnmore'
-);
+const learnMoreBtn = document.querySelectorAll('[data-learnmore-cocktail]');
 
 const openModal = event => {
   const drinkId = event.target.dataset.cocktail;
@@ -226,7 +224,7 @@ const openModal = event => {
       });
 
       const learnMoreBtnAfterCloseModal = document.querySelectorAll(
-        '.modal-btn-favorites-learnmore'
+        '[data-learnmore-cocktail]'
       );
 
       learnMoreBtnAfterCloseModal.forEach(btn =>

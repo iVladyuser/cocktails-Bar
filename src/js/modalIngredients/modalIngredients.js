@@ -45,10 +45,11 @@ export async function fetchIngredient(ingredientId, ingredientName) {
 }
 
 export const renderList = (arr, container, ingredientName) => {
+  const backDrop = document.querySelector('#modal-cocktail');
   const markup = arr
     .map(
       item => `
-            <h3 class="ingredient-name">${ingredientName}</h3>
+            <h3 class="ingredient-name">${ingredientName || item.title}</h3>
             <p class="ingredient-type">${item.title}</p>
             <div class="ingredient-descr-wrapper">
             <p class="ingredient-descr">${item.description}</p>
@@ -80,6 +81,9 @@ export const renderList = (arr, container, ingredientName) => {
     .join('');
 
   container.innerHTML = markup;
+  if (backDrop.classList.contains('is-hidden')) {
+    backDrop.classList.remove('is-hidden');
+  }
 };
 
 const KEY_FAVORITE = 'favoriteIngredients';
