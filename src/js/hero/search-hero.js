@@ -1,6 +1,9 @@
 import axios from 'axios';
+import Pagination from 'tui-pagination';
+import 'tui-pagination/dist/tui-pagination.css';
 import { BASE_URL } from '../api/api';
 import { fetchCocktail } from '../modalCocktails/modalCocktails';
+// import {pagination } from '../searchCocktails/searchCocktails'
 
 let useMyCode = false;
 let lastSearchText = '';
@@ -93,7 +96,7 @@ export async function fetchCocktailGalleryByName(name) {
       throw new Error(`HTTP Error! Status: ${response.status}`);
     }
     cocktailData = response.data;
-    console.log(cocktailData);
+
 
     renderGalleryOrError(
       cocktailData,
@@ -108,6 +111,7 @@ export async function fetchCocktailGalleryByName(name) {
   }
 }
 
+
 export async function fetchCocktailGallery(letterOrNumber) {
   try {
     let url;
@@ -118,7 +122,65 @@ export async function fetchCocktailGallery(letterOrNumber) {
     }
 
     const response = await axios.get(url);
+     cocktailData = response.data;
+    
+    //  function isMobile() {
+      //     if (window.innerWidth >= 768) {
+      //       return false;
+      //     } else {
+      //       return true;
+      //     }
+      //   }
+      //   if (window.innerWidth >= 1280) {
+      //     cardsPerPage = 9;
+      //   } else {
+      //     cardsPerPage = 8;
+      //   }
+      //   const itemsPerPage = cardsPerPage; // Кількість елементів на сторінці
+    const options = {
+      totalItems: cocktailData.length,
+      itemsPerPage: 10,
+      visiblePages: 5,
+      page: 1,
+      centerAlign: true,
+      firstItemClassName: 'tui-first-child',
+      lastItemClassName: 'tui-last-child',
+      template: {
+        page: '<a href="#" class="tui-page-btn">{{page}}</a>',
+        currentPage:
+          '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
+        moveButton:
+          '<a href="#" class="tui-page-btn tui-{{type}}">' +
+          '<span class="tui-ico-{{type}}">{{type}}</span>' +
+          '</a>',
+        disabledMoveButton:
+          '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
+          '<span class="tui-ico-{{type}}">{{type}}</span>' +
+          '</span>',
+        moreButton:
+          '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
+          '<span class="tui-ico-ellip">...</span>' +
+          '</a>',
+      },
+    };
+
+    console.log(options.totalItems);
+    const pagination = new Pagination('pagination', options);
+    pagination.on('beforeMove', async evt => {
+      const { page } = evt;
+      const result = await ajax.call({ page });
+
+      if (result) {
+        pagination.movePageTo(page);
+      } else {
+        return false;
+      }
+    });
+
+   
+    
     console.log('Response:', response.data);
+   
     if (response.status !== 200) {
       throw new Error(`HTTP Error! Status: ${response.status}`);
     }
@@ -126,6 +188,7 @@ export async function fetchCocktailGallery(letterOrNumber) {
     renderGalleryOrError(
       response.data,
       document.querySelector('.js__cocktails__list')
+      
     );
 
     lastSearchText = letterOrNumber;
@@ -136,6 +199,7 @@ export async function fetchCocktailGallery(letterOrNumber) {
     hideMainTitle();
   }
 }
+ 
 
 const keyboardButtons = document.querySelectorAll('.keyboard-letter');
 keyboardButtons.forEach(button => {

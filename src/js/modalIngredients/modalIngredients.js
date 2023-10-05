@@ -44,7 +44,7 @@ export async function fetchIngredient(ingredientId, ingredientName) {
   }
 }
 
-const renderList = (arr, container, ingredientName) => {
+export const renderList = (arr, container, ingredientName) => {
   const markup = arr
     .map(
       item => `
