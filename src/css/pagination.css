@@ -80,6 +80,3 @@
     border: 1px solid var(--main-color);
 }
 
-.tui-pagination .tui-first {
-    color: var(--main-color);
-}
