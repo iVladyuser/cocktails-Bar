@@ -3,7 +3,7 @@ import {
   fetchIngredient,
   ingredientsArray,
 } from './js/modalIngredients/modalIngredients';
-
+import spriteRafiki from '/img/sprite.svg'
 const backDrop = document.querySelector('#modal-cocktail');
 const modal = document.querySelector('.modal');
 const modalCocktailContent = document.querySelector('.modal-cocktail__content');
@@ -22,7 +22,7 @@ const renderFavoriteIngridient = async (arr, container) => {
     newContainer.innerHTML = `
       <div class="block-page-hero favorite-block-page">
         <svg class="icon-rafiki" >
-          <use href="/cocktails-Bar/assets/sprite-224d9901.svg#icon-rafiki"></use>
+          <use href="${spriteRafiki}#icon-rafiki"></use>
         </svg>
         <p class="text-page">Sorry, we <span class="text-span">didn’t find</span> any <br>cocktail for you</p>
       </div>
