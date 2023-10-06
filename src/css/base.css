@@ -36,26 +36,23 @@ link:visited {
   color: inherit;
 }
 
-
 @media screen and (max-width: 767.9px) {
   body {
     background-size: cover;
-    background-image: url(../img/bcg-image/mobile-bcg-image.png);
-    
-  }
-   .dark-theme body {
-    background-image: url(../img/bcg-image/dark-mobile-bcg-image.png);
-    
-  }
-  @media screen and (min-device-pixel-ratio: 2),
-  screen and (min-resolution: 192dpi),
-  screen and (min-resolution: 2dppx) {
-  body {
-    background-image: url(../img/bcg-image/mobile-bcg-image@2x.png);
+    background-image: url(../img/bcg-image/mobile-bcg-image.jpg);
   }
   .dark-theme body {
-    background-image: url(../img/bcg-image/dark-mobile-bcg-image@2x.png);
+    background-image: url(../img/bcg-image/dark-mobile-bcg-image.jpg);
   }
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    body {
+      background-image: url(../img/bcg-image/mobile-bcg-image@2x.jpg);
+    }
+    .dark-theme body {
+      background-image: url(../img/bcg-image/dark-mobile-bcg-image@2x.jpg);
+    }
   }
   .container {
     max-width: 375px;
@@ -67,19 +64,19 @@ link:visited {
 @media screen and (min-width: 768px) {
   body {
     background-size: cover;
-    background-image: url(../img/bcg-image/tablet-bcg-image.png);
+    background-image: url(../img/bcg-image/tablet-bcg-image.jpg);
   }
   .dark-theme body {
-    background-image: url(../img/bcg-image/dark-tablet-bcg-image.png);
+    background-image: url(../img/bcg-image/dark-tablet-bcg-image.jpg);
   }
-    @media screen and (min-device-pixel-ratio: 2),
-  screen and (min-resolution: 192dpi),
-  screen and (min-resolution: 2dppx) {
-  body {
-        background-image: url(../img/bcg-image/tablet-bcg-image@2x.png);
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    body {
+      background-image: url(../img/bcg-image/tablet-bcg-image@2x.jpg);
     }
-   .dark-theme body {
-        background-image: url(../img/bcg-image/dark-tablet-bcg-image@2x.png);
+    .dark-theme body {
+      background-image: url(../img/bcg-image/dark-tablet-bcg-image@2x.jpg);
     }
   }
   .container {
@@ -95,20 +92,20 @@ link:visited {
 @media screen and (min-width: 1280px) {
   body {
     background-size: cover;
-    background-image: url(../img/bcg-image/desktop-bcg-img.png);
+    background-image: url(../img/bcg-image/desktop-bcg-img.jpg);
   }
   .dark-theme body {
     background-size: cover;
-    background-image: url(../img/bcg-image/dark-desktop-bcg-img.png);
+    background-image: url(../img/bcg-image/dark-desktop-bcg-img.jpg);
   }
   @media screen and (min-device-pixel-ratio: 2),
-  screen and (min-resolution: 192dpi),
-  screen and (min-resolution: 2dppx) {
-  body {
-      background-image: url(../img/bcg-image/desktop-bcg-img@2x.png);
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    body {
+      background-image: url(../img/bcg-image/desktop-bcg-img@2x.jpg);
     }
-  .dark-theme body {
-      background-image: url(../img/bcg-image/dark-desktop-bcg-img@2x.png);
+    .dark-theme body {
+      background-image: url(../img/bcg-image/dark-desktop-bcg-img@2x.jpg);
     }
   }
   .container {
