@@ -2,7 +2,7 @@ import{c as k,f,a as u}from"./header-d1289f7a.js";const r="favoriteCocktails",i=
            <div class="container">
         <div class="block-page favorite-block-page">
           <svg class="icon-rafiki" >
-          <use href="./img/sprite.svg#icon-rafiki"></use>
+          <use href="/img/sprite.svg#icon-rafiki"></use>
         </svg>
           <p class="text-page">
             You haven't added any <br /><span class="text-span"
