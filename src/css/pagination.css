@@ -79,3 +79,4 @@
 .tui-pagination .tui-first+.tui-prev, .tui-pagination .tui-next+.tui-last {
     border: 1px solid var(--main-color);
 
+}
