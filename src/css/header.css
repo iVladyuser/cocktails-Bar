@@ -113,9 +113,13 @@ color: #FDFDFF
   padding: 0;
   margin: 0;
 }
-.header-menu-btn-icon{
-fill:#000000;
-
+.js-open-menu use {
+fill:var(--dark-letters-color);
+stroke:var(--dark-letters-color);
+}
+.dark-theme .js-open-menu use {
+fill:var( --modal-background);
+stroke:var( --modal-background);
 }
 /* mobile menu */
 .header-mobile-menu {
