@@ -1,4 +1,4 @@
-import{i as u,d as k,a as f}from"./header-c41f932f.js";const p=document.querySelector("#modal-cocktail"),S=document.querySelector(".modal");document.querySelector(".modal-cocktail__content");const y=document.querySelector(".modal-ingredients__content"),i="favoriteIngredients",l=document.querySelector(".add-to-favorite-list"),I=JSON.parse(localStorage.getItem(i))??[],c=async(e,n)=>{const r=document.querySelector(".add-to-favorite-list");if(e.length===0)r.innerHTML=`
+import{i as u,d as k,a as f}from"./header-e4588436.js";const p=document.querySelector("#modal-cocktail"),S=document.querySelector(".modal");document.querySelector(".modal-cocktail__content");const y=document.querySelector(".modal-ingredients__content"),i="favoriteIngredients",l=document.querySelector(".add-to-favorite-list"),I=JSON.parse(localStorage.getItem(i))??[],c=async(e,n)=>{const r=document.querySelector(".add-to-favorite-list");if(e.length===0)r.innerHTML=`
       <div class="block-page-hero favorite-block-page">
         <svg class="icon-rafiki" >
           <use href="./img/sprite.svg#icon-rafiki"></use>
