@@ -6,7 +6,7 @@ function toggleSprite() {
   if (hiddenDiv.style.display === "none") {
     sprite.querySelector("use").setAttribute("href", "/img/sprite.svg#icon-chevron-down");
   } else {
-    sprite.querySelector("use").setAttribute("href", "/img/sprite.svg#icon-chevron-up");
+    sprite.querySelector("use").setAttribute("href", "/cocktails-Bar/assets/sprite-224d9901.svg#icon-chevron-up");
   }
 }
 
