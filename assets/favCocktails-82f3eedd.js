@@ -1,8 +1,8 @@
-import{c as k,f,a as u}from"./header-d1289f7a.js";const r="favoriteCocktails",i=document.querySelector(".add-to-favorite-coctail-list"),g=JSON.parse(localStorage.getItem(r))??[],s=async(t,a)=>{const n=document.querySelector(".add-to-favorite-list");if(t.length===0)n.innerHTML=`
+import{c as k,f,a as u}from"./header-d1289f7a.js";const g="/cocktails-Bar/assets/sprite-224d9901.svg",n="favoriteCocktails",i=document.querySelector(".add-to-favorite-coctail-list"),p=JSON.parse(localStorage.getItem(n))??[],s=async(t,a)=>{const r=document.querySelector(".add-to-favorite-list");if(t.length===0)r.innerHTML=`
            <div class="container">
         <div class="block-page favorite-block-page">
           <svg class="icon-rafiki" >
-          <use href="/img/sprite.svg#icon-rafiki"></use>
+          <use href="${g}#icon-rafiki"></use>
         </svg>
           <p class="text-page">
             You haven't added any <br /><span class="text-span"
@@ -34,4 +34,4 @@ import{c as k,f,a as u}from"./header-d1289f7a.js";const r="favoriteCocktails",i=
             </svg></button>
             </div> 
      </div>
-     </li>`).join("");a.innerHTML=c}},d=t=>{const a=t.target.dataset.removeid,c=JSON.parse(localStorage.getItem(r)).findIndex(({_id:o})=>o===a);k.splice(c,1),localStorage.setItem(r,JSON.stringify(k));const e=JSON.parse(localStorage.getItem(r));s(e,i).then(()=>{document.querySelectorAll("[data-remove-cocktails]").forEach(l=>l.addEventListener("click",d))}),document.querySelectorAll("[data-learnmore-cocktail]").forEach(o=>o.addEventListener("click",v))};s(g,i).then(()=>{document.querySelectorAll("[data-remove-cocktails]").forEach(a=>a.addEventListener("click",d))});const h=document.querySelectorAll("[data-learnmore-cocktail]"),v=t=>{const a=t.target.dataset.cocktail;f(a).then(()=>{const n=document.querySelector("[data-modal-add-cocktails]"),c=()=>{n.removeEventListener("click",c),u();const e=JSON.parse(localStorage.getItem(r))??[];s(e,i).then(()=>{document.querySelectorAll("[data-remove-cocktails]").forEach(l=>l.addEventListener("click",d))}),document.querySelectorAll("[data-learnmore-cocktail]").forEach(o=>o.addEventListener("click",v))};n.addEventListener("click",c)})};h.forEach(t=>t.addEventListener("click",v));
+     </li>`).join("");a.innerHTML=c}},d=t=>{const a=t.target.dataset.removeid,c=JSON.parse(localStorage.getItem(n)).findIndex(({_id:o})=>o===a);k.splice(c,1),localStorage.setItem(n,JSON.stringify(k));const e=JSON.parse(localStorage.getItem(n));s(e,i).then(()=>{document.querySelectorAll("[data-remove-cocktails]").forEach(l=>l.addEventListener("click",d))}),document.querySelectorAll("[data-learnmore-cocktail]").forEach(o=>o.addEventListener("click",v))};s(p,i).then(()=>{document.querySelectorAll("[data-remove-cocktails]").forEach(a=>a.addEventListener("click",d))});const h=document.querySelectorAll("[data-learnmore-cocktail]"),v=t=>{const a=t.target.dataset.cocktail;f(a).then(()=>{const r=document.querySelector("[data-modal-add-cocktails]"),c=()=>{r.removeEventListener("click",c),u();const e=JSON.parse(localStorage.getItem(n))??[];s(e,i).then(()=>{document.querySelectorAll("[data-remove-cocktails]").forEach(l=>l.addEventListener("click",d))}),document.querySelectorAll("[data-learnmore-cocktail]").forEach(o=>o.addEventListener("click",v))};r.addEventListener("click",c)})};h.forEach(t=>t.addEventListener("click",v));
