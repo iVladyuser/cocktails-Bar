@@ -3,8 +3,7 @@ import Pagination from 'tui-pagination';
 // import 'tui-pagination/dist/tui-pagination.css';
 import { BASE_URL } from '../api/api';
 import { fetchCocktail } from '../modalCocktails/modalCocktails';
-import '../../css/pagination.css'
-
+import '../../css/pagination.css';
 
 let useMyCode = false;
 let lastSearchText = '';
@@ -93,7 +92,7 @@ export async function fetchCocktailGalleryByName(name) {
 
     const response = await axios.get(url);
     // console.log('Response:', response.data);
-    
+
     cocktailData = response.data;
 
     const itemsPerPage =
@@ -135,11 +134,17 @@ export async function fetchCocktailGalleryByName(name) {
     pagination.on('beforeMove', async evt => {
       const { page } = evt;
       renderGalleryPage(cocktailData, page, itemsPerPage);
+
+      const cocktailList = document.querySelector('.js__cocktails__list');
+      window.scrollTo({
+        top: cocktailList.getBoundingClientRect().top + window.scrollY,
+        behavior: 'smooth',
+      });
     });
     if (response.status !== 200) {
       throw new Error(`HTTP Error! Status: ${response.status}`);
     }
- renderGalleryPage(cocktailData, 1, itemsPerPage);
+    renderGalleryPage(cocktailData, 1, itemsPerPage);
     renderGalleryOrError(
       cocktailData,
       document.querySelector('.js__cocktails__list')
@@ -152,10 +157,9 @@ export async function fetchCocktailGalleryByName(name) {
     hideMainTitle();
   }
 }
-     
-  const itemsPerPageTablet = 8;  
-  const itemsPerPageDesktop = 9; 
 
+const itemsPerPageTablet = 8;
+const itemsPerPageDesktop = 9;
 
 export async function fetchCocktailGallery(letterOrNumber) {
   try {
@@ -167,12 +171,12 @@ export async function fetchCocktailGallery(letterOrNumber) {
     }
 
     const response = await axios.get(url);
-     cocktailData = response.data;
-    
-     const itemsPerPage =
-     window.innerWidth >= 1280 ? itemsPerPageDesktop : itemsPerPageTablet;
-    
-     const totalItems = cocktailData.length;
+    cocktailData = response.data;
+
+    const itemsPerPage =
+      window.innerWidth >= 1280 ? itemsPerPageDesktop : itemsPerPageTablet;
+
+    const totalItems = cocktailData.length;
 
     const options = {
       totalItems: totalItems,
@@ -202,23 +206,28 @@ export async function fetchCocktailGallery(letterOrNumber) {
     };
 
     // console.log(options.totalItems);
-    
+
     const pagination = new Pagination('pagination', options);
 
     pagination.on('beforeMove', async evt => {
       const { page } = evt;
       renderGalleryPage(cocktailData, page, itemsPerPage);
+
+      const cocktailList = document.querySelector('.js__cocktails__list');
+      window.scrollTo({
+        top: cocktailList.getBoundingClientRect().top + window.scrollY,
+        behavior: 'smooth',
+      });
     });
-    
+
     // console.log('Response:', response.data);
-   
+
     if (response.status !== 200) {
       throw new Error(`HTTP Error! Status: ${response.status}`);
     }
 
     renderGalleryPage(cocktailData, 1, itemsPerPage);
-     lastSearchText = letterOrNumber;
-
+    lastSearchText = letterOrNumber;
   } catch (error) {
     console.error('Помилка при отриманні галереї:', error);
 
@@ -226,7 +235,7 @@ export async function fetchCocktailGallery(letterOrNumber) {
     hideMainTitle();
   }
 }
- 
+
 function renderGalleryPage(data, page, itemsPerPage) {
   const startIndex = (page - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
@@ -306,6 +315,3 @@ searchInput.addEventListener('blur', () => {
     button.classList.remove('active');
   });
 });
-
-
-
