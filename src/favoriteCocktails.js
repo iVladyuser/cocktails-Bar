@@ -3,7 +3,7 @@ import {
   closeModal,
   cocktailsArray,
 } from './js/modalCocktails/modalCocktails';
-
+import spriteRafiki from '/img/sprite.svg'
 const KEY_FAVORITE = 'favoriteCocktails';
 const favoriteCocktailList = document.querySelector(
   '.add-to-favorite-coctail-list'
@@ -18,7 +18,7 @@ const renderFavoriteCocktail = async (arr, container) => {
            <div class="container">
         <div class="block-page favorite-block-page">
           <svg class="icon-rafiki" >
-          <use href="/img/sprite.svg#icon-rafiki"></use>
+          <use href="${spriteRafiki}#icon-rafiki"></use>
         </svg>
           <p class="text-page">
             You haven't added any <br /><span class="text-span"
