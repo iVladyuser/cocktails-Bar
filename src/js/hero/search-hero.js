@@ -4,7 +4,7 @@ import Pagination from 'tui-pagination';
 import { BASE_URL } from '../api/api';
 import { fetchCocktail } from '../modalCocktails/modalCocktails';
 import '../../css/pagination.css';
-
+import spriteRafiki from '/img/sprite.svg'
 let useMyCode = false;
 let lastSearchText = '';
 
@@ -13,7 +13,7 @@ export function renderGalleryOrError(arr, container) {
     container.innerHTML = `
       <div class="block-page-hero">
         <svg class="icon-rafiki" >
-          <use href="/img/sprite.svg#icon-rafiki"></use>
+          <use href="${spriteRafiki}#icon-rafiki"></use>
         </svg>
         <p class="text-page">Sorry, we <span class="text-span">didn’t find</span> any <br>cocktail for you</p>
       </div>
