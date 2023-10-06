@@ -1,3 +1,13 @@
+.page {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+footer {
+  margin-top: auto;
+}
 .add-to-favorite-list {
   padding-top: 30px;
   padding-bottom: 100px;

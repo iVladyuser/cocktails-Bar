@@ -17,7 +17,7 @@ const renderFavoriteCocktail = async (arr, container) => {
   if (arr.length === 0) {
     newTwoContainer.innerHTML = `
            <div class="container">
-        <div class="block-page">
+        <div class="block-page favorite-block-page">
           <svg class="icon-rafiki" >
           <use href="./img/sprite.svg#icon-rafiki"></use>
         </svg>
