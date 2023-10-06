@@ -1,7 +1,10 @@
 import axios from 'axios';
 import { BASE_URL } from '../api/api';
 import { fetchCocktail } from '../modalCocktails/modalCocktails';
+import { cocktailsArray } from '../modalCocktails/modalCocktails';
 // import { favorites } from '../api/api';
+
+const KEY_FAVORITE = 'favoriteCocktails';
 
 export async function fetchCocktailGallery() {
   try {
@@ -35,9 +38,7 @@ export function renderList(arr, container) {
         <div class="container__img" >
        <img class="cocktail-card-img" src="${item.drinkThumb}" alt="${item.drink}"
        loading="lazy"
-        onerror="this.src='../img/hero/girl-mobile.png'; this.alt='${
-          item.drink
-        }'"/>
+        onerror="this.src='../img/hero/girl-mobile.png'; this.alt='${item.drink}'"/>
      </div>
 
      <div class="cocktail-description-container" >
@@ -47,7 +48,7 @@ export function renderList(arr, container) {
     <ul class="cocktail-button-container"> 
     <li> <button type="button" class="card-button-learn-more" data-drink="${item._id}">
     Learn More</button></li>
-    <li> <button type="button" class="button-svg-heart">
+    <li> <button type="button" class="button-svg-heart" data-heart-btn data-drink="${item._id}">
      <svg
               class="icon-heart"
               aria-label="icon-heart"
@@ -74,4 +75,55 @@ export function renderList(arr, container) {
   });
 }
 
-fetchCocktailGallery();
+const handleClickHeartBtn = event => {
+  const svgHeart = event.target.children[0];
+
+  const drinkId = event.target.dataset.drink;
+
+  async function onBackend(drinkId) {
+    try {
+      const response = await axios.get(
+        `${BASE_URL}/cocktails/lookup/?id=${drinkId}`
+      );
+      const data = response.data;
+
+      const inStorage = JSON.parse(localStorage.getItem(KEY_FAVORITE));
+      const idInStorage = inStorage.some(({ _id }) => _id === drinkId);
+
+      if (!idInStorage) {
+        cocktailsArray.push(data[0]);
+        localStorage.setItem(KEY_FAVORITE, JSON.stringify(cocktailsArray));
+        svgHeart.style.fill = 'rgb(255, 255, 255)';
+      }
+
+      if (idInStorage) {
+        const indexId = inStorage.findIndex(({ _id }) => _id === drinkId);
+        cocktailsArray.splice(indexId, 1);
+        localStorage.setItem(KEY_FAVORITE, JSON.stringify(cocktailsArray));
+        svgHeart.style.fill = 'none';
+      }
+    } catch (error) {
+      console.error('Помилка при завантаженні напою:', error);
+      throw error;
+    }
+  }
+
+  onBackend(drinkId);
+};
+
+fetchCocktailGallery().then(() => {
+  const heartBtn = document.querySelectorAll('[data-heart-btn]');
+
+  heartBtn.forEach(btn => {
+    const drinkId = btn.dataset.drink;
+
+    const inStorage = JSON.parse(localStorage.getItem(KEY_FAVORITE));
+    const idInStorage = inStorage.some(({ _id }) => _id === drinkId);
+
+    if (idInStorage) {
+      btn.firstElementChild.style.fill = 'rgb(255, 255, 255)';
+    }
+
+    heartBtn.forEach(btn => btn.addEventListener('click', handleClickHeartBtn));
+  });
+});
